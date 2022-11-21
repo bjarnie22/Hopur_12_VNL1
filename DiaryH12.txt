@@ -50,6 +50,6 @@ Stöðuritum (e. State diagram), eftir því sem við á.
 Kröfulista til viðmóts, með virknikröfum og nytsemis og notendaupplifunarkröfum. /// 
 
 
-hhhhhh
+
 
 
