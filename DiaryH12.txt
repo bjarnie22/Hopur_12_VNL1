@@ -50,6 +50,160 @@ Stöðuritum (e. State diagram), eftir því sem við á.
 Kröfulista til viðmóts, með virknikröfum og nytsemis og notendaupplifunarkröfum. /// 
 
 
+Fundur með Gylfa :::: 
+
+Hvað á að vera …
+
+Hvað þarftu til að vera skýrslunni …. Til að kóða 
+
+Hvernig myndir þú vilja ….. Gaur myndi gera skýrslu …. 
+
+ Hvernig lærum við sem 
+
+Af hverju gerum við notendagreiningu … 
+
+Verðum með notendagreingu …. 
+
+Login kerfi? 
+
+Það eru hidden kröfur … 
+
+Kröfulistinn … er ekki tæmandi … 
+
+Lesa yfir lýsingu …. 
+
+Velja og hafna… hvernig ætlum að túlka …. 
+
+Login …. 
+
+Menu,, ertu keppnishaldari … 
+
+Notandi sem er með meiri réttindi …. 
+
+Sumir notendur með … 
+
+Ekki keppnishaldari … 
+
+Mismunandi notendur 
+
+Hvaða notendur verum við búnir að identiftia … 
+
+Usercase … happy path ,,, ui … 
+
+
+Krafan er … 
+Hvernig …. Gerist það í forritunu … 
+
+Við þurfum eitthvað menu …
+
+Happy path ,,,
+
+Teiknum … hvernig 
+
+Hvernig menu kerfið að vera …. 
+
+
+Happy path fyrir helstu gluggana … 
+
+
+Extra flókið ….
+
+
+…. 
+
+Byrja notendagreinga … 
+Keppnishaldni ,... 
+Almenna…. 
+// Aldurinnn… miskklárir á tölvur …. ,, ekki allir nem tölvufræðinem /// 
+
+
+Langstrærsti hlutir skýrslunnar … 
+
+Kröfugreiningu …. 
+
+
+// Hafiði hver kom með kröfunar … /// Dálk er búið að gera kröfuna …. /// 
+
+
+Kröfunarlistar einfaldann … 
+
+
+Frekar fleiri og einfaldar …. 
+
+Tæmandi … 
+
+Kannski þurfum …. 
+
+Stöðurit … 2 til 5 … ekki flóknar stöður … ((( Getur ekki, lánað út bíl sem er í útleigu …. ) 
+
+…. Hver má breyta stöuðnni …. 
+
+Leikskýrsla,,, skipuleggjandi má ekki stofna leikskýrsl… 
+
+
+Bara fyrirliðir meiga breyta úrslitinnn … 
+
+
+Gætum login …. 
+
+Ef ekki login kerfi … 
+
+
+Bjarni: 
+Keppnishaldandi skráir fyrirliðann … 
+
+
+Klasarit,,,, modal klassa,
+
+Hvað er data sem þarfað skrá …. 
+
+Hvernig við útfræum… 
+
+Hönnun sem við gerum …. 
+
+Ekki final,,,, 
+
+
+
+Muna að höfund með hverja kröfu…
+
+Verkefnið í dag 
+
+
+Greina kröfur …. Yfir skýrsluna sem einstaklingar …. 
+
+
+Restina af deginum og til hádegis á morgun,,,, 
+ætlar hver og einn að finna kröfur og svo berum við saman bækur okkar á morgun … 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
