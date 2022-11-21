@@ -1,1 +1,55 @@
 21/11/22
+
+Mánudagur 21.11
+
+Fyrsti fundur og hvað var rætt 
+
+Eric var skipaður fundarstjóri. 
+
+Allir voru mættir: 
+
+Fórum nafnahring: 
+
+Allir með smá forritunarreynslu en ekki mikla. Enginn hefur reynslu af stórum verkefnum. 
+
+Allir eru jákvæðir gagnvart náminu, og allir voru tilbúnir í að skila sínum 8 tímum á dag í vinnu. 
+
+Góður andi í hópnum, allir tilbúnir að gera sitt besta. 
+
+Ætlum að hittast á morgun(þriðjudagur 21.11 ) kl 12. 
+
+Allir búnir að taka áfangann, GH, en Óli tók hann fyrir 9 árum … 
+
+Ákveðið var að byrja fyrst á því að gera beinagrind af hönnunarskýrslunni.  Ætlum að byrja á stóru myndinni og vinna okkur niður. 
+Við ætlum að búa til beingrind og skipta með okkur verkefnum. 
+
+Allir komnir með Github. 
+
+Hér eru hlutir sem eiga að vera í skýrslunni. (Beint upp úr verkefna lýsingunni) 
+
+Rættum hvað yrði tímafrekst af þessum og hvað væri auðvelt að gera. 
+
+
+Notendahópagreiningu.; /// Fylla upplýsingar ///  Lítill tími
+
+
+Meiri tími: 
+
+•
+Notkunartilvikum (e. Use cases). /// 
+
+•
+Klasariti (e. Class diagram). /// Notkunartilvik … 
+
+•
+Stöðuritum (e. State diagram), eftir því sem við á.
+
+•
+Útlitshönnun (e. Wireframe) sett fram sem “happy path”. /// Lítill tími
+
+Kröfulista til viðmóts, með virknikröfum og nytsemis og notendaupplifunarkröfum. /// 
+
+
+
+
+
