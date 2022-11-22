@@ -8,15 +8,23 @@ ATTENDEES
 
 AGENDA
 Last Meeting Follow-up
-    - 
+    - Var tekinn góður fundur, þar sem dagbókin var sett inn á github,
+    - Kynntumst hópmeðlimum
+    - Ákveðið hvað verkefni næsta dags er
 
 ACTION ITEMS
     1. Ákveðið var að Bjarni og Óskar færu í klasaritið, Erik í notendagreiningu 
        Ingólfur og Ólafur fara í kröfulistann.
-
+    2. Ákveðið var að nota venjulegan textaham eins og 
+       notepad++ til að skoða happy path og þvíumlíkt.
 
 NOTES
-    - 
+    - Góður dagur, verkefnið fer hægt og rólega að skýrast
 
-NEXT WEEK’S AGENDA
-    - 
+NEXT DAY AGENDA
+Markmið að klára rit:
+    - Use cases (hver/hverjir framkvæma)
+    - klasa rit (hver/hverjir framkvæma)
+    - Stöðurit (hver/hverjir framkvæma)
+
+Markmið að klára kröfulistann
