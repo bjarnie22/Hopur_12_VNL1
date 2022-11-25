@@ -1,17 +1,33 @@
-Föstudagur
-25 November 2022 / 12:00 PM / Fundur á discord
 
-ATTENDEES
-    - Bjarni, Erik, Ingólfur, Ólafur, Óskar
 
-AGENDA
-Last Meeting Follow-up
-    - 
+            <----->   Föstudagur    <----->
+<<<<< 25 November 2022 / 12:00 PM / Discord fundur >>>>>
 
-ACTION ITEMS
-    1.
+            <----->   ATTENDEES     <----->
+        - Bjarni, Erik, Ingólfur, Ólafur, Óskar
 
-NOTES
-    - 
+            <----->    AGENDA       <----->
+              ## LAST MEETING FOLLOW-UP ##
+- Fórum yfir það sem var gert í gær
+- Óli og bjarni fóru saman í wireframið og happypath fyrir admin sem og gerðu
+  diagram fyrir adminin, svo það væri auðveldara fyrir okkur að forrita.
+- Ingó, Erik og Óskar fóru að vinna í wireframinu fyrir captaininn og guest.
 
-NEXT DAY AGENDA
+            <----->  ACTION ITEMS   <----->
+- Fórum allir í það að klára wirefram diagramið sem óli og bjarni voru að vinna í. 
+    Sem sagt kláruðum við wireframe daigramið fyrir captaininn og guestinn
+- Fórum í að henda inn í skýrsluna og gera hana klára fyrir afhendingu sem verður í dag
+
+   
+            <----->     NOTES       <----->
+- Út frá misskilningnum innan hópsins að þá var ákveðið að allur hópurinn
+færi í að vinna í wireframinu og happy pathinu til þess að átta sig á, og
+sjá hönnunina meira fyrir sér, svo það myndi ekki koma fleirri ágreiningar 
+innan hópsins varðandi hönnunina. það var því mikil misstök hjá hópnum að 
+hafa ekki bara byrjað á því, svo þessi misskilningur hefði ekki átt sér stað
+svona seint í ferlinu.
+
+
+            <-----> NEXT DAY AGENDA <----->
+- Næst verður farið í að byrja hugsa um forritunarhlutann fyrir hönnuninni, 
+    sem verður á mánudaginn

@@ -1,34 +1,34 @@
-Miðvikurdagur 23.11 
-Fundur kl 12:00 
-Mættir eru: 
-Allir:
 
-Ákveðið var að fara yfir það sem allir gerðu daginn áður. Allir sýndu og útskýrðu það sem þeir eru að vinna í. Það var breytt og lagað mismunandi verkefni t.d. Notendagreininguna. 
-Það var ákveðið verkefni dagsins: Bjarni heldur áfram með klasarit, Óskar heldur áfram að vinna í stöðuritinu. Ólafur og Ingó vinna með happy path/wireframe. Erik, heldur áfram með use cases og fer svo í að fínpússa kröfulistann.
-
-Bjarni: Endurgerði og kláraði annað drag af klasaritinu.
-Óskar: Endurgerði og kláraði annað drag af stöðuritinu
-Ingó: Var að gera happy path. 
-Ólafur:  Ólafur hugsaði um flæðið, wireframe og usecases. Ennþá nokkuð óljóst,
-eins og margt í þessu verkefni, hvernig nákvæmlega á að útfæra þetta.  
-Erik:  Vann í wirefram, usecases og uppfærði kröfunar. 
+                <----->   Miðvikurdagur    <----->
+    <<<<< 23 November 2022 / 12:00 PM / Hittingur upp í HR >>>>>
 
 
-Hópurinn lenti í smá ágreiningi. 
+                     <-----> ATTENDEES <------>
+              - Bjarni, Erik, Ingólfur, Ólafur, Óskar
 
-Ólafur og Ingó ræddu málin eftir að vinnudeginum lauk, og ákváðu að Ólafur myndi
-senda Gylfi email og biðja um betri útskýringu á því sem “hinn ímyndaði” kúnni vill,
-ekki það að hópurinn sé að varpa ábyrgðinni á neinn. Þá allavega finnst Ólafi og Ingó,
-þessi “hugmynd” að kerfi sé alltof óljós. 
+                      <-----> AGENDA <------>
+                    ## Last Meeting Follow-up ##
+    - Ákveðið var að fara yfir það sem allir gerðu daginn áður. 
+    Allir sýndu og útskýrðu það sem þeir eru að vinna í. Það var breytt 
+    og lagað mismunandi verkefni t.d. Notendagreininguna. 
+    Það var ákveðið verkefni dagsins: Bjarni heldur áfram með klasarit, 
+    Óskar heldur áfram að vinna í stöðuritinu. Ólafur og Ingó vinna með happy 
+    path/wireframe. 
+    Erik, heldur áfram með use cases og fer svo í að fínpússa kröfulistann.
 
-Þegar ég [Ólafur] tók GH þá snerist kúrsinn mjög mikið um það að læra að skilja hvað kúnni
-væri að biðja um, hvaða framtíðarhorfur hann hefði, hvaða væntingar hann hefði til kerfisins,
-o.s.f.v.  Síðan myndi við og kúnninn sameinast um hvað hann vill. 
+                    <-----> ACTION ITEMS <------>
+    Bjarni: Endurgerði og kláraði annað drag af klasaritinu.
+    Óskar: Endurgerði og kláraði annað drag af stöðuritinu
+    Ingó: Var að gera happy path. 
+    Ólafur:  Ólafur hugsaði um flæðið, wireframe og usecases. Ennþá nokkuð óljóst, 
+    eins og margt í þessu verkefni, hvernig nákvæmlega á að útfæra þetta.  
+    Erik:  vann í usecases og uppfærði kröfunar.
+   
+                      <-----> NOTES <------>
+    - varð smá ágreiningur innan hópmeðlima, smá misskilningur varðandi 
+    verkefnalýsinguna. Ágreiningurinn snerist í raun mikið um, hvað eigum við 
+    að hanna, en það leystist út frá rest. 
 
-Ágreiningur okkar snerist í raun mikið um, hvað eigum við að hanna. 
 
-Hugsanlega voru mistök að velja ekki verkstjóra í byrjun. 
-
-Ákváðum að hittast á morgun kl 12. 
-
-Ólafur þarf að fara fyrr á morgun, og ákvað að setja auka tíma í þetta að kvöldi 23.11.
+                    <-----> NEXT DAY AGENDA <------>
+    - Allir ætla að núllstilla sig í kvöld og mæta ferskir á morgun.        

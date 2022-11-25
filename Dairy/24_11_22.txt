@@ -1,56 +1,32 @@
-Fimmtudagur 24.11 
-Fundur kl 12:00 (discord)
-Mættir eru: 
-Allir:
 
-Bjarni: 
 
-“ Hvernig 3 laga hönnun virkar” 
+            <----->   Fimmtudagur    <----->
+<<<<< 24 November 2022 / 12:00 PM / Discord fundur >>>>>
 
-Tournament klassinn virkar. Það getur verið heill klasa. Að búa til lið, félag, allt … 
+            <----->   ATTENDEES      <----->
+        - Bjarni, Erik, Ingólfur, Ólafur, Óskar
 
-Liðafíllinn textafíll,,, model klassinn 
+            <----->    AGENDA        <----->
+              ## LAST MEETING FOLLOW-UP ##
+- Út frá misskilningnum sem varð í gær að þá ákvað hópurinn að 
+  sjá hönnunina betur fyrir sér, og skilja verkefnalýsinguna betur.
 
-Liðin fara: 
+            <----->  ACTION ITEMS    <----->
+- Mættu allir hressir, og tilbúnir í daginn. 
+- Óli og Bjarni fóru í wireframið og happy path fyrir admininn
+- Erik, Óskar og Ingó fóru í wireframið og happy path fyrir captaininn og 
+  guest
 
-Bara admin getur admin liðum. 
+   
+            <----->     NOTES        <----->
+- Út frá misskilningnum innan hópsins að þá var ákveðið að allur hópurinn
+  færi í að vinna í wireframinu og happy pathinu til þess að átta sig á, og
+  sjá hönnunina meira fyrir sér, svo það myndi ekki koma fleirri ágreiningar 
+  innan hópsins varðandi hönnunina. það var því mikil misstök hjá hópnum að 
+  hafa ekki bara byrjað á því, svo þessi misskilningur hefði ekki átt sér stað
+  svona seint í ferlinu.
 
-Getur, öll liðin eru einum textafile…. 
 
-Ef þú vilt hanna þarnig, mörg tournament. 
-
-Bætt textafilinn er sá hinn sami. 
-
-Viltu bæta við nýju nýju liði. 
-
-Við þurfum ekki að spá í, fyrir í næsta tournament. 
-
-Local. 
-
-Liðinn. Sama tölvan. 
-
-Ert alltaf með sama csv. 
-
-Eigum að byrja á tournament. 
-
-Það mun líka virka. 
-
-// Getum við búið lið og leikmenn // 
-
-Logins: 
-
-Create ..
-
-Login as admin
-
-Login as guest. 
-
-Create team
-
-Create a player. 
-
-Create a tournament. 
-
-Á bak við valmynd. 
-
-Tekur við textafíllinn. 
+            <-----> NEXT DAY AGENDA  <----->
+- Klára hönnunarskýrsluna og skila
+    
