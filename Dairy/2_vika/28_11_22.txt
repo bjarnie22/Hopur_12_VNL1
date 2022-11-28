@@ -1,17 +1,28 @@
 
 
             <----->   Mánudagur     <----->
-<<<<< 28 November 2022 / 12:00 PM / Discord fundur ?? >>>>>
+<<<<< 28 November 2022 / 13:00 PM / Discord fundur >>>>>
 
             <----->   ATTENDEES     <----->
-        - Bjarni, Erik, Ingólfur, Ólafur, Óskar
+        - Bjarni, Ingólfur, Ólafur, Óskar
 
             <----->    AGENDA       <----->
               ## LAST MEETING FOLLOW-UP ##
-
+    - Vid skiluðum skýrslunni á síðasta fundi 
+    - Kláruðum wireframið 
 
             <----->  ACTION ITEMS   <----->
+    - Byrjuðum á því að fara yfir feedbackið sem við fengum fyrir hönnunarskýrsluna
+    - Ákváðum að laga kröfulistann þannig að það væri auðveldara að lesa skýrsluna
+    - Settum allar A kröfur saman, B kröfur saman og svo C kröfur saman
+    - Fórum svo og kláruðum use case fyrir A kröfurnar, þar sem við fengum feedback 
+      um það að hann vildi sjá fleirri svoleiðis use case.
 
+            <----->     NOTES      <------>
+    - Erik var veikur   
 
             <-----> NEXT DAY AGENDA <----->
-
+    - Ætlum að klára use case fyrir B kröfur
+    - Förum að skipta niður kóða verkefnum, 
+      svo við séum ekki að 
+      vinna í sömu verkefnunum á sama tíma
