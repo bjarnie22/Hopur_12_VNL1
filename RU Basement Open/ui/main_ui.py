@@ -1,3 +1,5 @@
+from admin_ui import Admin_UI
+
 class Main_UI:
     def __init__(self):
         print("inside main_UI")
