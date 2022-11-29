@@ -25,7 +25,7 @@ class Main_UI:
                 print("you are quitting the program")
                 break
             elif command == "1":
-                admin_menu()
+                admin_menu1()
             elif command == "2":
                 pass
             elif command == "3":
