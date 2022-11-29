@@ -1,3 +1,3 @@
-class Team_logic:
+class Team_data:
     def __init__(self):
         pass
