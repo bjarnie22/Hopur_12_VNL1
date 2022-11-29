@@ -1,30 +1,4 @@
-def main():
-    menu()
-    answer = input()
-    while answer != "q":
-        while answer not in ["1", "2", "3"]:
-            print("Please pick a ")
-            answer = input()
-        if answer == "1":
-            admin_login()
-            break
-        elif answer == "2":
-            captain_login()
-            break
-        elif answer == "3":
-            guest()
-            break
-    
-def admin_login():
-    print("admin login deez nuts")
-
-def captain_login():
-    print("captian login deez nuts")
-
-def guest():
-    print("guest deez nuts")
-
-def menu():
+main menu:
     print("********************************************")
     print("*                   Hello!                 *")
     print("*                                          *")
@@ -36,5 +10,45 @@ def menu():
     print("********************************************")
 
 
-if __name__ == "__main__":
-    main()
+admin login
+    print("********************************************")
+    print("*             Hello admin!                 *")
+    print("*                                          *")
+    print("*                                          *")
+    print("*     Please input password for admin      *")
+    print("*             (b) to go back               *")
+    print("*                                          *")
+    print("*                                          *")
+    print("********************************************")
+
+captain login
+    print("********************************************")
+    print("*           Hello captain!                 *")
+    print("*                                          *")
+    print("*                                          *")
+    print("*    Please input password for captain     *")
+    print("*             (b) to go back               *")
+    print("*                                          *")
+    print("*                                          *")
+    print("********************************************")
+
+admin login
+    print("********************************************")
+    print("*             Hello admin!                 *")
+    print("*                                          *")
+    print("*                                          *")
+    print("*     (1) Tournament standings             *")
+    print("*     (b) to go back to main menu          *")
+    print("*                                          *")
+    print("*                                          *")
+    print("********************************************")
+
+inputprompt():
+    admin_login()
+    password = input("Please input password for admin")
+    valid = validate_password(password)
+    if password == "b":
+        break
+    while valid == False:
+        print("Password incorrect")
+    

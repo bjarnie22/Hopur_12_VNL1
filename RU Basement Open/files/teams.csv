@@ -1,1 +1,2 @@
-name, player, association_id, team_id
+name, player, team_id, association_id
+Fálkarnir, [Arnór, Gummi, Erik, Leó], 01, 001
