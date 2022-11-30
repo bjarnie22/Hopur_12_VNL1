@@ -1,5 +1,3 @@
-from admin_ui import Admin_UI
-
 class Main_UI:
     def __init__(self):
         print("inside main_UI")
@@ -25,7 +23,7 @@ class Main_UI:
                 print("you are quitting the program")
                 break
             elif command == "1":
-                admin_menu1()
+                admin_menu()
             elif command == "2":
                 pass
             elif command == "3":
