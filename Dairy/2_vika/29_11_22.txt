@@ -1,0 +1,31 @@
+
+                    <-----> Þriðjudagur <------>
+    <<<<< 29 November 2022 / 12:00 PM / Discord fundur >>>>>
+
+                     <-----> ATTENDEES <------>
+              - Bjarni, Ingólfur, Ólafur, Óskar
+
+                      <-----> AGENDA <------>
+                    ## LAST MEETING FOLLOW-UP ##
+- Fórum í að laga skýrluna samkvæmt feedbacki frá kennara
+- Kláruðum use cases um A kröfur
+
+                    <-----> ACTION ITEMS <------>
+- Byrjuðum að kóða hönnunina.
+- Það var ákveðið að Bjarni yrði svona verkstjórinn yfir hópnum um hvað 
+  hver og hvernig við ætlum að kóða verkefnið, þar sem hann er með meiri 
+  yfirburði í forritun yfir hópnum, samkvæmt því sem við fórum yfir hjá hópnum.
+- Það var ákveðið að Ólafur og Óskar færu í UI hlutann
+- Bjarni og Ingólfur fóru í logic og data layerinn til að fá tenginguna til 
+  þess að virka frá wrappernum og gekk það vel, fengum players í skránni til 
+  þess að prentast út.
+
+   
+                      <-----> NOTES <------>
+    - Erik var veikur þennan dag líka
+
+
+                    <-----> NEXT DAY AGENDA <------>
+- Höldum áfram á sömu braut, þar sem þetta skipulag gekk vel hjá okkur.
+    
+

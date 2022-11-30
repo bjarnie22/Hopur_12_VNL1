@@ -1,0 +1,35 @@
+
+
+                    <-----> Miðvikudagur <------>
+    <<<<< 30 November 2022 / 12:00 PM / Discord fundur >>>>>
+
+                     <-----> ATTENDEES <------>
+              - Bjarni, Ingólfur, Ólafur, Óskar
+
+                      <-----> AGENDA <------>
+                    ## LAST MEETING FOLLOW-UP ##
+- Allir byrjuðu að kóða og var skipt verkefnunum niður 
+
+                    <-----> ACTION ITEMS <----->
+- Bjarni og Ingólfur byrjuðu að sýna afrakstur gærdagsins fyrir 
+  Ólafi og Óskari, svo sýndu Ólafur og Óskar sinn afrakstur.
+- Héldum áfram með þessa skiptingu þar sem hún gekk vel
+- Ólafur og Óskar eru komnir á gott ról varðandi UI layerinn í hönnuninni.
+- Bjarni og Ingólfur héldu áfram með logic og data layerinn
+
+
+   
+                      <-----> NOTES <------>
+    - Erik var veikur þennan dag líka, en kom inn á fundinn hjá okkur á 
+      discord. Erik fór í að horfa á fyrirlesturinn sem var á mánud. svo 
+      hann kæmi ferskur inn á morgun.
+
+
+                    <-----> NEXT DAY AGENDA <------>
+- Höldum áfram á sömu braut á morgun..
+- Byrjum á að update-a Erik um hvað við erum búnir að vera að gera og 
+  breyta í hönnuninni, svo hann getur komið inn og update-að skýrsluna.
+- Erik ætlar að fara í það að update-a skýrsluna, samkvæmt því sem er 
+  búið að breytast í planinu hjá okkur varðandi hönnunina, sem eru ritin, 
+  happy path og kröfurnar
+    
