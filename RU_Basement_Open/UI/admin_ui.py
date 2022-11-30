@@ -15,11 +15,11 @@ class Admin_UI:
         print("*       (q)  quit?                         *")
         print("*                                          *")
         print("********************************************")
-        input_prompt_for_admin_menu1()
 
     def input_prompt_for_admin_menu1(self):
-   
         while True:
+            admin_menu1()
+
             print ("im in the loop")
             self.menu_output()
             command = input("Enter your command: ")
