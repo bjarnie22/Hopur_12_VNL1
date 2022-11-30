@@ -8,7 +8,7 @@ class Create_a_new_tournament():
     def create_a_new_tournament_menu(self):
         print("********************************************")
         print("*                                          *")
-        print("*       (1)  Add a associations            *")
+        print("*       (1)  Add a association             *")
         print("*       (b)  go back?                      *")
         print("*                                          *")
         print("********************************************")
@@ -19,7 +19,6 @@ class Create_a_new_tournament():
         Name_of_tournament = input("Name of tournament: ")
         Starting_date_of_tournament: input("Staring date of tournament: ")
         How_many_rounds: input("How many rounds are in the tournament: ")    
-
         while True:
             self.create_a_new_tournament_menu()
             command = input("Enter your command: ")
@@ -37,7 +36,7 @@ class Create_a_new_tournament():
     # Here we need to send the info about how many teams are in that association    
         print("********************************************")
         print("*                                          *")
-        print("*       (1)  Add teams                     *")
+        print("*       (1)  Add team                      *")
         print("*       (b)  go back?                      *")
         print("*                                          *")
         print("********************************************")

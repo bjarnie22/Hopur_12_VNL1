@@ -3,8 +3,11 @@ class Captain_UI:
         print("inside captain_ui")
 
     def menu_output(self):
+            current_tourament = current_tourament() 
+            current_tourament.menu() 
+            (2)
             print("********************************************")
-            print("*               Hello Guest!               *")
+            print("*               Hello Captain!             *")
             print("*                                          *")
             print("*       (1)  see teams and players?        *")
             print("*       (2)  see upcoming matches?         *")

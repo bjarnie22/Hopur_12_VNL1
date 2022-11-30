@@ -1,38 +1,8 @@
-from create_a_tournament_ui import Create_a_tournament
 class Tournament_ui(): 
 
+# This class is about viewing current tournament, teams, players and association. 
     def __init__(self):
         pass 
-
-    
-    def create_a_tournament():
-        Name_of_tournament = input("Name of tournament: ")
-        Starting_date_of_tournament: input("Name of tournament: ")
-        How_many_rounds: input("How many rounds: ")    
-        print("********************************************")
-        print("*                                          *")
-        print("*                                          *")
-        print("*       (1)  Create associations           *")
-        print("*       (b)  go back?                      *")
-        print("*                                          *")
-        print("********************************************")
-        
-
-
-    def input_prompt_for_create_a_tournament():
-        while True:
-            command = input("Enter your command: ")
-            command = command.lower()
-            if command == "b":
-                print("you are going back")
-                break
-            elif command == "1":
-                create_association()
-            else:
-                print("invalid input, please try again")
-
- 
-
 
     def tournament_main_menu(self):
             print("********************************************")
@@ -40,14 +10,12 @@ class Tournament_ui():
             print("*                                          *")
             print("*       (1)  Associations?                 *")
             print("*       (2)  View tournament?              *")
-            print("*       (3)  Manage tournament?            *")
-            print("*                                          *")
             print("*       (b)  go back?                      *")
-            print("*       (q)  quit?                         *")
+            print("*                                          *")
             print("*                                          *")
             print("********************************************")
             input_prompt_for_main_menu()
-        # Th    is loop starts if user chooses 1. 
+        # This loop starts if user chooses 1. 
 
     def input_prompt_for_main_menu(self):
 
