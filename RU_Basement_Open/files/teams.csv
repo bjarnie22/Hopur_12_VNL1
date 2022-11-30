@@ -1,2 +1,3 @@
-name,players,team_id,association_id
-Fálkarnir,[Arnór. Gummi. Erik. Leó],01,001
+name,association_id,team_id
+Fálkarnir,0,0
+Haukar,0,1

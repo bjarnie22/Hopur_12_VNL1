@@ -8,9 +8,10 @@ class Team_logic:
 
 
     def create_team(self, team):
-        """Takes in a customer object and forwards it to the data layer"""
-        pass
-        #self.data_wrapper.create_team(team)
+        """Takes in a team object, gives it a team id and forwards it to the data layer"""
+        list_of_teams = self.get_all_teams()
+        team.team_id = len(list_of_teams)
+        self.data_wrapper.create_team(team)
 
     def get_all_teams(self):
         return self.data_wrapper.get_all_teams()

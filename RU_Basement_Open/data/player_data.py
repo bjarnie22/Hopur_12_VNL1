@@ -5,13 +5,19 @@ class Player_data:
     def __init__(self):
         self.file_name = "files/players.csv"
 
+
     def update():
         """Updates player information"""
         pass
     
-    def store():
+
+    def create_player(self, player):
         """Adds player to csv file"""
-        pass
+        with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
+            fieldnames = ["name", "date_of_birth","address", "email", "phone_number", "social_security_number", "team_id"]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writerow({'name': player.name, 'date_of_birth': player.date_of_birth, "address": player.address, "email": player.email, "phone_number":player.phone_number, "social_security_number": player.social_security_number, "team_id": player.team_id})
+
 
     def get_all_players(self):
         """Gets all players information"""

@@ -1,5 +1,6 @@
 name,date_of_birth,address,email,phone_number,social_security_number,team_id
-Arnór,01/04/97,Drekavellir,arnor@email.com,9082323,2505972222,01
-Gummi,05/12/97,Háskivellir,gummi@email.com,1282323,0512972122,01
-Erik,13/02/97,Drekavellir,erik97@email.com,5682323,1302972322,01
-Leó,21/03/97,Langavellir,leog@email.com,2582323,2103972422,01
+Arnór,01/04/97,Drekavellir,arnor@email.com,9082323,2505972222,0
+Gummi,05/12/97,Háskivellir,gummi@email.com,1282323,0512972122,0
+Erik,13/02/97,Drekavellir,erik97@email.com,5682323,1302972322,0
+Leó,21/03/97,Langavellir,leog@email.com,2582323,2103972422,0
+Ari,01/01/2000,Eskivöllum 13b,ari12@mail.com,6661234,0101007896,0
