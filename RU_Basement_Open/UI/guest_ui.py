@@ -68,7 +68,7 @@ class Guest_UI:
             print("********************************************")
             print("*         Current table standings          *")
             print("*                                          *")
-            print("*  Team       |  Points      |  Rounds w/l *")
+            print("*  Team       |   Points     |  Rounds w/l *")
             print("* {team}      |  {points}    |  {w} - {l}  *")
             print("* {team}      |  {points}    |  {w} - {l}  *")
             print("* {team}      |  {points}    |  {w} - {l}  *")

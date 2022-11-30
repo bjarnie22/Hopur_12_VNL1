@@ -1,21 +1,26 @@
-class Main_UI:
+from tournament_ui import Tournament_ui
+
+class Admin_UI:
     def __init__(self):
-        print("inside main_UI")
-
-    def menu_output(self):
-        '''starting menu'''
+        print("inside admin_ui")   
+   
+    def admin_menu1(self):
         print("********************************************")
-        print("*                   Hello!                 *")
+        print("*               Hello Admin!               *")
         print("*                                          *")
-        print("*             (1)   admin?                 *")
-        print("*             (2) captain?                 *")
-        print("*             (3)   guest?                 *")
-        print("*             (q)    quit?                 *")
+        print("*       (1)  Create a new tournament?      *")
+        print("*       (2)  Continue with your tournament?*")
+        print("*       (3)  See current tournament info   *") 
+        print("*       (b)  go back?                      *")
+        print("*       (q)  quit?                         *")
         print("*                                          *")
         print("********************************************")
+        input_prompt_for_admin_menu1()
 
-    def input_prompt(self):
+    def input_prompt_for_admin_menu1(self):
+   
         while True:
+            print ("im in the loop")
             self.menu_output()
             command = input("Enter your command: ")
             command = command.lower()
@@ -23,11 +28,13 @@ class Main_UI:
                 print("you are quitting the program")
                 break
             elif command == "1":
-                admin_menu()
+                print("You pressed 1")
+                #admin_user.admin_menu1()
             elif command == "2":
-                pass
+                 print("You pressed 2")
+                #captain_user.captain_menu1()
             elif command == "3":
-                pass
+                print("You pressed 2")
             else:
                 print("invalid input, please try again")
 
