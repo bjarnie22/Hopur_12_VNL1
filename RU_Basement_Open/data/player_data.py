@@ -1,10 +1,9 @@
-import os
 import csv
 from model.player import Player
 
 class Player_data:
     def __init__(self):
-        self.file_name = "RU_Basement_Open/files/players.csv"
+        self.file_name = "files/players.csv"
 
     def update():
         """Updates player information"""
@@ -14,7 +13,7 @@ class Player_data:
         """Adds player to csv file"""
         pass
 
-    def read_all_player():
+    def get_all_players(self):
         """Gets all players information"""
         ret_list = []
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
