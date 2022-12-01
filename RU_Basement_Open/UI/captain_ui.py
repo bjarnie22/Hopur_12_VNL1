@@ -57,17 +57,6 @@ class Captain_UI:
                 #myndi prenta stöðuna í mótinu
 
             elif command == 6:
-                print("you pressed 6")
-                #myndi koma input
-
-                #A-Kröfur:
-                #stig fyrir liðin sem voru að spila
-
-                #B-kröfur
-                #Stig fyrir leikmenn
-                #QP fyrir leikmenn
-                #Inner fyrir leikmenn
-                #Outer fyrir leikmenn
-
+               print("you pressed 6")
             else:
                 print("invalid input, please try again")

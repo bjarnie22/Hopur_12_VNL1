@@ -41,3 +41,4 @@ class Main_UI:
                 print("You pressed 3")
                 guest_user.input_prompt()
             else:
+                print("invalid input, try again!")
