@@ -46,5 +46,11 @@ class match_info_ui():
             #quality_points_for_player = input("how many quality points did "player" score")
             #inner_points_for_player = input("How many inner points did player score")
             #outer_points_for_player = input("How many outer points did player score")
-    
-     
+
+
+    # Admin edit match menu 
+
+    # Function that calls the list of uppcoming ble matches 
+
+    #
+
