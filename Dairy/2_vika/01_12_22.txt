@@ -1,0 +1,27 @@
+
+                    <-----> Fimmtudagur <------>
+    <<<<< 1 Desember 2022 / 12:00 PM / Discord fundur >>>>>
+
+                     <-----> ATTENDEES <------>
+              - Bjarni, Ingólfur, Ólafur, Óskar, Erik
+
+                      <-----> AGENDA <------>
+                    ## LAST MEETING FOLLOW-UP ##
+- Gekk vel þennan dag að forrita forritið okkar, allir voru á góðu róli
+
+                    <-----> ACTION ITEMS <----->
+- Bjarni og Ingólfur halda áfram með data og model layerinn. 
+- Ólafur og Óskar halda áfram með sín verkefni í UI layernum 
+- Erik kom ferskur inn í að breyta ritunum í skýrslunni samkvæmt 
+  update-inu sem hafði átt sér stað og fór í að update-a kröfulistann
+
+
+                      <-----> NOTES <------>
+- Ólafur fór fyrr þar sem hann þurfti að vinna, en ætlaði að skila sínu 
+  verki seinna um kvöldið eða morguninn.
+- Fengum aðstoð frá TA og það sem hann sá hvað við værum búnir að gera 
+  kóðalega séð, sagði hann að við værum á góðu róli út frá öðrum hópum.
+
+                    <-----> NEXT DAY AGENDA <------>
+- Það verður haldið áfram að kóða á fullu, gengur vel hjá okkur
+    

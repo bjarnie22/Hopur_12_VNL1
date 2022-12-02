@@ -1,7 +1,7 @@
 class Team:
-    def __init__(self, name, players, team_id, association_id):
+    def __init__(self, name, association_id, captain_id = -1, team_id = -1):
         self.name = name
-        self.name = name
-        self.players = players
-        self.team_id = team_id
         self.association_id = association_id
+        self.captain_id = captain_id
+        self.team_id = team_id
+        

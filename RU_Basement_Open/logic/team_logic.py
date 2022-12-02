@@ -1,4 +1,3 @@
-from data.team_data import Team_data
 from model.team import Team
 from data.data_wrapper import Data_Wrapper
 
@@ -8,9 +7,19 @@ class Team_logic:
 
 
     def create_team(self, team):
-        """Takes in a customer object and forwards it to the data layer"""
-        pass
-        #self.data_wrapper.create_team(team)
+        """Takes in a team object, gives it a team id and forwards it to the data layer"""
+        team.team_id = len(self.get_all_teams())
+        self.data_wrapper.create_team(team)
 
     def get_all_teams(self):
         return self.data_wrapper.get_all_teams()
+    
+
+    def choose_captain(self, team_id, captain_id):
+        teamlist = get_all_teams
+        for team in teamlist:
+            if team.team_id == team_id:
+                if team.captain_id > 0:
+                    return self.data_wrapper.choose_captain(team_id, captain_id)
+                else:
+                    return False

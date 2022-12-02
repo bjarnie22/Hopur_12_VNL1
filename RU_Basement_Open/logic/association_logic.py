@@ -1,3 +1,14 @@
+from data.data_wrapper import Data_Wrapper
+
 class Association_logic:
     def __init__(self):
-        pass
+        self.data_wrapper = Data_Wrapper()
+
+
+    def create_association(self, association):
+        """Takes in a association object and forwards it to the data layer"""
+        association.association_id = len(self.get_all_associations())
+        self.data_wrapper.create_association(association)
+
+    def get_all_associations(self):
+        return self.data_wrapper.get_all_associations()
