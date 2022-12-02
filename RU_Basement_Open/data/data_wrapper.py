@@ -17,14 +17,26 @@ class Data_Wrapper:
     def create_player(self, player):
         return self.player_data.create_player(player)
 
+
     def get_all_teams(self):
         return self.team_data.get_all_teams()
     
     def create_team(self, team):
         return self.team_data.create_team(team)
+    
+    def choose_captain(self, team_id, captain_id):
+        return self.team_data.choose_captain(team_id, captain_id)
+
 
     def get_all_associations(self):
         return self.association_data.get_all_associations()
+
+    def create_association(self, association):
+        return self.association_data.create_association(association)
+    
     
     def get_tournament_info(self):
         return self.tournament_data.get_tournament_info()
+    
+    def create_tournament(self, tournament):
+        return self.tournament_data.create_tournament(tournament)

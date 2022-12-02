@@ -7,10 +7,13 @@ class Tournament_logic:
         self.data_wrapper = Data_Wrapper()
 
 
-    def create_team(self, team):
-        """Takes in a customer object and forwards it to the data layer"""
-        pass
-        #self.data_wrapper.create_team(team)
+    def create_tournament(self, tournament):
+        """Takes in a tournament object and forwards it to the data layer"""
+        if self.get_tournament_info() == []:
+            self.data_wrapper.create_tournament(tournament)
+            return True # "Tournament succesfully created"
+        else:
+            return False # "Tournament has already been created"
 
     def get_tournament_info(self):
         return self.data_wrapper.get_tournament_info()

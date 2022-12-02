@@ -24,11 +24,22 @@ class Logic_Wrapper:
         return self.team_logic.get_all_teams()
     
     def create_team(self, team):
-        """Takes in a player object and forwards it to the data layer"""
+        """Takes in a team object and forwards it to the data layer"""
         return self.team_logic.create_team(team)
+
+    def choose_captain(self, team_id, captain_id):
+        return self.team_logic.choose_captain(team_id, captain_id)
 
     def get_all_associations(self):
         return self.association_logic.get_all_associations()
+
+    def create_association(self, association):
+        """Takes in a association object and forwards it to the data layer"""
+        return self.association_logic.create_association(association)
     
     def get_tournament_info(self):
         return self.tournament_logic.get_tournament_info()
+    
+    def create_tournament(self, tournament):
+        """Takes in a tournament object and forwards it to the data layer"""
+        return self.tournament_logic.create_tournament(tournament)

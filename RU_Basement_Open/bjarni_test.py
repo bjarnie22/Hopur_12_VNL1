@@ -1,6 +1,8 @@
 from logic.logic_wrapper import Logic_Wrapper
 from model.player import Player
 from model.team import Team
+from model.association import Association
+from model.tournament import Tournament
 
 a = Logic_Wrapper()
 listi = a.get_all_players()
@@ -56,17 +58,40 @@ for tou in listi4:
 #social_security_number = input("social_security_number: ") # er allt tölur
 
 #for elem in listi2:
- #   print(elem.name, elem.team_id)
+#    print(elem.name, elem.team_id)
 
 #team_id = input("team_id: ")
 
-#dúddi = Player(name, date_of_birth, address, email, phone_number, social_security_number, team_id)
+#dúddi = Player(team_id, name, social_security_number, date_of_birth, email, address, phone_number)
 #a.create_player(dúddi)
 
-#name = input("name: ")
-#for elem in listi3:
- #   print(f"name:{elem.name:<5} id: {elem.association_id}")
+name = input("name: ")
 
-#association_id = input("association_id: ")
-#new_team = Team(name, association_id)
-#a.create_team(new_team)
+for elem in listi3:
+    print(f"name: {elem.name:<5} id: {elem.association_id}")
+association_id = input("association_id: ")
+
+new_team = Team(name, association_id)
+a.create_team(new_team)
+
+for elem in listi:
+    print(f"name:{elem.name:<5} id: {elem.social_security_number}")
+
+captain = input("captains social security number: ")
+
+#name = input("name: ")
+#address = input("address: ")
+#nmr = input("phone number: ")
+#assoc = Association(name, address, nmr)
+
+#a.create_association(assoc)
+
+#nafn = input("name of tourament: ")
+#name = input("name: ")
+#mail = input("mail: ")
+#nmr = input("phone number: ")
+#start = input("starts: ")
+#end = input("ends: ")
+#rnds = input("number of rounds: ")
+#new_tourny = Tournament(nafn, name, nmr, mail, start, end, rnds)
+#a.create_tournament(new_tourny)
