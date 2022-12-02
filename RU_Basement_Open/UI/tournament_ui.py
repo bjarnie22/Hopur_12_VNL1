@@ -8,12 +8,10 @@ class Tournament():
         print("****************************************************")
         print("*                                                  *")
         print("*       (1)  Add a association                     *")
-        print("*       (2)  Schedule matches                      *")
         print("*       (b)  go back?                              *")
         print("*                                                  *")
         print("****************************************************")
-        # Here this function will return the(Name_of_tournament  Starting_date_of_tournament, How_many_rounds)  
-
+   
     def input_prompt_for_create_a_tournament_menu(self): 
         name_of_tournament = input("Name of tournament: ")
         starting_date_of_tournament: input("Starting date of tournament: ")
@@ -123,19 +121,82 @@ class Tournament():
 
 ########################################################################################################
 
-    def tournament_main_menu(self):
-            print("********************************************")
-            print("*       Tournament main menu               *")
-            print("*                                          *")
-            print("*       (1)  Associations?                 *")
-            print("*       (2)  View tournament?              *")
-            print("*       (b)  go back?                      *")
-            print("*                                          *")
-            print("*                                          *")
-            print("********************************************")
-            input_prompt_for_main_menu()
-        # This loop starts if user chooses 1. 
+    def view_tournament_main_menu(self):
+            print("*************************************************************")
+            print("*                   View tournament                         *")
+            print("*                                                           *")
+            print("*       (1)  List of teams, their players info and stat     *")
+            print("*       (2)  List of upcoming and played matches            *")
+            print("*       (2)  List of current standing                       *")
+            print("*       (b)  go back?                                       *")
+            print("*                                                           *")
+            print("*                                                           *")
+            print("*************************************************************")
+    
+    def input_prompt_for_view_tournament_main_menu(self):
+        while True:
+            self.view_tournament_main_menu()
+            command = input("Enter your command: ")
+            command = command.lower()
+            if command == "b":
+                print("you are going back")
+                break
+            elif command == "1":
+                self.input_prompt_for_list_of_teams()
+            else:
+                print("invalid input, please try again")
+    
+                
+    def list_of_teams(self):
+            # Here we would need a list of teams, to which association they belong to 
+            # and list of players. 
+            pass
+    
+    def input_prompt_for_list_of_teams(self):
+        while True:
+            self.list_of_teams()
+            command = input("Enter the id of the team you would like to view and b if you would like to go back: ")
+            command = command.lower()
+            if command == "b":
+                print("you are going back")
+                break
+            else:
+                self.input_prompt_for_list_of_players(command)
+                # Here we need to check if the id is valid or not. 
 
+    def list_of_players(self):
+            # Here we would need a list of players for a choosen team. 
+            pass
+    
+    def input_prompt_for_list_of_players(self,id):
+        while True:
+            self.list_of_players()
+            command = input("Enter the id of the player you would like to view and q if you would like to go back: ")
+
+            command = command.lower()
+            if command == "b":
+                print("you are going back")
+                break
+            else:
+                self.input_prompt_for_a_single_player_and_info(command)
+                # Here we need to check if the id is valid or not. 
+                print("invalid input, please try again")
+                print("invalid input, please try again")
+
+    def a_single_player_info_and_stats(self):
+        # Here we would need public information of a player for a chosen team. 
+        pass
+    
+    
+    def input_prompt_for_a_single_player_and_info(self):
+        while True:
+            self.a_single_player_info_and_stats()
+            command = input("Enter any key to back: ")
+            command = command.lower()
+            if command:
+                break
+
+########################################################################################################    
     def input_prompt_for_main_menu(self):
 
         while True:

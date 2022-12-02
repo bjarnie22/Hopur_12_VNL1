@@ -1,6 +1,13 @@
 from view_tournament_ui import View_tournament_ui
 from create_a_new_tournament_ui import Create_a_new_tournament
 
+#Create a tournament 
+# View tournament
+# update a match
+
+/// Update information in system 
+#
+#
 class Admin_UI:
     def __init__(self):
         print("inside admin_ui")   
@@ -10,12 +17,9 @@ class Admin_UI:
         print("*               Hello Admin!                  *")
         print("*                                             *")
         print("*       (1)  Create a new tournament?         *")
-        print("*       (2)  Start tournament             *")
-        print("*       (2)  View tournament?                  ")
-        print("*       ()                                      *")
-        print("*       (3)  Update a played match           *") 
+        print("*       (2)  View tournament?                 *")
+        print("*       (3)  Edit match                       *")
         print("*       (b)  go back?                         *")
-        print("*       (q)  quit?                            *")
         print("*                                             *")
         print("***********************************************")
 
