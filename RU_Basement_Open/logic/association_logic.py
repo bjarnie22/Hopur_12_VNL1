@@ -5,10 +5,10 @@ class Association_logic:
         self.data_wrapper = Data_Wrapper()
 
 
-    def create_player(self, player):
+    def create_association(self, association):
         """Takes in a association object and forwards it to the data layer"""
-        pass
-        #self.data_wrapper.create_player(player)
+        association.association_id = len(self.get_all_associations())
+        self.data_wrapper.create_association(association)
 
     def get_all_associations(self):
         return self.data_wrapper.get_all_associations()
