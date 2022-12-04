@@ -162,13 +162,14 @@ class Tournament():
                 # Here we need to check if the id is valid or not. 
 
     def list_of_players_for_a_choose_team(self):
+        pass
 # Case 4 in the wire frame 
             # Here we would need a list of players for a choosen team. 
-            pass
+           
     
     def input_prompt_for_list_of_players(self,id):
         while True:
-            self.list_of_players()
+            self.list_of_players_for_a_choose_team()
             command = input("Enter the id of the player you would like to view and q if you would like to go back: ")
 
             command = command.lower()
@@ -176,10 +177,41 @@ class Tournament():
                 print("you are going back")
                 break
             else:
-                self.input_prompt_for_a_single_player_and_info(command)
-                # Here we need to check if the id is valid or not. 
                 print("invalid input, please try again")
+
+    def list_of_upcoming_and_played_matches(self):
+# Case 5 in the wire frame 
+        pass
+
+    def input_prompt_for_list_of_upcoming_and_played_matches(self,id):
+        while True:
+            self.list_of_upcoming_and_played_matches()
+            command = input("Enter the id of the player you would like to view and q if you would like to go back: ")
+
+            command = command.lower()
+            if command == "b":
+                print("you are going back")
+                break
+            else:
                 print("invalid input, please try again")
+            
+    def list_of_current_standing(): 
+# Case 6 in the wire frame 
+        pass
+    
+    def input_prompt_for_list_of_current_standing(self,id):
+        while True:
+            self.list_of_current_standing()
+            command = input("Enter the id of the player you would like to view and q if you would like to go back: ")
+
+            command = command.lower()
+            if command == "b":
+                print("you are going back")
+                break
+            else:
+                print("invalid input, please try again")
+            
+
 
 
 ########################################################################################################    
