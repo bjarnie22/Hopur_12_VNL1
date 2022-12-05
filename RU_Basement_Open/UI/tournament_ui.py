@@ -16,6 +16,10 @@ class Tournament():
         print("****************************************************")
 
     def input_prompt_for_create_a_tournament_menu(self):
+        admin_name = input("Your Name: ")
+        admin_email = input("Your email: ")
+        admin_mobile = input("Your mobile phone: ")
+        admin_social_security_number = input("Your social security number: ")
         name_of_tournament = input("Name of tournament: ")
         starting_date_of_tournament = input("Starting date of tournament: ")
         end_date_of_tournament = input("Ending date of tournament: ")
