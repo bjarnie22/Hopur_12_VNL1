@@ -1,2 +1,5 @@
 name,association_id,captain_id,team_id
-Haukar,0,-1,0
+Keflavík,0,0101010101,0
+Haukar,1,-1,1
+FH,1,-1,2
+Fylkir,0,-1,3

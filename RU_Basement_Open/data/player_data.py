@@ -2,12 +2,13 @@ import csv
 from model.player import Player
 
 class Player_data:
+    """Initializes the Player data class by getting the required file"""
     def __init__(self):
         self.file_name = "files/players.csv"
 
 
     def create_player(self, player):
-        """Adds player to csv file"""
+        """Writes into csv file all required player information"""
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
             fieldnames = ["team_id", "name", "social_security_number", "date_of_birth", "email",\
             "address", "phone_number", "mobile"]
@@ -19,7 +20,8 @@ class Player_data:
 
 
     def get_all_players(self):
-        """Gets all players information"""
+        """Gets all players and their information, makes it a player instances
+           and sends it forward to the data wrapper"""
         ret_list = []
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)

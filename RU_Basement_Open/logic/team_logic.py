@@ -16,10 +16,10 @@ class Team_logic:
     
 
     def choose_captain(self, team_id, captain_id):
-        teamlist = get_all_teams
+        teamlist = self.get_all_teams()
         for team in teamlist:
             if team.team_id == team_id:
-                if team.captain_id > 0:
+                if int(team.captain_id) < 0:
                     return self.data_wrapper.choose_captain(team_id, captain_id)
                 else:
                     return False

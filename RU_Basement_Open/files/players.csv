@@ -1,2 +1,5 @@
 team_id,name,social_security_number,date_of_birth,email,address,phone_number,mobile
 0,Einar,0204008989,02/04/2000,einar@mail.com,Einivellir 12,6678989,
+0,Arnór,1203017676,01/01/1999,arnor@mail.com,Gummavellir 2,,5542231
+0,Gylfi,0811771212,08/11/1977,gylfi@mail.com,Gylfgol 12,8881243,
+0,Sigmundur,0101010101,01/01/01,sigmundur@bikinibotn.sea,Bikinibotn 12,,
