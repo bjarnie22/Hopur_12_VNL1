@@ -11,13 +11,11 @@ class Guest_UI:
             print("*       (3)  see completed matches?        *")
             print("*       (4)  see table?                    *")
             print("*       (5)  view player stats?            *")
-            print("*                                          *")
             print("*       (b)  go back?                      *")
-            print("*       (q)  quit?                         *")
             print("*                                          *")
             print("********************************************")
 
-    
+
     def input_prompt(self):
         while True:
             print ("im in the guest loop")
@@ -36,7 +34,7 @@ class Guest_UI:
                 print("You pressed 1")
                 #myndi prenta alla öll lið eftir team ID
                 #myndi prenta leikmenn með sama ID
-            
+
             elif command == "2":
                 print("You pressed 2")
                 #myndi prenta viðureignir liðana
@@ -44,7 +42,7 @@ class Guest_UI:
             elif command == "3":
                 print("you pressed 3")
                 #myndi prenta niðurstöður fyrverandi viðureigna
-            
+
             elif command == "4":
                 print("You pressed 4")
                 #myndi prenta stöðu mótsins
