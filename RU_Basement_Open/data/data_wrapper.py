@@ -12,6 +12,7 @@ class Data_Wrapper:
         self.team_data = Team_data()
         self.association_data = Association_data()
         self.tournament_data = Tournament_data()
+        self.match_data = Match_data()
 
     def get_all_players(self):
         """Calls on get_all_player function in player_data and forwards
@@ -60,11 +61,15 @@ class Data_Wrapper:
         """Calls on get create_tournament, with a tournament instance as a parameter 
         in tournament_data"""
         return self.tournament_data.create_tournament(tournament)
+
+    def update_end_date(self, end_date):
+        """calls on update_end_date, with a new end_date as a parameter in tournament_data"""
+        return self.tournament_data.update_end_date(end_date)
     
 
     def get_all_matches(self):
         """Calls on get get_all_matches in matches_data and forwards
-           it to the logic wrapper"""
+        it to the logic wrapper"""
         return self.match_data.get_all_matches()
 
     def create_match(self, match):
@@ -74,10 +79,10 @@ class Data_Wrapper:
 
     def postpone_match(self, match_id, date):
         """Calls on postpone_match, with a match id and the new date as a parameters
-        in postpone_match"""
+        in match_data"""
         return self.match_data.postpone_match(match_id, date)
     
-    def update_score(self, match_id, score):
-        """Calls on update_score, with a match id and the new score as a parameters
-        in update_score"""
-        return self.match_data.update_score(match_id, score)
+    def update_result(self, match_id, result):
+        """Calls on update_result, with a match id and the new result as a parameters
+        in match_data"""
+        return self.match_data.update_result(match_id, result)

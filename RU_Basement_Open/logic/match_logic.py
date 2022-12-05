@@ -13,14 +13,33 @@ class Match_logic:
 
     def create_match(self, match):
         """"""
+        match.match_id = len(self.get_all_matches())
         return self.data_wrapper.create_match(match)
 
 
     def postpone_match(self, match_id, date):
         """"""
-        return self.data_wrapper.postpone_match(match_id, date)
+        match_list = self.get_all_matches()
+        for elem in match_list:
+            if match_id == elem.match_id:
+                if elem.result != "":
+                    return False
+                else:
+                    return self.data_wrapper.postpone_match(match_id, date)
     
 
-    def update_score(self, match_id, score):
+    def update_result(self, match_id, result):
         """"""
-        return self.data_wrapper.update_score(match_id, score)
+        match_list = self.get_all_matches()
+        for elem in match_list:
+            if match_id == elem.match_id:
+                if elem.result == "":
+                    return False
+                else:
+                    return self.data_wrapper.update_result(match_id, result)
+
+
+    def create_match_schedule(self):
+        """"""
+        pass
+        

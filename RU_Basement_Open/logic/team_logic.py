@@ -16,6 +16,7 @@ class Team_logic:
     
 
     def choose_captain(self, team_id, captain_id):
+        """"""
         teamlist = self.get_all_teams()
         for team in teamlist:
             if team.team_id == team_id:

@@ -13,6 +13,7 @@ class Logic_Wrapper:
         self.team_logic = Team_logic()
         self.association_logic = Association_logic()
         self.tournament_logic = Tournament_logic()
+        self.match_logic = Match_logic()
 
 
     def get_all_players(self):
@@ -24,7 +25,7 @@ class Logic_Wrapper:
         return self.player_logic.create_player(player)
 
     def get_player_by_name(self, name):
-        """Finds a player by given name and returns every possible player"""
+        """Finds a player by given name and returns every possible player with that name"""
         return self.player_logic.get_player_by_name(name)
 
 
@@ -57,6 +58,10 @@ class Logic_Wrapper:
     def create_tournament(self, tournament):
         """Takes in a tournament object and forwards it to the data layer"""
         return self.tournament_logic.create_tournament(tournament)
+
+    def update_end_date(self, end_date):
+        """Takes in a new update and forwards it to the data layer"""
+        return self.tournament_logic.update_end_date(end_date)
     
 
     def get_all_matches(self):
@@ -68,11 +73,10 @@ class Logic_Wrapper:
         return self.match_logic.create_match(match)
 
     def postpone_match(self, match_id, date):
-        """Calls on postpone_match in the data wrapper, with a match id and the new date as a parameters
+        """Calls on postpone_match in match_logic, with a match id and the new date as a parameters
         in postpone_match"""
         return self.match_logic.postpone_match(match_id, date)
     
-    def update_score(self, match_id, score):
-        """Calls on update_score in the data wrapper, with a match id and the new score as a parameters
-        in update_score"""
-        return self.match_logic.update_score(match_id, score)
+    def update_result(self, match_id, result):
+        """Calls on update_result in match_logic, with a match id and the new result as a parameters"""
+        return self.match_logic.update_result(match_id, result)

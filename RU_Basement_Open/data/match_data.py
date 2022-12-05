@@ -18,7 +18,7 @@ class Match_data:
             if match.match_id == match_id:
                 match.date = date
 
-        create_match(update[0], "w")
+        self.create_match(update[0], "w")
         try:
             for match in update[1:]:
                 create_match(match)
@@ -26,15 +26,15 @@ class Match_data:
             pass
     
 
-    def update_score(self, match_id, score):
-        """Overwrites the csv file for a chosen match, changes the final score"""
+    def update_result(self, match_id, result):
+        """Overwrites the csv file for a chosen match, changes the final result"""
         update = self.get_all_matches()
 
         for match in update:
             if match.match_id == match_id:
-                match.score = score
+                match.result = result
 
-        create_match(update[0], "w")
+        self.create_match(update[0], "w")
         try:
             for match in update[1:]:
                 create_match(match)
@@ -46,7 +46,7 @@ class Match_data:
         """Writes into csv file all required match information"""
         with open(self.file_name, append_or_overwrite, newline='', encoding="utf-8") as csvfile:
 
-            fieldnames = ["date","home_team","away_team","player_list","leg1","leg1_home_player",\
+            fieldnames = ["date","home_team","away_team","result","match_id","leg1","leg1_home_player",\
             "leg1_away_player","leg2","leg2_home_player","leg2_away_player","leg3","leg3_home_player",\
             "leg3_away_player","leg4","leg4_home_player","leg4_away_player","leg5","leg5_home_player1",\
             "leg5_home_player2","leg5_away_player1","leg5_away_player2","leg6","leg6_home_player1",\
@@ -54,14 +54,14 @@ class Match_data:
             "leg7_home_player2","leg7_home_player3","leg7_home_player4","leg7_away_player1",\
             "leg7_away_player2","leg7_away_player3","leg7_away_player4","qp_player_h_1","qp_player_h_2",\
             "qp_player_h_3","qp_player_h_4","qp_player_a_1","qp_player_a_2","qp_player_a_3",\
-            "qp_player_a_4","match_id"]
+            "qp_player_a_4"]
 
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             if append_or_overwrite == "w":
                 writer.writeheader()
             
-            writer.writerow({"date": match.data, "home_team": match.home_team, "away_team": match.away_team,\
-             "player_list": match.player_list, "leg1": match.leg1, "leg1_home_player": match.leg1_home_player,\
+            writer.writerow({"date": match.date, "home_team": match.home_team, "away_team": match.away_team,\
+             "result": match.result, "leg1": match.leg1, "leg1_home_player": match.leg1_home_player,\
             "leg1_away_player": match.leg1_away_player, "leg2": match.leg2, "leg2_home_player": match.leg2_home_player,\
             "leg2_away_player": match.leg2_away_player, "leg3": match.leg3, "leg3_home_player": match.leg3_home_player,\
             "leg3_away_player": match.leg3_away_player, "leg4": match.leg4, "leg4_home_player": match.leg4_home_player,\
@@ -86,16 +86,15 @@ class Match_data:
             reader = csv.DictReader(csvfile)
 
             for row in reader:
-                ret_list.append("row[date",row["home_team"],row["away_team"],row["player_list"],\
-            row["leg1"],row["leg1_home_player"],row["leg1_away_player"],row["leg2"],row["leg2_home_player"],\
-            row["leg2_away_player"],row["leg3"],row["leg3_home_player"],row["leg3_away_player"],row["leg4"],\
-            row["leg4_home_player"],row["leg4_away_player"],row["leg5"],row["leg5_home_player1"],\
-            row["leg5_home_player2]"],row["leg5_away_player1"],row["leg5_away_player2"],row["leg6"],\
-            row["leg6_home_player1"],row["leg6_home_player2"],row["leg6_away_player1"],row["leg6_away_player2"],\
-            row["leg7"],row["leg7_home_player1"],row["leg7_home_player2"],row["leg7_home_player3"],
-            row["leg7_home_player4"],row["leg7_away_player1"],row["leg7_away_player2"],row["leg7_away_player3"],\
-            row["leg7_away_player4"],row["qp_player_h_1"],row["qp_player_h_2"],row["qp_player_h_3"],\
-            row["qp_player_h_4"],row["qp_player_a_1"],row["qp_player_a_2"],row["qp_player_a_3"],\
-            row["qp_player_a_4"],row["match_id"])
+                ret_list.append(Match(row["date"],row["home_team"],row["away_team"],row["result"],row["match_id"],\
+                row["leg1"],row["leg1_home_player"],row["leg1_away_player"],row["leg2"],row["leg2_home_player"],\
+                row["leg2_away_player"],row["leg3"],row["leg3_home_player"],row["leg3_away_player"],row["leg4"],\
+                row["leg4_home_player"],row["leg4_away_player"],row["leg5"],row["leg5_home_player1"],\
+                row["leg5_home_player2"],row["leg5_away_player1"],row["leg5_away_player2"],row["leg6"],\
+                row["leg6_home_player1"],row["leg6_home_player2"],row["leg6_away_player1"],row["leg6_away_player2"],\
+                row["leg7"],row["leg7_home_player1"],row["leg7_home_player2"],row["leg7_home_player3"],
+                row["leg7_home_player4"],row["leg7_away_player1"],row["leg7_away_player2"],row["leg7_away_player3"],\
+                row["leg7_away_player4"],row["qp_player_h_1"],row["qp_player_h_2"],row["qp_player_h_3"],\
+                row["qp_player_h_4"],row["qp_player_a_1"],row["qp_player_a_2"],row["qp_player_a_3"],row["qp_player_a_4"]))
 
         return ret_list

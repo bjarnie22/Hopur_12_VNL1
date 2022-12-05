@@ -15,5 +15,10 @@ class Tournament_logic:
         else:
             return False # "Tournament has already been created"
 
+
     def get_tournament_info(self):
         return self.data_wrapper.get_tournament_info()
+
+    
+    def update_end_date(self, end_date):
+        return self.data_wrapper.update_end_date(end_date)

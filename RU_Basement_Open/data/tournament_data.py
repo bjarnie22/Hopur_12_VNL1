@@ -7,7 +7,7 @@ class Tournament_data:
         self.file_name = "files/tournament.csv"
 
 
-    def create_tournament(self, tournament):
+    def create_tournament(self, tournament, append_or_overwrite = "a"):
         """Writes into csv file all required tournament information"""
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
 
@@ -15,7 +15,9 @@ class Tournament_data:
             "start_date", "end_date", "number_of_rounds"]
 
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            
+            if append_or_overwrite == "w":
+                writer.writeheader()
+
             writer.writerow({"tournament_name": tournament.tournament_name, "admin_name":\
             tournament.admin_name, "admin_phone": tournament.admin_phone, "admin_email":\
             tournament.admin_email, "start_date": tournament.start_date, "end_date": \
@@ -34,3 +36,12 @@ class Tournament_data:
                 row["number_of_rounds"]))
             
         return ret_list
+
+    
+    def update_end_date(self, end_date):
+        """Overwrites the end date"""
+        tournament = self.get_tournament_info()
+
+        tournament.end_date = end_date
+        
+        self.create_tournament(tournament)

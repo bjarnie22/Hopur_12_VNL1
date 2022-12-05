@@ -3,6 +3,7 @@ from model.player import Player
 from model.team import Team
 from model.association import Association
 from model.tournament import Tournament
+from model.match import Match
 
 a = Logic_Wrapper()
 listi = a.get_all_players()
@@ -103,3 +104,11 @@ listi4 = a.get_tournament_info()
 #rnds = input("number of rounds: ")
 #new_tourny = Tournament(nafn, name, nmr, mail, start, end, rnds)
 #a.create_tournament(new_tourny)
+
+AvB = Match("27/12/2022", "0", "1")
+
+#a.create_match(AvB)
+
+#a.postpone_match("0", "28/12/2022")
+
+#a.update_result("0", "6-1")
