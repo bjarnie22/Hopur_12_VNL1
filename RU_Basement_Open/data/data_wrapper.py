@@ -30,13 +30,13 @@ class Data_Wrapper:
         return self.team_data.get_all_teams()
     
     def create_team(self, team):
-        """Calls on get create_team, with a team instance as a paramater 
+        """Calls on get create_team, with a team instance as a parameter 
         in team_data and forwards it to the logic wrapper"""
         return self.team_data.create_team(team)
     
     def choose_captain(self, team_id, captain_id):
-        """Calls on get choose_captain in team_data and forwards
-           it to the logic wrapper"""
+        """Calls on get choose_captain in team_data, with team- and captain id as
+        parameter"""
         return self.team_data.choose_captain(team_id, captain_id)
 
 
@@ -46,8 +46,8 @@ class Data_Wrapper:
         return self.association_data.get_all_associations()
 
     def create_association(self, association):
-        """Calls on get create_association, with a association instance as a paramater 
-        in association_data and forwards it to the logic wrapper"""
+        """Calls on get create_association, with a association instance as a parameter 
+        in association_data"""
         return self.association_data.create_association(association)
     
     
@@ -57,8 +57,8 @@ class Data_Wrapper:
         return self.tournament_data.get_tournament_info()
     
     def create_tournament(self, tournament):
-        """Calls on get create_tournament, with a tournament instance as a paramater 
-        in tournament_data and forwards it to the logic wrapper"""
+        """Calls on get create_tournament, with a tournament instance as a parameter 
+        in tournament_data"""
         return self.tournament_data.create_tournament(tournament)
     
 
@@ -68,6 +68,16 @@ class Data_Wrapper:
         return self.match_data.get_all_matches()
 
     def create_match(self, match):
-        """Calls on get create_match, with a match instance as a paramater 
-        in match_data and forwards it to the logic wrapper"""
+        """Calls on get create_match, with a match instance as a parameter 
+        in match_data"""
         return self.match_data.create_match(match)
+
+    def postpone_match(self, match_id, date):
+        """Calls on postpone_match, with a match id and the new date as a parameters
+        in postpone_match"""
+        return self.match_data.postpone_match(match_id, date)
+    
+    def update_score(self, match_id, score):
+        """Calls on update_score, with a match id and the new score as a parameters
+        in update_score"""
+        return self.match_data.update_score(match_id, score)

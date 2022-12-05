@@ -7,8 +7,8 @@ from model.tournament import Tournament
 a = Logic_Wrapper()
 listi = a.get_all_players()
 
-#for elem in listi:
- #   print(f"Name is: {elem.name:<15} SSN: {elem.social_security_number:<15} phone number: {elem.phone_number:<15}")
+for elem in listi:
+    print(f"Name is: {elem.name:<15} SSN: {elem.social_security_number:<15} phone number: {elem.phone_number:<15}")
 
 #print()
 #for elem in listi:
@@ -36,12 +36,12 @@ listi2 = a.get_all_teams()
 
 listi3 = a.get_all_associations()
 
-print()
+#print()
 #for elem in listi3:
  #   print(elem.name)
 
 #print()
-print("Tournament information")
+#print("Tournament information")
 
 listi4 = a.get_tournament_info()
 

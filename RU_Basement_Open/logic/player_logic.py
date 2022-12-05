@@ -17,5 +17,5 @@ class Player_logic:
     def get_player_by_name(self, name):
         all_players = self.get_all_players()
         for elem in all_players:
-            if elem.name == name:
+            if elem.name in name:
                 return elem
