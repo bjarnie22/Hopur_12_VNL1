@@ -18,7 +18,6 @@ class Main_UI:
         print("*                                          *")
         print("********************************************")
 
-
     def input_prompt(self):
         while True:
             print ("im in the loop")
