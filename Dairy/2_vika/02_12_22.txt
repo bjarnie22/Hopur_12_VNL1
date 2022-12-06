@@ -1,0 +1,32 @@
+
+                    <-----> Föstudagur <------>
+    <<<<< 2 Desember 2022 / 12:00 PM / Discord fundur >>>>>
+
+                     <-----> ATTENDEES <------>
+              - Bjarni, Ingólfur, Ólafur, Óskar, Erik
+
+                      <-----> AGENDA <------>
+                    ## LAST MEETING FOLLOW-UP ##
+    - Bjarni og Ingólfur héldu áfram með data og model layerinn 
+    - Ólafur og Óskar voru áfram með UI layerinn og gekk vel
+    - Erik fór í að bæta kröfulistann.
+
+                    <-----> ACTION ITEMS <----->
+    - það var skipt hópnum aftur upp þar sem Ingólfur og Erik fóru saman í 
+      skýrsluna þar sem planið er að update hana með öllum þeim breytingum sem
+      hafa orðið í hönnuninni á meðan við höfum verið að kóða.
+    - Ólafur og Óskar halda áfram með UI-ið og Bjarni er nánast búinn með 
+      bæði data og logic layerinn, hann hefur allavega ekki miklar áhyggjur af 
+      þeim layerum.
+
+
+                      <-----> NOTES <------>
+    - Það er orðin föst tímasetning hjá okkur með fundina að það er alltaf um hádegi
+      sem hentar greinilega öllum, sem er bara gott.
+    - Hádegisfundirnir hjá okkur fara yfirleitt í klukkutíma spjall um það sem var gert 
+      daginn áður, þar sem hver og einn segir frá sínum aðgerðum sem þeir gerðu þann daginn.
+
+                    <-----> NEXT DAY AGENDA <------>
+    - Næsta mánudag verður farið í að klára allveg UI-ið, svo það sé hægt að reyna 
+      tengja UI-ið við wrapperinn sem Bjarni er með klárann fyrir UI-ið
+

@@ -1,30 +1,25 @@
 
-              <-----> Mánudagur <------>
-    <<<<< 6 Desember 2022 / 12:00 PM / Discord fundur >>>>>
+              <-----> Þriðjudagur <------>
+    <<<<< 6 Desember 2022 / 10:00 PM / Discord fundur >>>>>
 
                      <-----> ATTENDEES <------>
               - Bjarni, Ingólfur, Ólafur, Óskar, Erik
 
                       <-----> AGENDA <------>
                     ## LAST MEETING FOLLOW-UP ##
-- Bjarni heldur áfram með logic og data layerinn
-- Óskar og Óli með UI-ið
-- Erik og Ingó fóru í skýrsluna, þar sem þeir ætla að update-a hana í takt við það sem er búið að gerast í kóðanum.. 
-- Erik for í að upfæra kröfulistann, og ritin
-- Ingó fór í að upfæra happy pathið eins og var samþykkt.
+- Það var farið í að reyna klára UI layerinn
 
                     <-----> ACTION ITEMS <----->
-- Erik fór í að virkja kóðann
-- Óskar í UI
-- Óli fór í kröfulistann svo Bjarni gæti klárað það sem væri eftir hjá honum
-- Ingó fór í skýrsluna
-
-
-                      <-----> NOTES <------>
-
+- Það var tekinn morgun fundur þar sem var gefið update á því sem hvað
+  hver og einn gerði og svo var ákveðið að Ingólfur tæki skýrsluna alfarið 
+  að sér. Ingólfur tók smá fund með Gylfa og fékk þar staðfestingu á því 
+  að happy pathið ætti ekki að vera í figma, þar sem það væri betra að print 
+  screena beint af consolinu og fá þannig nákvæmlega hvernig þetta lítur út..
+- Óli kláraði beinagrindina fyrir UI, case mappið.
+- Óskar og Óli kláruðu Match klasann
+- Erik fór að láta view tournament klasann virka, svo það væri hægt að nota hann.
+                     
 
                     <-----> NEXT DAY AGENDA <------>
-- Fundurinn verður tekinn snemma, þar sem Ingó getur ekki verið frá 12 - 3
-- 
+- Bara haldið áfram á þessari braut…
     
-
