@@ -1,4 +1,5 @@
 from UI.tournament_ui import Tournament
+from UI.match_ui import Match
 
 
 #Create a tournament
@@ -10,7 +11,7 @@ from UI.tournament_ui import Tournament
 #
 class Admin_UI:
     def __init__(self):
-        print("inside admin_ui")
+        pass
 
     def admin_menu(self):
         print("***********************************************")
@@ -19,33 +20,38 @@ class Admin_UI:
         print("*       (1)  Create a new tournament?         *")
         print("*       (2)  Start a tournament               *")
         print("*       (3)  View a tournament                *")
-        print("*       (4)  Edit matches                     *")
+        print("*       (4)  Update a score for a  matches    *")
+        print("*       (5)  Change date for a  match         *")
         print("*       (b)  go back?                         *")
         print("*                                             *")
         print("***********************************************")
 
+
     def input_prompt_for_admin_menu(self):
+        tournament = Tournament()
+        match_var= Match()
         while True:
             self.admin_menu()
             command = input("Enter your command: ")
             command = command.lower()
-            if command == "q":
-                print("you are quitting the program")
+            if command == "b":
+                print("you are going back")
                 break
             elif command == "1":
-                create_a_new_tournament = Tournament()
-                create_a_new_tournament.input_prompt_for_create_a_tournament_menu()
-                print("You pressed 1")
-
+                print("You pressed 1")	
+                tournament.input_prompt_for_create_a_tournament_menu()
             elif command == "2":
                  print("You pressed 2")
-                #captain_user.captain_menu1()
+                 tournament.input_prompt_for_the_calculated_schedule_of_the_matches()
             elif command == "3":
-                view_tournament = Tournament()
                 print("You pressed 3")
-                view_tournament.input_prompt_for_view_tournament_main_menu()
+                tournament.input_prompt_for_view_tournament_main_menu()
             elif command == "4":
                 print("You pressed 4")
+                match_var.choose_match_id()
+            elif command == "5":
+                print("You pressed 5")
+                match_var.choose_match_id_to_change_a_date_for_a_match()
             elif command == "b":
                 print("You are going back")
                 break

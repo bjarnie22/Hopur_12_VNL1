@@ -1,61 +1,35 @@
+from UI.tournament_ui import Tournament
+from UI.match_ui import Match
+
 class Captain_UI:
     def __init__(self):
         print("inside captain_ui")
 
     def menu_output(self):
-            #current_tournament = current_tournament()
-            #current_tournament.menu()
-            #(2)
-            print("********************************************")
-            print("*               Hello Captain!             *")
-            print("*                                          *")
-            print("*       (1)  see teams and players?        *")
-            print("*       (2)  see upcoming matches?         *")
-            print("*       (3)  see completed matches?        *")
-            print("*       (4)  see table?                    *")
-            print("*       (5)  view player stats?            *")
-            print("*       (6)  add score for played game     *")
-            print("*       (b)  go back?                      *")
-            print("*                                          *")
-            print("********************************************")
+        print("********************************************")
+        print("*               Hello Captain!             *")
+        print("*                                          *")
+        print("*       (1)  View tournament               *")
+        print("*       (2)  Add score for played game     *")
+        print("*       (b)  go back?                      *")
+        print("*                                          *")
+        print("********************************************")
 
     def input_prompt(self):
+        tournament = Tournament()
+        match_var= Match()
         while True:
-            print ("im in the captain loop")
             self.menu_output()
             command = input("Enter your command: ")
             command = command.lower()
-            if command == "q":
-                print("you are quitting the program")
-                return "q"
-
-            elif command == "b":
+            if command == "b":
                 print("you are going back")
-                return "b"
-
+                break
             elif command == "1":
                 print("You pressed 1")
-                #myndi prenta alla öll lið eftir team ID
-                #myndi prenta leikmenn með sama ID
-
+                tournament.input_prompt_for_view_tournament_main_menu()
             elif command == "2":
                 print("You pressed 2")
-                #myndi prenta viðureignir liðana
-
-            elif command == "3":
-                print("you pressed 3")
-                #myndi prenta niðurstöður fyrverandi viðureigna
-
-            elif command == "4":
-                print("You pressed 4")
-                #myndi prenta stöðu mótsins
-
-            #elif command == "5": = B krafa
-                #print("you pressed 5")
-                #myndi prenta stöðuna í mótinu
-
-            elif command == 6:
-               print("you pressed 6")
-
+                match_var.choose_match_id_captain()
             else:
                 print("invalid input, please try again")
