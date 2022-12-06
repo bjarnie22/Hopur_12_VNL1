@@ -98,3 +98,28 @@ class Match_data:
                 row["qp_player_h_4"],row["qp_player_a_1"],row["qp_player_a_2"],row["qp_player_a_3"],row["qp_player_a_4"]))
 
         return ret_list
+
+    
+    def create_match_schedule(self, start_date, end_date, team_list):
+        pass
+        """ Create a schedule for the teams in the list and return it"""
+        s = []
+
+        if len(team_list) % 2 == 1: team_list = team_list + ["BYE"]
+
+        for i in range(len(team_list)-1):
+
+            mid = int(len(team_list) / 2)
+            l1 = list[:mid]
+            l2 = list[mid:]
+            l2.reverse()    
+
+            # Switch sides after each round
+            if(i % 2 == 1):
+                s = s + [ zip(l1, l2) ]
+            else:
+                s = s + [ zip(l2, l1) ]
+
+            team_list.insert(1, team_list.pop())
+
+        return s

@@ -86,3 +86,9 @@ class Data_Wrapper:
         """Calls on update_result, with a match id and the new result as a parameters
         in match_data"""
         return self.match_data.update_result(match_id, result)
+    
+    def create_match_schedule(self):
+        """"""
+        tournament_info = self.get_tournament_info()
+        team_list = self.get_all_teams()
+        return self.create_match_schedule(tournament_info.start_date, tournament_info.end_date, team_list)
