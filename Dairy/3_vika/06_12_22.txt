@@ -1,0 +1,30 @@
+
+              <-----> Mánudagur <------>
+    <<<<< 6 Desember 2022 / 12:00 PM / Discord fundur >>>>>
+
+                     <-----> ATTENDEES <------>
+              - Bjarni, Ingólfur, Ólafur, Óskar, Erik
+
+                      <-----> AGENDA <------>
+                    ## LAST MEETING FOLLOW-UP ##
+- Bjarni heldur áfram með logic og data layerinn
+- Óskar og Óli með UI-ið
+- Erik og Ingó fóru í skýrsluna, þar sem þeir ætla að update-a hana í takt við það sem er búið að gerast í kóðanum.. 
+- Erik for í að upfæra kröfulistann, og ritin
+- Ingó fór í að upfæra happy pathið eins og var samþykkt.
+
+                    <-----> ACTION ITEMS <----->
+- Erik fór í að virkja kóðann
+- Óskar í UI
+- Óli fór í kröfulistann svo Bjarni gæti klárað það sem væri eftir hjá honum
+- Ingó fór í skýrsluna
+
+
+                      <-----> NOTES <------>
+
+
+                    <-----> NEXT DAY AGENDA <------>
+- Fundurinn verður tekinn snemma, þar sem Ingó getur ekki verið frá 12 - 3
+- 
+    
+
