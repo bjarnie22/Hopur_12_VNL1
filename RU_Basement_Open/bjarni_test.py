@@ -109,6 +109,6 @@ AvB = Match("27/09/2022", "2", "3")
 
 #a.create_match(AvB)
 
-#a.postpone_match("1", "1/12/2022")
+a.postpone_match("1", "1/12/2022")
 
 #a.update_result("0", "6-1")

@@ -21,7 +21,7 @@ class Match_data:
         self.create_match(update[0], "w")
         try:
             for match in update[1:]:
-                create_match(match)
+                self.create_match(match)
         except ValueError:
             pass
     
@@ -37,7 +37,7 @@ class Match_data:
         self.create_match(update[0], "w")
         try:
             for match in update[1:]:
-                create_match(match)
+                self.create_match(match)
         except ValueError:
             pass
 
