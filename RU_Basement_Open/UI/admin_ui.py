@@ -41,7 +41,9 @@ class Admin_UI:
                  print("You pressed 2")
                 #captain_user.captain_menu1()
             elif command == "3":
+                view_tournament = Tournament()
                 print("You pressed 3")
+                view_tournament.input_prompt_for_view_tournament_main_menu()
             elif command == "4":
                 print("You pressed 4")
             elif command == "b":

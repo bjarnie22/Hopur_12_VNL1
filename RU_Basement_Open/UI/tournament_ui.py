@@ -1,3 +1,8 @@
+from data.association_data import Association_data
+from data.team_data import Team_data
+from data.player_data import Player_data
+from data.tournament_data import Tournament_data
+
 class Tournament():
     def __init__(self):
         pass
@@ -140,7 +145,11 @@ class Tournament():
                 print("you are going back")
                 break
             elif command == "1":
-                self.input_prompt_for_list_of_teams()
+                self.input_prompt_for_list_of_associations_and_their_teams()
+            elif command == "2":
+                self.input_prompt_for_list_of_upcoming_and_played_matches(id)
+            elif command == "3":
+                self.input_prompt_for_list_of_current_standing(id)
             else:
                 print("invalid input, please try again")
 
@@ -149,7 +158,27 @@ class Tournament():
 # Case 3 in the wire frame
             # Here we would need a list of teams, to which association they belong to
             # and list of players.
-            pass
+            counter = 1
+            association_list = Association_data()
+            association_rows = association_list.get_all_associations()
+            for element in association_rows:
+                print(counter, element)
+                counter += 1
+            which_association = input("which association would you like to check out? To go back press b ")
+            if which_association == "b":
+                self.input_prompt_for_view_tournament_main_menu()
+            team_list = Team_data()
+            all_teams = team_list.get_all_teams()
+            team_array = []
+            for i in range(0, counter):
+                if which_association == "i":
+                    for element in all_teams:
+                        if element == "associiation_id":
+                            team_array.append(element)
+            print(team_array.merged())
+            """!!!kodinn her fyrir ofan tharf ad vera vel skodadur bara ovirk
+            beinagrind af thvi veit ekki hvernig a ad prufa hann vegna gagnaleysis!!!"""
+
 
     def input_prompt_for_list_of_associations_and_their_teams(self):
         while True:
@@ -163,7 +192,7 @@ class Tournament():
                 self.input_prompt_for_list_of_players(command)
                 # Here we need to check if the id is valid or not.
 
-    def list_of_players_for_a_choose_team(self):
+    def list_of_players_for_a_chosen_team(self):
         pass
 # Case 4 in the wire frame
             # Here we would need a list of players for a choosen team.
