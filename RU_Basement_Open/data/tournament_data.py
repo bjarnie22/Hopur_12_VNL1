@@ -30,7 +30,7 @@ class Tournament_data:
         ret_list = []
         with open(self.file_name, newline='', encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
-            for row in reader: # Takes all required information and makes it into
+            for row in reader: # Takes all required information and makes it into a tournament instance
                 ret_list.append(Tournament(row["tournament_name"], row["admin_name"],\
                 row["admin_phone"], row["admin_email"], row["start_date"], row["end_date"],\
                 row["number_of_rounds"]))

@@ -1,5 +1,7 @@
 import csv
 from model.match import Match
+from datetime import datetime, timedelta
+import random
 
 class Match_data:
     """Initializes the Match data class by getting the required file"""
@@ -8,7 +10,6 @@ class Match_data:
 
 
     def postpone_match(self, match_id, date):
-        pass
         """Overwrites the csv file for a chosen match, changes the date:
            postpones the match"""
 
@@ -100,26 +101,107 @@ class Match_data:
         return ret_list
 
     
-    def create_match_schedule(self, start_date, end_date, team_list):
-        pass
-        """ Create a schedule for the teams in the list and return it"""
-        s = []
+    def create_match_schedule(self, start_date, end_date, rounds, team_list):
+        """ Create a schedule for all teams in the list"""
+        start = datetime.strptime(start_date, "%d/%m/%Y")
+        end = datetime.strptime(end_date, "%d/%m/%Y")
+        delta = end - start
+        days = delta.days
+        interval = days/((len(team_list)-1)* int(rounds))
+        
+        match_list = []
 
-        if len(team_list) % 2 == 1: team_list = team_list + ["BYE"]
+        for i in range(len(team_list)):
+            for j in range(i+1, len(team_list)):
+                home_team = team_list[i].team_id
+                away_team = team_list[j].team_id
+                match_list.append(Match("", home_team, away_team))
 
-        for i in range(len(team_list)-1):
+        random.shuffle(match_list)
+        play_date = start    
+        for match in match_list:
+            self.create_match(Match(play_date, match.home_team, match.away_team,"",len(self.get_all_matches())))
+            play_date = play_date + timedelta(days= interval)
+        
+        previous_list = match_list
 
-            mid = int(len(team_list) / 2)
-            l1 = list[:mid]
-            l2 = list[mid:]
-            l2.reverse()    
+        for i in range(int(rounds)-1):
+            copy_list = []
+
+            for match in previous_list:
+                copy_list.append(Match("", match.away_team, match.home_team))
+
+            random.shuffle(copy_list)
+
+            for match in copy_list:
+                self.create_match(Match(play_date, match.home_team, match.away_team,"",len(self.get_all_matches())))
+                play_date = play_date + timedelta(days= interval)
+
+            previous_list = copy_list
+
+
+
+
+
+
+
+
+
+
+    #def create_match_schedule_Ö(self, start_date, end_date, team_list):
+     #   pass
+      #  """ Create a schedule for the teams in the list and return it"""
+       # s = []
+
+        #if len(team_list) % 2 == 1: team_list = team_list + ["BYE"]
+
+        #for i in range(len(team_list)-1):
+#
+ #           mid = int(len(team_list) / 2)
+  #          l1 = list[:mid]
+   #         l2 = list[mid:]
+    #        l2.reverse()    
 
             # Switch sides after each round
-            if(i % 2 == 1):
-                s = s + [ zip(l1, l2) ]
-            else:
-                s = s + [ zip(l2, l1) ]
+#            if(i % 2 == 1):
+ #               s = s + [ zip(l1, l2) ]
+  #          else:
+   #             s = s + [ zip(l2, l1) ]
 
-            team_list.insert(1, team_list.pop())
+#            team_list.insert(1, team_list.pop())
 
-        return s
+#        return s
+
+def create_match_schedule(self, start_date, end_date, rounds, team_list):
+    pass
+    """ Create a schedule for the teams in the list and return it"""
+    start = datetime.strptime(start_date, "%d/%m/%Y")
+    end = datetime.strptime(end_date, "%d/%m/%Y")
+    delta = end - start
+    days = delta.days
+    interval = days/(len(team_list)-1)
+        
+    match_list = []
+
+    for i in range(len(team_list)):
+        for j in range(i+1, len(team_list)):
+            home_team = team_list[i].team_id
+            away_team = team_list[j].team_id
+            match_list.append(Match("", home_team, away_team))
+        
+    if int(rounds) > 1:
+        for i in range(int(rounds)-1):
+            copy_list = []
+
+            for match in match_list:
+                copy_list.append(Match("", match.away_team, match.home_team))
+
+            match_list = match_list + copy_list
+
+    random.shuffle(match_list)
+
+    play_date = start
+
+    for match in match_list:
+        self.create_match(Match(play_date, match.home_team, match.away_team,"",len(self.get_all_matches())))
+        play_date = play_date + timedelta(days= interval)

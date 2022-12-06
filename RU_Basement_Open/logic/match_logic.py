@@ -41,5 +41,5 @@ class Match_logic:
 
     def create_match_schedule(self):
         """"""
-        pass
+        return self.data_wrapper.create_match_schedule()
         

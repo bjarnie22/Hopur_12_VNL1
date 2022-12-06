@@ -80,3 +80,7 @@ class Logic_Wrapper:
     def update_result(self, match_id, result):
         """Calls on update_result in match_logic, with a match id and the new result as a parameters"""
         return self.match_logic.update_result(match_id, result)
+    
+    def create_match_schedule(self):
+        """Calls on create_match schedule, """
+        return self.match_logic.create_match_schedule()
