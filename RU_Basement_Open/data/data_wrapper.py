@@ -90,5 +90,6 @@ class Data_Wrapper:
     def create_match_schedule(self):
         """"""
         tournament_info = self.get_tournament_info()
+        tournament = tournament_info[0]
         team_list = self.get_all_teams()
-        return self.create_match_schedule(tournament_info.start_date, tournament_info.end_date, team_list)
+        return self.match_data.create_match_schedule(tournament.start_date, tournament.end_date, tournament.number_of_rounds, team_list)

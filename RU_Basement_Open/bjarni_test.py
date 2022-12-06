@@ -37,9 +37,9 @@ listi2 = a.get_all_teams()
 
 listi3 = a.get_all_associations()
 
-#print()
-#for elem in listi3:
- #   print(elem.name)
+print()
+for elem in listi3:
+    print(elem.name)
 
 #print()
 #print("Tournament information")
@@ -105,10 +105,17 @@ listi4 = a.get_tournament_info()
 #new_tourny = Tournament(nafn, name, nmr, mail, start, end, rnds)
 #a.create_tournament(new_tourny)
 
-AvB = Match("27/09/2022", "2", "3")
+#AvB = Match("27/09/2022", "2", "3")
 
 #a.create_match(AvB)
 
-a.postpone_match("1", "1/12/2022")
+#a.postpone_match("1", "01/12/2022")
 
 #a.update_result("0", "6-1")
+
+#a.create_match_schedule()
+
+
+#b = Match(date, home_team, away_team)
+
+#a.create_match(match)
