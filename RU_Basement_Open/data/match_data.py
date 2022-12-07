@@ -2,6 +2,7 @@ import csv
 from model.match import Match
 from datetime import datetime, timedelta
 import random
+import math
 
 class Match_data:
     """Initializes the Match data class by getting the required file"""
@@ -27,13 +28,53 @@ class Match_data:
             pass
     
 
-    def update_result(self, match_id, result):
+    def update_result(self, match_id, match):
         """Overwrites the csv file for a chosen match, changes the final result"""
         match_list = self.get_all_matches()
-
-        for match in match_list:
-            if match.match_id == match_id:
-                match.result = result
+    
+        for elem in match_list:
+            if elem.match_id == match_id:
+                elem.result = match.result
+                elem.winner = match.winner
+                elem.round1 = match.round1
+                elem.round1_home_player = match.round1_home_player
+                elem.round1_away_player = match.round1_away_player
+                elem.round2 = match.round2
+                elem.round2_home_player = match.round2_home_player
+                elem.round2_away_player = match.round2_away_player
+                elem.round3 = match.round3
+                elem.round3_home_player = match.round3_home_player
+                elem.round3_away_player = match.round3_away_player
+                elem.round4 = match.round4
+                elem.round4_home_player = match.round4_home_player
+                elem.round4_away_player = match.round4_away_player
+                elem.round5 = match.round5
+                elem.round5_home_player1 = match.round5_home_player1
+                elem.round5_home_player2 = match.round5_away_player2
+                elem.round5_away_player1 = match.round5_away_player1
+                elem.round5_away_player2 = match.round5_away_player2
+                elem.round6 = match.round6
+                elem.round6_home_player1 = match.round6_home_player1
+                elem.round6_home_player2 = match.round6_home_player2
+                elem.round6_away_player1 = match.round6_away_player1
+                elem.round6_away_player2 = match.round6_away_player2
+                elem.round7 = match.round7
+                elem.round7_home_player1 = match.round7_home_player1
+                elem.round7_home_player2 = match.round7_home_player2
+                elem.round7_home_player3 = match.round7_home_player3
+                elem.round7_home_player4 = match.round7_home_player4
+                elem.round7_away_player1 = match.round7_away_player1
+                elem.round7_away_player2 = match.round7_away_player2
+                elem.round7_away_player3 = match.round7_away_player3
+                elem.round7_away_player4 = match.round7_away_player4
+                elem.qp_player_h_1 = match.qp_player_h_1
+                elem.qp_player_h_2 = match.qp_player_h_2
+                elem.qp_player_h_3 = match.qp_player_h_3
+                elem.qp_player_h_4 = match.qp_player_h_4
+                elem.qp_player_a_1 = match.qp_player_a_1
+                elem.qp_player_a_2 = match.qp_player_a_2
+                elem.qp_player_a_3 = match.qp_player_a_3
+                elem.qp_player_a_4 = match.qp_player_a_4
 
         self.create_match(match_list[0], "w")
         try:
@@ -46,15 +87,17 @@ class Match_data:
 
     def create_match(self, match, append_or_overwrite = "a"):
         """Writes into csv file all required match information"""
+        match.match_id = len(self.get_all_matches())
+
         with open(self.file_name, append_or_overwrite, newline='', encoding="utf-8") as csvfile:
 
-            fieldnames = ["date","home_team","away_team","result","winner","match_id","leg1","leg1_home_player",\
-            "leg1_away_player","leg2","leg2_home_player","leg2_away_player","leg3","leg3_home_player",\
-            "leg3_away_player","leg4","leg4_home_player","leg4_away_player","leg5","leg5_home_player1",\
-            "leg5_home_player2","leg5_away_player1","leg5_away_player2","leg6","leg6_home_player1",\
-            "leg6_home_player2","leg6_away_player1","leg6_away_player2","leg7","leg7_home_player1",\
-            "leg7_home_player2","leg7_home_player3","leg7_home_player4","leg7_away_player1",\
-            "leg7_away_player2","leg7_away_player3","leg7_away_player4","qp_player_h_1","qp_player_h_2",\
+            fieldnames = ["date","home_team","away_team","result","winner","match_id","round1","round1_home_player",\
+            "round1_away_player","round2","round2_home_player","round2_away_player","round3","round3_home_player",\
+            "round3_away_player","round4","round4_home_player","round4_away_player","round5","round5_home_player1",\
+            "round5_home_player2","round5_away_player1","round5_away_player2","round6","round6_home_player1",\
+            "round6_home_player2","round6_away_player1","round6_away_player2","round7","round7_home_player1",\
+            "round7_home_player2","round7_home_player3","round7_home_player4","round7_away_player1",\
+            "round7_away_player2","round7_away_player3","round7_away_player4","qp_player_h_1","qp_player_h_2",\
             "qp_player_h_3","qp_player_h_4","qp_player_a_1","qp_player_a_2","qp_player_a_3",\
             "qp_player_a_4"]
 
@@ -63,22 +106,22 @@ class Match_data:
                 writer.writeheader()
             
             writer.writerow({"date": match.date, "home_team": match.home_team, "away_team": match.away_team, "result":match.result,\
-            "winner": match.winner, "leg1": match.leg1, "leg1_home_player": match.leg1_home_player,\
-            "leg1_away_player": match.leg1_away_player, "leg2": match.leg2, "leg2_home_player": match.leg2_home_player,\
-            "leg2_away_player": match.leg2_away_player, "leg3": match.leg3, "leg3_home_player": match.leg3_home_player,\
-            "leg3_away_player": match.leg3_away_player, "leg4": match.leg4, "leg4_home_player": match.leg4_home_player,\
-            "leg4_away_player": match.leg4_away_player, "leg5": match.leg5,"leg5_home_player1": match.leg5_home_player1,\
-            "leg5_home_player2": match.leg5_home_player2, "leg5_away_player1": match.leg5_away_player1,\
-            "leg5_away_player2": match.leg5_away_player2, "leg6": match.leg6, "leg6_home_player1": match.leg6_home_player1,\
-            "leg6_home_player2": match.leg6_home_player2, "leg6_away_player1": match.leg6_away_player1,\
-            "leg6_away_player2": match.leg6_away_player2, "leg7": match.leg7, "leg7_home_player1": match.leg7_home_player1,\
-            "leg7_home_player2": match.leg7_home_player2, "leg7_home_player3": match.leg7_home_player3,\
-            "leg7_home_player4": match.leg7_home_player4, "leg7_away_player1": match.leg7_away_player1,\
-            "leg7_away_player2": match.leg7_away_player2, "leg7_away_player3": match.leg7_away_player3,\
-            "leg7_away_player4": match.leg7_away_player4, "qp_player_h_1": match.qp_player_h_1,\
+            "winner": match.winner, "match_id": match.match_id, "round1": match.round1, "round1_home_player": match.round1_home_player,\
+            "round1_away_player": match.round1_away_player, "round2": match.round2, "round2_home_player": match.round2_home_player,\
+            "round2_away_player": match.round2_away_player, "round3": match.round3, "round3_home_player": match.round3_home_player,\
+            "round3_away_player": match.round3_away_player, "round4": match.round4, "round4_home_player": match.round4_home_player,\
+            "round4_away_player": match.round4_away_player, "round5": match.round5,"round5_home_player1": match.round5_home_player1,\
+            "round5_home_player2": match.round5_home_player2, "round5_away_player1": match.round5_away_player1,\
+            "round5_away_player2": match.round5_away_player2, "round6": match.round6, "round6_home_player1": match.round6_home_player1,\
+            "round6_home_player2": match.round6_home_player2, "round6_away_player1": match.round6_away_player1,\
+            "round6_away_player2": match.round6_away_player2, "round7": match.round7, "round7_home_player1": match.round7_home_player1,\
+            "round7_home_player2": match.round7_home_player2, "round7_home_player3": match.round7_home_player3,\
+            "round7_home_player4": match.round7_home_player4, "round7_away_player1": match.round7_away_player1,\
+            "round7_away_player2": match.round7_away_player2, "round7_away_player3": match.round7_away_player3,\
+            "round7_away_player4": match.round7_away_player4, "qp_player_h_1": match.qp_player_h_1,\
             "qp_player_h_2": match.qp_player_h_2, "qp_player_h_3": match.qp_player_h_3, "qp_player_h_4": match.qp_player_h_4,\
             "qp_player_a_1": match.qp_player_a_1,"qp_player_a_2": match.qp_player_a_2,"qp_player_a_3": match.qp_player_a_3,\
-            "qp_player_a_4": match.qp_player_a_4, "match_id": match.match_id})
+            "qp_player_a_4": match.qp_player_a_4})
 
     
     def get_all_matches(self):
@@ -89,14 +132,14 @@ class Match_data:
 
             for row in reader:
                 ret_list.append(Match(row["date"],row["home_team"],row["away_team"],row["result"],row["winner"],row["match_id"],\
-                row["leg1"],row["leg1_home_player"],row["leg1_away_player"],row["leg2"],row["leg2_home_player"],\
-                row["leg2_away_player"],row["leg3"],row["leg3_home_player"],row["leg3_away_player"],row["leg4"],\
-                row["leg4_home_player"],row["leg4_away_player"],row["leg5"],row["leg5_home_player1"],\
-                row["leg5_home_player2"],row["leg5_away_player1"],row["leg5_away_player2"],row["leg6"],\
-                row["leg6_home_player1"],row["leg6_home_player2"],row["leg6_away_player1"],row["leg6_away_player2"],\
-                row["leg7"],row["leg7_home_player1"],row["leg7_home_player2"],row["leg7_home_player3"],
-                row["leg7_home_player4"],row["leg7_away_player1"],row["leg7_away_player2"],row["leg7_away_player3"],\
-                row["leg7_away_player4"],row["qp_player_h_1"],row["qp_player_h_2"],row["qp_player_h_3"],\
+                row["round1"],row["round1_home_player"],row["round1_away_player"],row["round2"],row["round2_home_player"],\
+                row["round2_away_player"],row["round3"],row["round3_home_player"],row["round3_away_player"],row["round4"],\
+                row["round4_home_player"],row["round4_away_player"],row["round5"],row["round5_home_player1"],\
+                row["round5_home_player2"],row["round5_away_player1"],row["round5_away_player2"],row["round6"],\
+                row["round6_home_player1"],row["round6_home_player2"],row["round6_away_player1"],row["round6_away_player2"],\
+                row["round7"],row["round7_home_player1"],row["round7_home_player2"],row["round7_home_player3"],
+                row["round7_home_player4"],row["round7_away_player1"],row["round7_away_player2"],row["round7_away_player3"],\
+                row["round7_away_player4"],row["qp_player_h_1"],row["qp_player_h_2"],row["qp_player_h_3"],\
                 row["qp_player_h_4"],row["qp_player_a_1"],row["qp_player_a_2"],row["qp_player_a_3"],row["qp_player_a_4"]))
 
         return ret_list
@@ -108,7 +151,8 @@ class Match_data:
         end = datetime.strptime(end_date, "%d/%m/%Y")
         delta = end - start
         days = delta.days
-        interval = days/((len(team_list)-1)* int(rounds))
+        interval = days/(int(rounds)*(len(team_list)*(len(team_list)-1))/2)
+        interval = math.ceil(interval)
         
         match_list = []
 
@@ -121,7 +165,7 @@ class Match_data:
         random.shuffle(match_list)
         play_date = start    
         for match in match_list:
-            self.create_match(Match(play_date, match.home_team, match.away_team,"",len(self.get_all_matches())))
+            self.create_match(Match(play_date.strftime("%d/%m/%Y"), match.home_team, match.away_team,"","",len(self.get_all_matches())))
             play_date = play_date + timedelta(days= interval)
         
         previous_list = match_list
@@ -135,7 +179,7 @@ class Match_data:
             random.shuffle(copy_list)
 
             for match in copy_list:
-                self.create_match(Match(play_date, match.home_team, match.away_team,"","",len(self.get_all_matches())))
+                self.create_match(Match(play_date.strftime("%d/%m/%Y"), match.home_team, match.away_team,"","",len(self.get_all_matches())))
                 play_date = play_date + timedelta(days= interval)
 
             previous_list = copy_list
@@ -147,39 +191,39 @@ class Match_data:
 
         for elem in match_list:
             if elem.match_id == match_id:
-                elem.result = result
-                elem.winner = winner
-                elem.leg1 = match.leg1
-                elem.leg1_home_player = match.leg1_home_player
-                elem.leg1_away_player = match.leg1_away_player
-                elem.leg2 = match.leg2
-                elem.leg2_home_player = match.leg2_home_player
-                elem.leg2_away_player = match.leg2_away_player
-                elem.leg3 = match.leg3
-                elem.leg3_home_player = match.leg3_home_player
-                elem.leg3_away_player = match.leg3_away_player
-                elem.leg4 = match.leg4
-                elem.leg4_home_player = match.leg4_home_player
-                elem.leg4_away_player = match.leg4_away_player
-                elem.leg5 = match.leg5
-                elem.leg5_home_player1 = match.leg5_home_player1
-                elem.leg5_home_player2 = match.leg5_away_player2
-                elem.leg5_away_player1 = match.leg5_away_player1
-                elem.leg5_away_player2 = match.leg5_away_player2
-                elem.leg6 = match.leg6
-                elem.leg6_home_player1 = match.leg6_home_player1
-                elem.leg6_home_player2 = match.leg6_home_player2
-                elem.leg6_away_player1 = match.leg6_away_player1
-                elem.leg6_away_player2 = match.leg6_away_player2
-                elem.leg7 = match.leg7
-                elem.leg7_home_player1 = match.leg7_home_player1
-                elem.leg7_home_player2 = match.leg7_home_player2
-                elem.leg7_home_player3 = match.leg7_home_player3
-                elem.leg7_home_player4 = match.leg7_home_player4
-                elem.leg7_away_player1 = match.leg7_away_player1
-                elem.leg7_away_player2 = match.leg7_away_player2
-                elem.leg7_away_player3 = match.leg7_away_player3
-                elem.leg7_away_player4 = match.leg7_away_player4
+                elem.result = match.result
+                elem.winner = match.winner
+                elem.round1 = match.round1
+                elem.round1_home_player = match.round1_home_player
+                elem.round1_away_player = match.round1_away_player
+                elem.round2 = match.round2
+                elem.round2_home_player = match.round2_home_player
+                elem.round2_away_player = match.round2_away_player
+                elem.round3 = match.round3
+                elem.round3_home_player = match.round3_home_player
+                elem.round3_away_player = match.round3_away_player
+                elem.round4 = match.round4
+                elem.round4_home_player = match.round4_home_player
+                elem.round4_away_player = match.round4_away_player
+                elem.round5 = match.round5
+                elem.round5_home_player1 = match.round5_home_player1
+                elem.round5_home_player2 = match.round5_away_player2
+                elem.round5_away_player1 = match.round5_away_player1
+                elem.round5_away_player2 = match.round5_away_player2
+                elem.round6 = match.round6
+                elem.round6_home_player1 = match.round6_home_player1
+                elem.round6_home_player2 = match.round6_home_player2
+                elem.round6_away_player1 = match.round6_away_player1
+                elem.round6_away_player2 = match.round6_away_player2
+                elem.round7 = match.round7
+                elem.round7_home_player1 = match.round7_home_player1
+                elem.round7_home_player2 = match.round7_home_player2
+                elem.round7_home_player3 = match.round7_home_player3
+                elem.round7_home_player4 = match.round7_home_player4
+                elem.round7_away_player1 = match.round7_away_player1
+                elem.round7_away_player2 = match.round7_away_player2
+                elem.round7_away_player3 = match.round7_away_player3
+                elem.round7_away_player4 = match.round7_away_player4
                 elem.qp_player_h_1 = match.qp_player_h_1
                 elem.qp_player_h_2 = match.qp_player_h_2
                 elem.qp_player_h_3 = match.qp_player_h_3

@@ -13,7 +13,6 @@ class Match_logic:
 
     def create_match(self, match):
         """"""
-        match.match_id = len(self.get_all_matches())
         return self.data_wrapper.create_match(match)
 
 

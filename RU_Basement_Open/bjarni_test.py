@@ -125,13 +125,11 @@ listi4 = a.get_tournament_info()
 
 #a.update_result("0", "6-1")
 
-#a.create_match_schedule()
+a.create_match_schedule()
 
 
 #b = Match(date, home_team, away_team)
 
 #a.create_match(match)
 
-mac = Match_UI()
-
-mac.match_list_to_choose_match_id()
+print()

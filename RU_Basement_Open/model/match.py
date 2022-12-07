@@ -1,5 +1,5 @@
 class Match:
-    def __init__(self,date,home_team,away_team,result="",winner="",match_id=-1,leg1="",leg1_home_player="",leg1_away_player="",leg2="",leg2_home_player="",leg2_away_player="",leg3="",leg3_home_player="",leg3_away_player="",leg4="",leg4_home_player="",leg4_away_player="",leg5="",leg5_home_player1="",leg5_home_player2="",leg5_away_player1="",leg5_away_player2="",leg6="",leg6_home_player1="",leg6_home_player2="",leg6_away_player1="",leg6_away_player2="",leg7="",leg7_home_player1="",leg7_home_player2="",leg7_home_player3="",leg7_home_player4="",leg7_away_player1="",leg7_away_player2="",leg7_away_player3="",leg7_away_player4="",qp_player_h_1="",qp_player_h_2="",qp_player_h_3="",qp_player_h_4="",qp_player_a_1="",qp_player_a_2="",qp_player_a_3="",qp_player_a_4=""):
+    def __init__(self,date,home_team,away_team,result="",winner="",match_id=-1,round1="",round1_home_player="",round1_away_player="",round2="",round2_home_player="",round2_away_player="",round3="",round3_home_player="",round3_away_player="",round4="",round4_home_player="",round4_away_player="",round5="",round5_home_player1="",round5_home_player2="",round5_away_player1="",round5_away_player2="",round6="",round6_home_player1="",round6_home_player2="",round6_away_player1="",round6_away_player2="",round7="",round7_home_player1="",round7_home_player2="",round7_home_player3="",round7_home_player4="",round7_away_player1="",round7_away_player2="",round7_away_player3="",round7_away_player4="",qp_player_h_1="",qp_player_h_2="",qp_player_h_3="",qp_player_h_4="",qp_player_a_1="",qp_player_a_2="",qp_player_a_3="",qp_player_a_4=""):
         self.date = date
         self.home_team = home_team
         self.away_team = away_team
@@ -7,43 +7,43 @@ class Match:
         self.winner = winner
         self.match_id = match_id
         
-        self.leg1 = leg1
-        self.leg1_home_player = leg1_home_player
-        self.leg1_away_player = leg1_away_player
+        self.round1 = round1
+        self.round1_home_player = round1_home_player
+        self.round1_away_player = round1_away_player
 
-        self.leg2 = leg2
-        self.leg2_home_player = leg2_home_player
-        self.leg2_away_player = leg2_away_player
+        self.round2 = round2
+        self.round2_home_player = round2_home_player
+        self.round2_away_player = round2_away_player
 
-        self.leg3 = leg3
-        self.leg3_home_player = leg3_home_player
-        self.leg3_away_player = leg3_away_player
-        self.leg4 = leg4
+        self.round3 = round3
+        self.round3_home_player = round3_home_player
+        self.round3_away_player = round3_away_player
 
-        self.leg4_home_player = leg4_home_player
-        self.leg4_away_player = leg4_away_player
-        
-        self.leg5 = leg5
-        self.leg5_home_player1 = leg5_home_player1
-        self.leg5_home_player2 = leg5_home_player2
-        self.leg5_away_player1 = leg5_away_player1
-        self.leg5_away_player2 = leg5_away_player2
-        
-        self.leg6 = leg6
-        self.leg6_home_player1 = leg6_home_player1
-        self.leg6_home_player2 = leg6_home_player2
-        self.leg6_away_player1 = leg6_away_player1
-        self.leg6_away_player2 = leg6_away_player2
-        
-        self.leg7 = leg7
-        self.leg7_home_player1 = leg7_home_player1
-        self.leg7_home_player2 = leg7_home_player2
-        self.leg7_home_player3 = leg7_home_player3
-        self.leg7_home_player4 = leg7_home_player4
-        self.leg7_away_player1 = leg7_away_player1
-        self.leg7_away_player2 = leg7_away_player2
-        self.leg7_away_player3 = leg7_away_player3
-        self.leg7_away_player4 = leg7_away_player4
+        self.round4 = round4
+        self.round4_home_player = round4_home_player
+        self.round4_away_player = round4_away_player
+
+        self.round5 = round5
+        self.round5_home_player1 = round5_home_player1
+        self.round5_home_player2 = round5_away_player2
+        self.round5_away_player1 = round5_away_player1
+        self.round5_away_player2 = round5_away_player2
+
+        self.round6 = round6
+        self.round6_home_player1 = round6_home_player1
+        self.round6_home_player2 = round6_home_player2
+        self.round6_away_player1 = round6_away_player1
+        self.round6_away_player2 = round6_away_player2
+
+        self.round7 = round7
+        self.round7_home_player1 = round7_home_player1
+        self.round7_home_player2 = round7_home_player2
+        self.round7_home_player3 = round7_home_player3
+        self.round7_home_player4 = round7_home_player4
+        self.round7_away_player1 = round7_away_player1
+        self.round7_away_player2 = round7_away_player2
+        self.round7_away_player3 = round7_away_player3
+        self.round7_away_player4 = round7_away_player4
 
         self.qp_player_h_1 = qp_player_h_1
         self.qp_player_h_2 = qp_player_h_2      
