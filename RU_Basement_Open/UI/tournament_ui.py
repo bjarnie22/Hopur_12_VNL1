@@ -151,7 +151,7 @@ class Tournament_UI():
                 print("you are going back")
                 break
             elif command == "1":
-                self.input_prompt_for_list_of_associations_and_their_teams()
+                self.list_of_associations_and_their_teams()
             elif command == "2":
                 self.input_prompt_for_list_of_upcoming_and_played_matches(id)
             elif command == "3":
@@ -163,59 +163,107 @@ class Tournament_UI():
     def list_of_associations_and_their_teams(self):
 # Case 3 in the wire frame
             # Here we would need a list of teams, to which association they belong to
-            # and list of players.
+            # and list of players
+        while True:
             all_lists = Logic_Wrapper()
             association_rows = all_lists.get_all_associations()
             team_rows = all_lists.get_all_teams()
             player_rows = all_lists.get_all_players()
             tournament_info_rows = all_lists.get_tournament_info()
+            associations = []
+            ass_pointer = []
+
+
+            print()
             print(f"{tournament_info_rows[0].tournament_name} by {tournament_info_rows[0].admin_name}")
             print()
-            print("All associtaions/teams/players", "\n")
+            print("All associtaions:")
+            print()
+            for i in range(35):
+                print("-",end='')
+            print()
             counter = 1
-            associations = []
+
             for element in association_rows:
                 print(counter, f"{element.name}:")
                 counter += 1
                 associations.append(element.name)
-            which_association = input("which association would you like to check out? To go back press b ")
+                ass_pointer.append(element)
+            for i in range(35):
+                print("-",end='')
+            print()
+
+            while True:
+                which_association = input("which association would you like to check out? To go back press b ")
+                if which_association == "1":
+                    print()
+                    break
+                elif which_association == "2":
+                    print()
+                    break
+                elif which_association == "3":
+                    print()
+                    break
+                if which_association == "b":
+                    print()
+                    break
+                else:
+                    print("Invalid input!")
+
             if which_association == "b":
-                self.input_prompt_for_view_tournament_main_menu()
-            which_ass = int(which_association)
+                break
+            self.output_for_associations_and_their_teams(int(which_association), associations, ass_pointer)
+
+
+
+
+    def output_for_associations_and_their_teams(self,option,list,pointer):
+        while True:
+            all_lists = Logic_Wrapper()
+            association_rows = all_lists.get_all_associations()
+            team_rows = all_lists.get_all_teams()
+            player_rows = all_lists.get_all_players()
+            tournament_info_rows = all_lists.get_tournament_info()
             team_array = []
             teamcounter = 1
-            print(associations[which_ass -1],":", "\n")
+            print(list[option -1],":")
+            self.information_output(pointer[option -1])
             for t in team_rows:
-                if int(t.association_id) == which_ass -1:
+                if int(t.association_id) == option -1:
                     print(teamcounter, f"{t.name}:")
                     teamcounter += 1
                     team_array.append(t.name)
+                    self.information_output(t)
                     for p in player_rows:
                         if p.team_id == t.team_id:
-                          if p.social_security_number == t.captain_id:
-                              print(f"{p.name:<25} (C)")
-                          else:
-                            print(f"{p.name:<25}")
-
-            which_team = input("To go back press b ")
-            if which_team == "b":
-                self.input_prompt_for_view_tournament_main_menu()
-
-
+                            if p.social_security_number == t.captain_id:
+                                print(f"{p.name:<25} (C)",end="\n")
+                                self.information_output(p)
+                            else:
+                                print(f"{p.name:<25}",end="\n")
+                                self.information_output(p)
+            input("Press enter to go back ")
+            break
 
 
+    def information_output(self, pointer):
+        print()
+        try:
+            print("{:<25}".format("Address:"), f"{pointer.address}")
+            print("{:<25}".format("Phone number:"), f"{pointer.phone_number}")
+        except:
+            print("{:<25}".format("Captain ID:"), f"{pointer.captain_id}", "\n")
 
-    def input_prompt_for_list_of_associations_and_their_teams(self):
-        while True:
-            self.list_of_associations_and_their_teams()
-            command = input("Enter the id of the team you would like to view and b if you would like to go back: ")
-            command = command.lower()
-            if command == "b":
-                print("you are going back")
-                break
-            else:
-                self.input_prompt_for_list_of_players(command)
-                # Here we need to check if the id is valid or not.
+        try:
+            print("{:<25}".format("Date of birth:"), f"{pointer.date_of_birth}")
+            print("{:<25}".format("SSN:"), f"{pointer.social_security_number}")
+            print("{:<25}".format("Email:"), f"{pointer.email}")
+            print("{:<25}".format("Mobile:"), f"{pointer.mobile}")
+            print()
+            print()
+        except:
+            print('')
+
 
     def list_of_players_for_a_chosen_team(self):
         pass

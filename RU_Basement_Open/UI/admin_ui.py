@@ -41,8 +41,8 @@ class Admin_UI:
                 print("You pressed 1")
                 tournament.input_prompt_for_create_a_tournament_menu()
             elif command == "2":
-                 print("You pressed 2")
-                 tournament.input_prompt_for_the_calculated_schedule_of_the_matches()
+                print("You pressed 2")
+                tournament.input_prompt_for_the_calculated_schedule_of_the_matches()
             elif command == "3":
                 print("You pressed 3")
                 tournament.input_prompt_for_view_tournament_main_menu()
