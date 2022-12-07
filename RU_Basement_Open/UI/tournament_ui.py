@@ -199,7 +199,6 @@ class Tournament_UI():
             print(team_array)
 
 
-
     def input_prompt_for_list_of_associations_and_their_teams(self):
         while True:
             self.list_of_associations_and_their_teams()
