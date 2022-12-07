@@ -177,7 +177,13 @@ class Tournament_UI():
             for element in association_rows:
                 print(counter, f"{element.name}:")
                 counter += 1
-                teams.append(element)
+                teams.append(element.name)
+            print(teams)
+            which_association = input("which association would you like to check out? To go back press b ")
+            if which_association == "b":
+                self.input_prompt_for_view_tournament_main_menu()
+            team_array = []
+            for i in range(1, counter+1):
                 for t in team_rows:
                     if t.association_id == element.association_id:
                         print(f"{t.name:<10}:")
@@ -187,13 +193,6 @@ class Tournament_UI():
                                     print(f"{p.name:<25} (C)")
                                 else:
                                     print(f"{p.name:<25}")
-            which_association = input("which association would you like to check out? To go back press b ")
-            if which_association == "b":
-                self.input_prompt_for_view_tournament_main_menu()
-            team_array = []
-            for i in range(1, counter+1):
-                if which_association == "i":
-                    for element in team_rows:
                         if element == teams[i-1]:
                             team_array.append(element)
             print(team_array)
