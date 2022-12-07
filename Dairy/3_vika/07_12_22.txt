@@ -1,0 +1,31 @@
+
+
+
+               	 <-----> Miðvikudagur <------>
+    <<<<< 7 Desember 2022 / 12:00 PM / Discord fundur >>>>>
+
+                     <-----> ATTENDEES <------>
+              - Bjarni, Ingólfur, Ólafur, Óskar, Erik
+
+                      <-----> AGENDA <------>
+                    ## LAST MEETING FOLLOW-UP ##
+- Beinagrindin fyrir UI og case mappið kláraðist, það var unnið 
+  í match klasanum, unnið í view tournament klasanum.. svo var uppfært 
+  skýrsluna samkvæmt plani, og ráðleggingum frá Gylfa.
+
+
+                    <-----> ACTION ITEMS <----->
+- Ingó fór í skýrslugerð, og að uppfæra klasa ritið samkvæmt 
+  því sem er  í kerfinu.
+- Óli og Erik fóru að vinna í tournament UI að tengja það, Bjarni og Óskar 
+  fóru í match UI.. svo fór Óli að vinna í create tournament og Erik í 
+  view tournament
+- Svo fór dagurinn í að samrýma vinnulagið í kerfinu, þar sem við skiptum þessu 
+  í eitt fall þar sem það prentar eitthvað út, og annað fall fær input.
+                     
+                    <-----> NEXT DAY AGENDA <------>
+- Það verður farið í að undirbúa myndbandsgerð eins og handritsgerð eins og Gylfi 
+  talaði um í fyrirlestrinum á echo, og skipulagt hvernig við ætlum að fara að þessu.
+- Það verður svo reynt að klára virknina á kóðanum á morgun, en ef ekki á morgun 
+  þá snemma á föstudaginn svo það verði ekkert stress fyrir myndbandsgerðina.
+
