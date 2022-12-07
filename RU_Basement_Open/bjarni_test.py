@@ -6,10 +6,14 @@ from model.tournament import Tournament
 from model.match import Match
 
 a = Logic_Wrapper()
-listi = a.get_all_players()
 
-for elem in listi:
-    print(f"Name is: {elem.name:<15} SSN: {elem.social_security_number:<15} phone number: {elem.phone_number:<15}")
+listi = a.get_all_players()
+listi2 = a.get_all_teams()
+listi3 = a.get_all_associations()
+listi4 = a.get_tournament_info()
+
+#for elem in listi:
+ #   print(f"Name is: {elem.name:<20} SSN: {elem.social_security_number:<20} phone number: {elem.mobile:<13}")
 
 #print()
 #for elem in listi:
@@ -25,7 +29,6 @@ for elem in listi:
   #      print(elem.name, elem.email)
 #print()
 
-listi2 = a.get_all_teams()
 
 #for elem in listi2:
  #   if elem.name == "Fálkarnir":
@@ -35,16 +38,23 @@ listi2 = a.get_all_teams()
  #   if elem.association_id == "0":
   #      print(elem.name)
 
-listi3 = a.get_all_associations()
-
+print(f"{listi4[0].tournament_name} by {listi4[0].admin_name}")
 print()
+print("All associtaions/teams/players", "\n")
 for elem in listi3:
-    print(elem.name)
+    print(f"{elem.name}:")
+    for t in listi2:
+      if t.association_id == elem.association_id:
+        print(f"{t.name:<10}:")
+        for p in listi:
+          if p.team_id == t.team_id:
+            if p.social_security_number == t.captain_id:
+                print(f"{p.name:<25} (C)")
+            else:
+              print(f"{p.name:<25}")
 
 #print()
 #print("Tournament information")
-
-listi4 = a.get_tournament_info()
 
 #for tou in listi4:
  #   print(tou.tournament_name)
