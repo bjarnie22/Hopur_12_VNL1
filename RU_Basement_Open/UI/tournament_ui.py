@@ -9,7 +9,7 @@ from model.association import Association
 from model.tournament import Tournament
 from model.match import Match
 
-class Tournament():
+class Tournament_UI():
     def __init__(self):
         pass
 
@@ -172,8 +172,6 @@ class Tournament():
             print(f"{listi4[0].tournament_name} by {listi4[0].admin_name}")
             print()
             print("All associtaions/teams/players", "\n")
-
-
             counter = 1
             teams = []
             for element in association_rows:
@@ -199,8 +197,7 @@ class Tournament():
                         if element == teams[i-1]:
                             team_array.append(element)
             print(team_array)
-            """!!!kodinn her fyrir ofan tharf ad vera vel skodadur bara ovirk
-            beinagrind af thvi veit ekki hvernig a ad prufa hann vegna gagnaleysis!!!"""
+
 
 
     def input_prompt_for_list_of_associations_and_their_teams(self):

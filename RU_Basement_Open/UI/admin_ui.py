@@ -1,4 +1,4 @@
-from UI.tournament_ui import Tournament
+from UI.tournament_ui import Tournament_UI
 from UI.match_ui import Match
 
 
@@ -38,7 +38,7 @@ class Admin_UI:
                 print("you are going back")
                 break
             elif command == "1":
-                print("You pressed 1")	
+                print("You pressed 1")
                 tournament.input_prompt_for_create_a_tournament_menu()
             elif command == "2":
                  print("You pressed 2")

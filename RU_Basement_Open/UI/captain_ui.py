@@ -1,4 +1,4 @@
-from UI.tournament_ui import Tournament
+from UI.tournament_ui import Tournament_UI
 from UI.match_ui import Match
 
 class Captain_UI:
