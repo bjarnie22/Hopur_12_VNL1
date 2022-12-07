@@ -2,6 +2,12 @@ from data.association_data import Association_data
 from data.team_data import Team_data
 from data.player_data import Player_data
 from data.tournament_data import Tournament_data
+from logic.logic_wrapper import Logic_Wrapper
+from model.player import Player
+from model.team import Team
+from model.association import Association
+from model.tournament import Tournament
+from model.match import Match
 
 class Tournament():
     def __init__(self):
@@ -158,24 +164,41 @@ class Tournament():
 # Case 3 in the wire frame
             # Here we would need a list of teams, to which association they belong to
             # and list of players.
+            all_lists = Logic_Wrapper()
+            association_rows = all_lists.get_all_associations()
+            team_rows = all_lists.get_all_teams()
+            player_rows = all_lists.get_all_players()
+            listi4 = all_lists.get_tournament_info()
+            print(f"{listi4[0].tournament_name} by {listi4[0].admin_name}")
+            print()
+            print("All associtaions/teams/players", "\n")
+
+
             counter = 1
-            association_list = Association_data()
-            association_rows = association_list.get_all_associations()
+            teams = []
             for element in association_rows:
-                print(counter, element)
+                print(counter, f"{element.name}:")
                 counter += 1
+                teams.append(element)
+                for t in team_rows:
+                    if t.association_id == element.association_id:
+                        print(f"{t.name:<10}:")
+                        for p in player_rows:
+                            if p.team_id == t.team_id:
+                                if p.social_security_number == t.captain_id:
+                                    print(f"{p.name:<25} (C)")
+                                else:
+                                    print(f"{p.name:<25}")
             which_association = input("which association would you like to check out? To go back press b ")
             if which_association == "b":
                 self.input_prompt_for_view_tournament_main_menu()
-            team_list = Team_data()
-            all_teams = team_list.get_all_teams()
             team_array = []
             for i in range(0, counter):
                 if which_association == "i":
-                    for element in all_teams:
-                        if element == "associiation_id":
+                    for element in team_rows:
+                        if element == teams[i]:
                             team_array.append(element)
-            print(team_array.merged())
+            print(team_array)
             """!!!kodinn her fyrir ofan tharf ad vera vel skodadur bara ovirk
             beinagrind af thvi veit ekki hvernig a ad prufa hann vegna gagnaleysis!!!"""
 
@@ -245,13 +268,13 @@ class Tournament():
 
 #################################Start a tournament case 9 in the wire frame##########################################
 ########################################################################################################
-   
-    def the_calculated_schedule_of_the_matches(self): 
+
+    def the_calculated_schedule_of_the_matches(self):
 # Case 9 in the wire frame
-        # Here should come calculated schedule of the mathces. 
+        # Here should come calculated schedule of the mathces.
         pass
 
-    def input_prompt_for_the_calculated_schedule_of_the_matches(self): 
+    def input_prompt_for_the_calculated_schedule_of_the_matches(self):
         while True:
             self.the_calculated_schedule_of_the_matches()
             command = input("Enter the 1 if you want shorten or lengthen the match or press 'b' to go back: ")
@@ -259,30 +282,29 @@ class Tournament():
             if command == "b":
                 print("you are going back")
                 break
-            elif command == "1": 
+            elif command == "1":
                 self.change_date_of_tournament()
             else:
                 print("invalid input, please try again")
 
-    def change_date_of_tournament(self): 
+    def change_date_of_tournament(self):
         while True:
             new_starting_date = input("Enter the new starting date or 'b' to go back, if you press b no changes will be made: ")
             new_starting_date = new_starting_date.lower()
             if new_starting_date == "b":
                 print("you are going back")
                 break
-            else: 
+            else:
                 # updates the new starting date
                  print ("Here we will check the input")
                  break
-        
+
         while True:
             new_ending_date = input("Enter the new ending date or 'b' to go back if you press b no changes will be made: ")
             new_ending_date = new_ending_date.lower()
             if new_ending_date == "b":
                 print("you are going back")
                 break
-            else: 
+            else:
                  print ("Here we will check the input")
                  break
-                      
