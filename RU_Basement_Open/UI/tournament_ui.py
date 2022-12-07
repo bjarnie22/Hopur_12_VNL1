@@ -168,34 +168,38 @@ class Tournament_UI():
             association_rows = all_lists.get_all_associations()
             team_rows = all_lists.get_all_teams()
             player_rows = all_lists.get_all_players()
-            listi4 = all_lists.get_tournament_info()
-            print(f"{listi4[0].tournament_name} by {listi4[0].admin_name}")
+            tournament_info_rows = all_lists.get_tournament_info()
+            print(f"{tournament_info_rows[0].tournament_name} by {tournament_info_rows[0].admin_name}")
             print()
             print("All associtaions/teams/players", "\n")
             counter = 1
-            teams = []
+            associations = []
             for element in association_rows:
                 print(counter, f"{element.name}:")
                 counter += 1
-                teams.append(element.name)
-            print(teams)
+                associations.append(element.name)
+            print(associations)
             which_association = input("which association would you like to check out? To go back press b ")
             if which_association == "b":
                 self.input_prompt_for_view_tournament_main_menu()
             team_array = []
-            for i in range(1, counter+1):
+            for i in range(0, 3):
+                teamcounter = 0
                 for t in team_rows:
-                    if t.association_id == element.association_id:
-                        print(f"{t.name:<10}:")
-                        for p in player_rows:
-                            if p.team_id == t.team_id:
-                                if p.social_security_number == t.captain_id:
-                                    print(f"{p.name:<25} (C)")
-                                else:
-                                    print(f"{p.name:<25}")
-                        if element == teams[i-1]:
-                            team_array.append(element)
-            print(team_array)
+                    if t.association_id == associations[i]:
+                        print(teamcounter, f"{t.name:<10}:")
+                        teamcounter += 1
+            which_team = input("which team would you like to check out? To go back press b")
+            if which_team == "b":
+                self.input_prompt_for_view_tournament_main_menu()
+            for p in player_rows:
+                if p.team_id == t.team_id:
+                    if p.social_security_number == t.captain_id:
+                        print(f"{p.name:<25} (C)")
+                    else:
+                        print(f"{p.name:<25}")
+
+
 
 
     def input_prompt_for_list_of_associations_and_their_teams(self):
