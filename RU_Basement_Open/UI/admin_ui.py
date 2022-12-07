@@ -28,7 +28,7 @@ class Admin_UI:
 
 
     def input_prompt_for_admin_menu(self):
-        tournament = Tournament()
+        tournament = Tournament_UI()
         match_var= Match()
         while True:
             self.admin_menu()
