@@ -193,10 +193,10 @@ class Tournament():
             if which_association == "b":
                 self.input_prompt_for_view_tournament_main_menu()
             team_array = []
-            for i in range(0, counter):
+            for i in range(1, counter+1):
                 if which_association == "i":
                     for element in team_rows:
-                        if element == teams[i]:
+                        if element == teams[i-1]:
                             team_array.append(element)
             print(team_array)
             """!!!kodinn her fyrir ofan tharf ad vera vel skodadur bara ovirk
