@@ -5,6 +5,8 @@ from model.association import Association
 from model.tournament import Tournament
 from model.match import Match
 
+from UI.match_ui import Match_UI
+
 a = Logic_Wrapper()
 
 listi = a.get_all_players()
@@ -42,14 +44,14 @@ print(f"{listi4[0].tournament_name} by {listi4[0].admin_name}")
 print()
 print("All associtaions/teams/players", "\n")
 for elem in listi3:
-    print(f"{elem.name}:")
+    print(f"{elem.name}, {elem.association_id}:")
     for t in listi2:
       if t.association_id == elem.association_id:
         print(f"{t.name:<10}:")
         for p in listi:
           if p.team_id == t.team_id:
             if p.social_security_number == t.captain_id:
-                print(f"{p.name:<25} (C)")
+              print(f"{p.name:<25} (C)")
             else:
               print(f"{p.name:<25}")
 
@@ -129,3 +131,7 @@ for elem in listi3:
 #b = Match(date, home_team, away_team)
 
 #a.create_match(match)
+
+mac = Match_UI()
+
+mac.match_list_to_choose_match_id()

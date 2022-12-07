@@ -82,5 +82,10 @@ class Logic_Wrapper:
         return self.match_logic.update_result(match_id, result)
     
     def create_match_schedule(self):
-        """Calls on create_match schedule, """
+        """Calls on create_match schedule in match_logic..."""
         return self.match_logic.create_match_schedule()
+
+    def register_result_captain(self, match):
+        """Registers a new result, takes old match_id and overwrites the match with game information in
+        a match instance"""
+        return self.match_logic.register_result_captain(match)

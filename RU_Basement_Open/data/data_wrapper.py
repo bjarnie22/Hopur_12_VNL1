@@ -93,3 +93,8 @@ class Data_Wrapper:
         tournament = tournament_info[0]
         team_list = self.get_all_teams()
         return self.match_data.create_match_schedule(tournament.start_date, tournament.end_date, tournament.number_of_rounds, team_list)
+
+    def register_result_captain(self, match):
+        """Calls on update_result, with a copmleted match as a parameters
+        in match_data"""
+        return self.match_data.update_result(match)
