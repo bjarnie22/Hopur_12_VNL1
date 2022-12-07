@@ -1,7 +1,3 @@
-from data.association_data import Association_data
-from data.team_data import Team_data
-from data.player_data import Player_data
-from data.tournament_data import Tournament_data
 from logic.logic_wrapper import Logic_Wrapper
 from model.player import Player
 from model.team import Team
@@ -121,7 +117,8 @@ class Tournament_UI():
             self.print_list_of_associations()
             association_id = input("Choose the association id that this teams belongs to: ")
             number_of_players= int(input("How many players are in this team: "))    
-            self.logic_wrapper_instance.create_team(name_of_team, association_id)
+            new_team = Team(name_of_team, association_id)
+            self.logic_wrapper_instance.create_team(new_team)
             self.input_prompt_for_add_a_player(number_of_players)
             self.add_team_menu()
             command = input("Enter your command: ")
@@ -149,31 +146,24 @@ class Tournament_UI():
 
 
 
-    def input_prompt_for_add_a_player (self, number):
+    def input_prompt_for_add_a_player (self, number, team_id):
 # Case number 13 in the wire frame
-        self.add_player_menu()
-        command = input("Enter your command: ")
-        command = command.lower()
-        if command == "b":
-            print("you are going back")
-            self.input_prompt_for_add_association()
-        elif command == "1":
-            counter = 1
-            for i in range(0, number):
-                print("Information for Player", counter, ":")
-                name_of_player = input("Name of the player: ")
-                email_of_the_player = input("email of the player: ")
-                social_security_number = input("Players social security number: ")
-                date_of_birth = input("Date of birth: ")
-                address_of_player = input("Home address of player: ")
-                home_phone_of_player = input("Home phone of player: ")
-                mobile_phone_of_player = input("Mobile phone of player: ")
-                is_this_player_the_captain = input("""Is this player the captain?
-                Write "yes" if this player is the captain. Please leave empty if this player is not the captain: """)
-                counter += 1
-            self.input_prompt_for_add_association()
-        else:
-            print("invalid input, please try again")
+        counter = 1
+        for i in range(0, number):
+            print("Information for Player", counter, ":")
+            name_of_player = input("Name of the player: ")
+            email_of_the_player = input("email of the player: ")
+            social_security_number = input("Players social security number: ")
+            date_of_birth = input("Date of birth: ")
+            address_of_player = input("Home address of player: ")
+            home_phone_of_player = input("Home phone of player: ")
+            mobile_phone_of_player = input("Mobile phone of player: ")
+            is_this_player_the_captain = input("""Is this player the captain?
+            Write "yes" if this player is the captain. Please leave empty if this player is not the captain: """)
+            counter += 1
+        self.input_prompt_for_add_association()
+            else:
+                print("invalid input, please try again")
 
 ############################## View tournament case 2 in the wire frame#############################################
 # ###################################################################################################################
