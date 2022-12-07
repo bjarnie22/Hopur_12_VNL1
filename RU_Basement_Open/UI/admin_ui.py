@@ -1,5 +1,5 @@
 from UI.tournament_ui import Tournament_UI
-from UI.match_ui import Match
+from UI.match_ui import Match_UI
 
 
 #Create a tournament
@@ -20,8 +20,8 @@ class Admin_UI:
         print("*       (1)  Create a new tournament?         *")
         print("*       (2)  Start a tournament               *")
         print("*       (3)  View a tournament                *")
-        print("*       (4)  Update a score for a  matches    *")
-        print("*       (5)  Change date for a  match         *")
+        print("*       (4)  Update a score for a match       *")
+        print("*       (5)  Change date for a match          *")
         print("*       (b)  go back?                         *")
         print("*                                             *")
         print("***********************************************")
@@ -48,7 +48,7 @@ class Admin_UI:
                 tournament.input_prompt_for_view_tournament_main_menu()
             elif command == "4":
                 print("You pressed 4")
-                match_var.choose_match_id()
+                match_var.choose_match_id_admin()
             elif command == "5":
                 print("You pressed 5")
                 match_var.choose_match_id_to_change_a_date_for_a_match()

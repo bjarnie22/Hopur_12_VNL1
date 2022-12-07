@@ -11,7 +11,7 @@ class Match_UI():
         self.logic = Logic_Wrapper()
 
   
-    def match_list_to_choose_match_id(self): 
+    def match_list_to_choose_match_id_result(self): 
 # Case 10 in the wire frame and case 18. Both admin and captain uses this same list. Admin when updating score 
 # and captain to add a score for a played match.   
         match_list = self.logic.get_all_matches()
@@ -27,12 +27,12 @@ class Match_UI():
                 if team.team_id == match.away_team:
                     away = team.name
             if match.result != "":
-                print(f"{match.match_id:>4}{home:>25} vs {away:<15}  {match.result}")
+                print(f"{match.match_id:>4}{home:>25} vs {away:<15}{empty_space:>2}{match.result}")
 
     
     def choose_match_id_admin(self): 
         while True:
-            self.match_list_to_choose_match_id()
+            self.match_list_to_choose_match_id_result()
             command = input("Enter the match id or b to go back: ")
             command = command.lower()
             if command == "b":
@@ -47,40 +47,76 @@ class Match_UI():
         match_list = self.logic.get_all_matches()
         for elem in match_list:
             if elem.match_id == match_id:
-                the_match = Match(elem.date, elen.home_team, elem.away_team)
+                the_match = Match(elem.date, elem.home_team, elem.away_team)
     
 
         while True:
-            team_win = int(input("Type 1 if home team won, type 2 if away team won: "))
-            the_match.result = input("Please input the updated result fx (4-3)")
-            if team_win == 1:
-                the_match.winner = the_match.home_team
+            possible_results = ["4-3", "5-2", "6-1", "7-0", "3-4", "2-5", "1-6", "0-7"]
+
+            result = input("Please input the updated result fx (4-3): ")
+            while result not in possible_results:
+                result = input("Please input the updated result fx (4-3): ")
+
+            if result in possible_results[0:4]:
                 print("Home team wins this time! :)")
-                break
-            elif team_win == 2:
-                the_match.winner = the_match.away_team
-                print("Away team wins this time! :) ")
+                the_match.winner = the_match.home_team
                 break
             else:
-                print("invalid input try again")
+                print("Away team wins this time! :) ")
+                the_match.winner = the_match.away_team
+                break
 
         while True:
+            possible_results = ["2-1", "2-0", "1-2", "0-2"]
             print("Input the result of each round","\n")
-            round1 = input("Round 1 [1x301] fx (2-1): ")
-            while round1 != "2-1" or round1 != "2-0" or round1 != "1-2" or round1 != "0-2":
+            round1 = input("Round 1 [1x501] fx (2-1): ")
+            while round1 not in possible_results:
                 print("invalid input, try again")
-                round1 = input("Round 1 [1x301] fx (2-1): ")
+                round1 = input("Round 1 [1x501] fx (2-1): ")
 
-            round2 = input("Round 2 [1x301] fx (2-1): ")
-            while round2 != "2-1" or round2 != "2-0" or round2 != "1-2" or round2 != "0-2":
+            round2 = input("Round 2 [1x501] fx (2-1): ")
+            while round2 not in possible_results:
                 print("invalid input, try again")
-                round2 = input("Round 2 [1x301] fx (2-1): ")
+                round2 = input("Round 2 [1x501] fx (2-1): ")
             
-            round3 = input("Round 3 [1x301] fx (2-1): ")
-            while round2 != "2-1" or round2 != "2-0" or round2 != "1-2" or round2 != "0-2":
+            round3 = input("Round 3 [1x501] fx (2-1): ")
+            while round3 not in possible_results:
                 print("invalid input, try again")
-                round2 = input("Round 3 [1x301] fx (2-1): ")
+                round3 = input("Round 3 [1x501] fx (2-1): ")
 
+            round4 = input("Round 4 [1x501] fx (2-1): ")
+            while round4 not in possible_results:
+                print("invalid input, try again")
+                round4 = input("Round 4 [1x501] fx (2-1): ")
+            
+            round5 = input("Round 5 [2x301] fx (2-1): ")
+            while round5 not in possible_results:
+                print("invalid input, try again")
+                round5 = input("Round 5 [2x301] fx (2-1): ")
+            
+            round6 = input("Round 6 [2xCricket] fx (2-1): ")
+            while round6 not in possible_results:
+                print("invalid input, try again")
+                round6 = input("Round 6 [2xCricket] fx (2-1): ")
+            
+            round7 = input("Round 7 [4x501] fx (2-1): ")
+            while round7 not in possible_results:
+                print("invalid input, try again")
+                round7 = input("Round 7 [4x501] fx (2-1): ")
+
+            the_match.round1 = round1
+            the_match.round2 = round2
+            the_match.round3 = round3
+            the_match.round4 = round4
+            the_match.round5 = round5
+            the_match.round6 = round6
+            the_match.round7 = round7
+
+            self.logic.update_result(match_id, the_match)
+
+            break
+
+            
 
         #B-kröfur
         #Stig fyrir leikmenn
@@ -94,13 +130,10 @@ class Match_UI():
             #inner_points_for_player = input("How many inner points did player score")
             #outer_points_for_player = input("How many outer points did player score")
 
-    def match_list_to_change_a_date_for_a_match_admin(self): 
-# Case 22 in the wire frame
-        pass
-        
+
     def choose_match_id_to_change_a_date_for_a_match(self): 
         while True:
-            self.match_list_to_change_a_date_for_a_match_admin()
+            self.match_list_to_choose_match_id_date()
             command = input("Enter the match id or b to go back: ")
             command = command.lower()
             if command == "b":
@@ -115,22 +148,47 @@ class Match_UI():
     def input_prompt_for_update_date(self, command):
 #Case number 23
         while True:
-            command = input("Write the new date or b to go back: ")
-            # Here the logic layer needs to check if valid
-            command = command.lower()
-            if command == "b":
+            print("\n","press b to go back")
+            date = input("Write the new date (dd/mm/yyyy): ")
+            date = date.lower()
+            if date == "b":
                 print("you are going back")
                 break
             else:
-                print(" ")
+                date_change = self.logic.postpone_match(command, date)
+                while date_change == False:
+                    print("Invalid date, please try again")
+                    date = input("Write the new date (dd/mm/yyyy): ")
+                    date_change = self.logic.postpone_match(command, date)
                 break
+
                 # Sends to match id to input_prompt_for_update_score
         #only callable by admin
         #would first show all matches and admin would choose corrsponding match id where he would like to cange the date
 
+
+    def match_list_to_choose_match_id_date(self): 
+# Case 10 in the wire frame and case 18. Both admin and captain uses this same list. Admin when updating score 
+# and captain to add a score for a played match.   
+        match_list = self.logic.get_all_matches()
+        team_list = self.logic.get_all_teams()
+        empty_space = ""
+# Here we need table of mathces
+        print("All played matches:")
+        print(f"{empty_space}match id{empty_space:>12}home team{empty_space:>4}away team{empty_space:>8}date\n")
+        for match in match_list:
+            for team in team_list:
+                if team.team_id == match.home_team:
+                    home = team.name
+                if team.team_id == match.away_team:
+                    away = team.name
+            if match.result == "":
+                print(f"{match.match_id:>4}{home:>25} vs {away:<15}{empty_space:>2}{match.date}")
+
+
     def choose_match_id_captain(self): 
         while True:
-            self.match_list_to_choose_match_id()
+            self.match_list_to_choose_match_id_date()
             command = input("Enter the match id or b to go back: ")
             command = command.lower()
             if command == "b":
@@ -142,35 +200,77 @@ class Match_UI():
 
     def input_prompt_for_update_score_captain(self,match_id):
 # Case 21 
+        match_list = self.logic.get_all_matches()
+        for elem in match_list:
+            if elem.match_id == match_id:
+                the_match = Match(elem.date, elem.home_team, elem.away_team)
+    
+
         while True:
-            team_win = int(input("Type 1 if home team won, type 2 if away team won: "))
-            if team_win == 1:
+            possible_results = ["4-3", "5-2", "6-1", "7-0", "3-4", "2-5", "1-6", "0-7"]
+
+            result = input("Please input the updated result fx (4-3): ")
+            while result not in possible_results:
+                result = input("Please input the updated result fx (4-3): ")
+
+            if result in possible_results[0:4]:
                 print("Home team wins this time! :)")
+                the_match.winner = the_match.home_team
                 break
-            elif team_win == 2:
+            else:
                 print("Away team wins this time! :) ")
+                the_match.winner = the_match.away_team
                 break
-            else:
-                print("invalid input try again")
 
         while True:
-            home_team_legs_won = int(input("How many legs did home team win: "))
-        
-            if home_team_legs_won >= 0 and home_team_legs_won <= 14:
-                print("Home team won {} legs".format(home_team_legs_won))
-                break
-            else:
-                print("invalid input try again")
+            possible_results = ["2-1", "2-0", "1-2", "0-2"]
+            print("Input the result of each round","\n")
+            round1 = input("Round 1 [1x501] fx (2-1): ")
+            while round1 not in possible_results:
+                print("invalid input, try again")
+                round1 = input("Round 1 [1x501] fx (2-1): ")
 
-        while True:
-            away_team_legs_won = int(input("How many legs did away team win: "))
-            if away_team_legs_won >= 0 and away_team_legs_won <= 14:
-                print("Away team won {} legs".format(away_team_legs_won))
-                break
-                # Here we need to send, match id, the team_win, and home_team_legs_won and away_team_legs_one 
-            else:
-                print("invalid input try again")
+            round2 = input("Round 2 [1x501] fx (2-1): ")
+            while round2 not in possible_results:
+                print("invalid input, try again")
+                round2 = input("Round 2 [1x501] fx (2-1): ")
+            
+            round3 = input("Round 3 [1x501] fx (2-1): ")
+            while round3 not in possible_results:
+                print("invalid input, try again")
+                round3 = input("Round 3 [1x501] fx (2-1): ")
 
+            round4 = input("Round 4 [1x501] fx (2-1): ")
+            while round4 not in possible_results:
+                print("invalid input, try again")
+                round4 = input("Round 4 [1x501] fx (2-1): ")
+            
+            round5 = input("Round 5 [2x301] fx (2-1): ")
+            while round5 not in possible_results:
+                print("invalid input, try again")
+                round5 = input("Round 5 [2x301] fx (2-1): ")
+            
+            round6 = input("Round 6 [2xCricket] fx (2-1): ")
+            while round6 not in possible_results:
+                print("invalid input, try again")
+                round6 = input("Round 6 [2xCricket] fx (2-1): ")
+            
+            round7 = input("Round 7 [4x501] fx (2-1): ")
+            while round7 not in possible_results:
+                print("invalid input, try again")
+                round7 = input("Round 7 [4x501] fx (2-1): ")
+
+            the_match.round1 = round1
+            the_match.round2 = round2
+            the_match.round3 = round3
+            the_match.round4 = round4
+            the_match.round5 = round5
+            the_match.round6 = round6
+            the_match.round7 = round7
+
+            self.logic.update_result(match_id, the_match)
+
+            break
 
         #B-kröfur
         #Stig fyrir leikmenn
