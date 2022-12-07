@@ -42,4 +42,7 @@ class Match_logic:
     def create_match_schedule(self):
         """"""
         return self.data_wrapper.create_match_schedule()
-        
+
+
+    def register_result_captain(self, match):
+        return self.data_wrapper.register_result_captain(match)

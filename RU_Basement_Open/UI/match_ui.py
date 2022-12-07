@@ -1,16 +1,34 @@
+from logic.logic_wrapper import Logic_Wrapper
+from model.match import Match
+from model.team import Team
+
+
 # 
 # this class would need a instance of captain registere a match.
 #  
-class Match(): 
+class Match_UI(): 
     def __init__(self):
-        pass
+        self.logic = Logic_Wrapper()
 
   
     def match_list_to_choose_match_id(self): 
 # Case 10 in the wire frame and case 18. Both admin and captain uses this same list. Admin when updating score 
 # and captain to add a score for a played match.   
-        pass
+        match_list = self.logic.get_all_matches()
+        team_list = self.logic.get_all_teams()
+        empty_space = ""
 # Here we need table of mathces
+        print("All played matches:")
+        print(f"{empty_space}match id{empty_space:>12}home team{empty_space:>4}away team{empty_space:>6}result\n")
+        for match in match_list:
+            for team in team_list:
+                if team.team_id == match.home_team:
+                    home = team.name
+                if team.team_id == match.away_team:
+                    away = team.name
+            if match.result == "":
+                print(f"{match.match_id:>4}{home:>25} vs {away:<15}{empty_space:>2}6-1")
+
     
     def choose_match_id_admin(self): 
         while True:
@@ -26,12 +44,20 @@ class Match():
 
     def input_prompt_for_update_score(self,match_id):
 # Case 21 
+        match_list = self.logic.get_all_matches()
+        for elem in match_list:
+            if elem.match_id == match_id:
+                the_match = Match(elem.date, elen.home_team, elem.away_team)
+    
+
         while True:
             team_win = int(input("Type 1 if home team won, type 2 if away team won: "))
             if team_win == 1:
+                the_match.winner = the_match.home_team
                 print("Home team wins this time! :)")
                 break
             elif team_win == 2:
+                the_match.winner = the_match.away_team
                 print("Away team wins this time! :) ")
                 break
             else:
