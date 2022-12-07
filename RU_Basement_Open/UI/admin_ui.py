@@ -1,5 +1,4 @@
 from UI.tournament_ui import Tournament_UI
-from UI.match_ui import Match
 
 
 #Create a tournament

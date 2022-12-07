@@ -62,8 +62,8 @@ class Match_data:
             if append_or_overwrite == "w":
                 writer.writeheader()
             
-            writer.writerow({"date": match.date, "home_team": match.home_team, "away_team": match.away_team, "winner":match.winner,\
-            "result": match.result, "leg1": match.leg1, "leg1_home_player": match.leg1_home_player,\
+            writer.writerow({"date": match.date, "home_team": match.home_team, "away_team": match.away_team, "result":match.result,\
+            "winner": match.winner, "leg1": match.leg1, "leg1_home_player": match.leg1_home_player,\
             "leg1_away_player": match.leg1_away_player, "leg2": match.leg2, "leg2_home_player": match.leg2_home_player,\
             "leg2_away_player": match.leg2_away_player, "leg3": match.leg3, "leg3_home_player": match.leg3_home_player,\
             "leg3_away_player": match.leg3_away_player, "leg4": match.leg4, "leg4_home_player": match.leg4_home_player,\
@@ -135,7 +135,7 @@ class Match_data:
             random.shuffle(copy_list)
 
             for match in copy_list:
-                self.create_match(Match(play_date, match.home_team, match.away_team,"",len(self.get_all_matches())))
+                self.create_match(Match(play_date, match.home_team, match.away_team,"","",len(self.get_all_matches())))
                 play_date = play_date + timedelta(days= interval)
 
             previous_list = copy_list
