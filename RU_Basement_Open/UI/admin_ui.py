@@ -1,4 +1,5 @@
 from UI.tournament_ui import Tournament_UI
+from UI.match_ui import Match
 
 
 #Create a tournament
@@ -28,7 +29,7 @@ class Admin_UI:
 
     def input_prompt_for_admin_menu(self):
         tournament = Tournament_UI()
-        match_var= Match()
+        match_var= Match_UI()
         while True:
             self.admin_menu()
             command = input("Enter your command: ")

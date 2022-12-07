@@ -27,7 +27,7 @@ class Match_UI():
                 if team.team_id == match.away_team:
                     away = team.name
             if match.result == "":
-                print(f"{match.match_id:>4}{home:>25} vs {away:<15}{empty_space:>2}6-1")
+                print(f"{match.match_id:>4}{home:>25} vs {away:<15}{empty_space:>2}{match.result}}")
 
     
     def choose_match_id_admin(self): 
