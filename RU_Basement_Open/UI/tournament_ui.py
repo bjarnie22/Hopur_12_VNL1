@@ -11,17 +11,21 @@ from model.match import Match
 
 class Tournament_UI():
     def __init__(self):
-        pass
+        self.logic_wrapper_instance = Logic_Wrapper()
 
 
 ############################# Create a tournament case number 8 in the wire frame###############################
 #################################################################################################################
 
-    def create_a_tournament_menu(self):
+  
+    def create_a_tournament_menu(self, admin_name):
 #Case number 8 in the wire frame
-        print("****************************************************")
+        print("************** **************************************")
+        print(f"*               Welcome {admin_name}              *")
+        print("*       First you should add all associations      *") 
+        print("*       then you should add teams and players      *")
+        print("*       (1)  To add the first association          *")                         
         print("*                                                  *")
-        print("*       (1)  Add an association                    *")
         print("*       (b)  go back?                              *")
         print("*                                                  *")
         print("****************************************************")
@@ -30,41 +34,45 @@ class Tournament_UI():
         admin_name = input("Your Name: ")
         admin_email = input("Your email: ")
         admin_mobile = input("Your mobile phone: ")
-        admin_social_security_number = input("Your social security number: ")
+      #  admin_social_security_number = input("Your social security number: ")
         name_of_tournament = input("Name of tournament: ")
         starting_date_of_tournament = input("Starting date of tournament: ")
         end_date_of_tournament = input("Ending date of tournament: ")
         how_many_rounds = input("How many rounds are in the tournament: ")
+        new_tournament = Tournament(name_of_tournament, admin_name, admin_mobile,admin_email,starting_date_of_tournament,end_date_of_tournament,how_many_rounds)
+        self.logic_wrapper_instance.create_tournament(new_tournament) 
+        new_tournament.admin_name
         while True:
-            self.create_a_tournament_menu()
+            self.create_a_tournament_menu(new_tournament.admin_name)
             command = input("Enter your command: ")
             command = command.lower()
             if command == "b":
                 print("you are going back")
                 break
             elif command == "1":
-                name_of_a_association = input("Name of the association: ")
-                address_of_association = input("Address of association: ")
-                phone_number_of_association = input("Phone number of the association: ")
-                number_of_teams = input("How many teams are in the association: ")
                 self.input_prompt_for_add_association()
             else:
                 print("invalid input, please try again")
-
-
+    
+    
     def add_association_menu(self):
 # Case number 11 in the wire frame
         print("********************************************")
         print("*                                          *")
-        print("*       (1)  Add team                      *")
+        print("*       (1)  Add another association       *")
+        print("*       (2)  Start add the first team      *")
         print("*       (b)  go back?                      *")
         print("*                                          *")
         print("********************************************")
         # Here this function will return the(Name_of_tournament  Starting_date_of_tournament, How_many_rounds)
 
-
     def input_prompt_for_add_association (self):
-
+        name_of_a_association = input("Name of the association: ")
+        address_of_association = input("Address of association: ")
+        phone_number_of_association = input("Phone number of the association: ")
+#        number_of_teams = input("How many teams are in the association: ")
+        new_association = Association(name_of_a_association, address_of_association, phone_number_of_association)
+        self.logic_wrapper_instance.create_association(new_association)
         while True:
             self.add_association_menu()
             command = input("Enter your command: ")
@@ -73,23 +81,64 @@ class Tournament_UI():
                 print("you are going back")
                 break
             elif command == "1":
-                name_of_team = input("Name of team: ")
-                while True:
-                    try:
-                        number_of_players = int(input("How many players are in this team: "))
-                        break
-                    except:
-                        print("invalid input, please try again")
-                self.input_prompt_for_add_a_player(number_of_players)
+                self.add_association_menu
+            elif command == "2":
+                self.input_prompt_to_add_a_team ()
             else:
                 print("invalid input, please try again")
+ 
+    def print_list_of_associations(self): 
+            all_lists = Logic_Wrapper()
+            association_rows = all_lists.get_all_associations()
+            team_rows = all_lists.get_all_teams()
+            player_rows = all_lists.get_all_players()
+            tournament_info_rows = all_lists.get_tournament_info()
+            associations = []
+            ass_pointer = []
+            print()
+            print(f"{tournament_info_rows[0].tournament_name} by {tournament_info_rows[0].admin_name}")
+            print()
+            print("All associations:")
+            print()
+            for i in range(35):
+                print("-",end='')
+            print()
+            counter = 1
 
-    def add_player_menu(self):
+            for element in association_rows:
+                print(f"{element.association_id}   {element.name}:")
+                counter += 1
+                associations.append(element.name)
+                ass_pointer.append(element)
+            for i in range(35):
+                print("-",end='')
+           
+            print()
+
+    def input_prompt_to_add_a_team (self):
+        while True:
+            name_of_team = input("Name of team: ")
+            self.print_list_of_associations()
+            association_id = input("Choose the association id that this teams belongs to: ")
+            number_of_players= int(input("How many players are in this team: "))    
+            self.logic_wrapper_instance.create_team(name_of_team, association_id)
+            self.input_prompt_for_add_a_player(number_of_players)
+            self.add_team_menu()
+            command = input("Enter your command: ")
+            command = command.lower()
+            if command == "b":
+                print("you are going back")
+                break
+            elif command == "1":
+                self.add_team_menu()
+                
+            #else:
+             #   print("invalid input, please try again")"""
+    def add_team_menu(self):
 # Case number 12 in the wire frame
-
         print("********************************************")
         print("*                                          *")
-        print("*       (1)  Add a player                  *")
+        print("*       (1)  Add another team             *")
         print("*       (b)  go back?                      *")
         print("*                                          *")
         print("********************************************")
