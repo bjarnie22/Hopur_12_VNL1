@@ -217,7 +217,7 @@ class Tournament():
     def input_prompt_for_list_of_upcoming_and_played_matches(self,id):
         while True:
             self.list_of_upcoming_and_played_matches()
-            command = input("Enter the id of the player you would like to view and q if you would like to go back: ")
+            command = input("Enter the id of the player you would like to view and b if you would like to go back: ")
 
             command = command.lower()
             if command == "b":
@@ -226,14 +226,14 @@ class Tournament():
             else:
                 print("invalid input, please try again")
 
-    def list_of_current_standing():
+    def list_of_current_standing(self):
 # Case 6 in the wire frame
         pass
 
     def input_prompt_for_list_of_current_standing(self,id):
         while True:
             self.list_of_current_standing()
-            command = input("Enter the id of the player you would like to view and q if you would like to go back: ")
+            command = input("Enter the id of the player you would like to view and b if you would like to go back: ")
 
             command = command.lower()
             if command == "b":
@@ -243,8 +243,46 @@ class Tournament():
                 print("invalid input, please try again")
 
 
-
-
+#################################Start a tournament case 9 in the wire frame##########################################
 ########################################################################################################
+   
+    def the_calculated_schedule_of_the_matches(self): 
+# Case 9 in the wire frame
+        # Here should come calculated schedule of the mathces. 
+        pass
 
-########################################################################################################
+    def input_prompt_for_the_calculated_schedule_of_the_matches(self): 
+        while True:
+            self.the_calculated_schedule_of_the_matches()
+            command = input("Enter the 1 if you want shorten or lengthen the match or press 'b' to go back: ")
+            command = command.lower()
+            if command == "b":
+                print("you are going back")
+                break
+            elif command == "1": 
+                self.change_date_of_tournament()
+            else:
+                print("invalid input, please try again")
+
+    def change_date_of_tournament(self): 
+        while True:
+            new_starting_date = input("Enter the new starting date or 'b' to go back, if you press b no changes will be made: ")
+            new_starting_date = new_starting_date.lower()
+            if new_starting_date == "b":
+                print("you are going back")
+                break
+            else: 
+                # updates the new starting date
+                 print ("Here we will check the input")
+                 break
+        
+        while True:
+            new_ending_date = input("Enter the new ending date or 'b' to go back if you press b no changes will be made: ")
+            new_ending_date = new_ending_date.lower()
+            if new_ending_date == "b":
+                print("you are going back")
+                break
+            else: 
+                 print ("Here we will check the input")
+                 break
+                      
