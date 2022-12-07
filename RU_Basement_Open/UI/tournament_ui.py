@@ -178,26 +178,29 @@ class Tournament_UI():
                 print(counter, f"{element.name}:")
                 counter += 1
                 associations.append(element.name)
-            print(associations)
             which_association = input("which association would you like to check out? To go back press b ")
             if which_association == "b":
                 self.input_prompt_for_view_tournament_main_menu()
+            which_ass = int(which_association)
             team_array = []
-            for i in range(0, 3):
-                teamcounter = 0
-                for t in team_rows:
-                    if t.association_id == associations[i]:
-                        print(teamcounter, f"{t.name:<10}:")
-                        teamcounter += 1
-            which_team = input("which team would you like to check out? To go back press b")
+            teamcounter = 1
+            print(associations[which_ass -1],":", "\n")
+            for t in team_rows:
+                if int(t.association_id) == which_ass -1:
+                    print(teamcounter, f"{t.name}:")
+                    teamcounter += 1
+                    team_array.append(t.name)
+                    for p in player_rows:
+                        if p.team_id == t.team_id:
+                          if p.social_security_number == t.captain_id:
+                              print(f"{p.name:<25} (C)")
+                          else:
+                            print(f"{p.name:<25}")
+
+            which_team = input("To go back press b ")
             if which_team == "b":
                 self.input_prompt_for_view_tournament_main_menu()
-            for p in player_rows:
-                if p.team_id == t.team_id:
-                    if p.social_security_number == t.captain_id:
-                        print(f"{p.name:<25} (C)")
-                    else:
-                        print(f"{p.name:<25}")
+
 
 
 
