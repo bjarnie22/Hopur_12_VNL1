@@ -26,8 +26,8 @@ class Match_UI():
                     home = team.name
                 if team.team_id == match.away_team:
                     away = team.name
-            if match.result == "":
-                print(f"{match.match_id:>4}{home:>25} vs {away:<15}{empty_space:>2}{match.result}}")
+            if match.result != "":
+                print(f"{match.match_id:>4}{home:>25} vs {away:<15}  {match.result}")
 
     
     def choose_match_id_admin(self): 
@@ -52,6 +52,7 @@ class Match_UI():
 
         while True:
             team_win = int(input("Type 1 if home team won, type 2 if away team won: "))
+            the_match.result = input("Please input the updated result fx (4-3)")
             if team_win == 1:
                 the_match.winner = the_match.home_team
                 print("Home team wins this time! :)")
@@ -64,22 +65,21 @@ class Match_UI():
                 print("invalid input try again")
 
         while True:
-            home_team_legs_won = int(input("How many legs did home team win: "))
-        
-            if home_team_legs_won >= 0 and home_team_legs_won <= 14:
-                print("Home team won {} legs".format(home_team_legs_won))
-                break
-            else:
-                print("invalid input try again")
+            print("Input the result of each round","\n")
+            round1 = input("Round 1 [1x301] fx (2-1): ")
+            while round1 != "2-1" or round1 != "2-0" or round1 != "1-2" or round1 != "0-2":
+                print("invalid input, try again")
+                round1 = input("Round 1 [1x301] fx (2-1): ")
 
-        while True:
-            away_team_legs_won = int(input("How many legs did away team win: "))
-            if away_team_legs_won >= 0 and away_team_legs_won <= 14:
-                print("Away team won {} legs".format(away_team_legs_won))
-                break
-                # Here we need to send, match id, the team_win, and home_team_legs_won and away_team_legs_one 
-            else:
-                print("invalid input try again")
+            round2 = input("Round 2 [1x301] fx (2-1): ")
+            while round2 != "2-1" or round2 != "2-0" or round2 != "1-2" or round2 != "0-2":
+                print("invalid input, try again")
+                round2 = input("Round 2 [1x301] fx (2-1): ")
+            
+            round3 = input("Round 3 [1x301] fx (2-1): ")
+            while round2 != "2-1" or round2 != "2-0" or round2 != "1-2" or round2 != "0-2":
+                print("invalid input, try again")
+                round2 = input("Round 3 [1x301] fx (2-1): ")
 
 
         #B-kröfur
