@@ -66,51 +66,25 @@ class Match_UI():
                 the_match.winner = the_match.away_team
                 break
 
-        while True:
-            possible_results = ["2-1", "2-0", "1-2", "0-2"]
-            print("Input the result of each round","\n")
-            round1 = input("Round 1 [1x501] for example (2-1): ")
-            while round1 not in possible_results:
-                print("invalid input, try again")
-                round1 = input("Round 1 [1x501] for example (2-1): ")
+            rounds = self.input_for_rounds()
 
-            round2 = input("Round 2 [1x501] for example (2-1): ")
-            while round2 not in possible_results:
-                print("invalid input, try again")
-                round2 = input("Round 2 [1x501] for example (2-1): ")
-            
-            round3 = input("Round 3 [1x501] for example (2-1): ")
-            while round3 not in possible_results:
-                print("invalid input, try again")
-                round3 = input("Round 3 [1x501] for example (2-1): ")
+            home_team_legs_win = 0
+            away_team_legs_win = 0
 
-            round4 = input("Round 4 [1x501] for example (2-1): ")
-            while round4 not in possible_results:
-                print("invalid input, try again")
-                round4 = input("Round 4 [1x501] for example (2-1): ")
-            
-            round5 = input("Round 5 [2x301] for example (2-1): ")
-            while round5 not in possible_results:
-                print("invalid input, try again")
-                round5 = input("Round 5 [2x301] for example (2-1): ")
-            
-            round6 = input("Round 6 [2xCricket] for example (2-1): ")
-            while round6 not in possible_results:
-                print("invalid input, try again")
-                round6 = input("Round 6 [2xCricket] for example (2-1): ")
-            
-            round7 = input("Round 7 [4x501] for example (2-1): ")
-            while round7 not in possible_results:
-                print("invalid input, try again")
-                round7 = input("Round 7 [4x501] for example (2-1): ")
+            for a_round in rounds:
+                a, b = a_round.split("-")
+                home_team_legs_win += int(a)
+                away_team_legs_win += int(b)
 
-            the_match.round1 = round1
-            the_match.round2 = round2
-            the_match.round3 = round3
-            the_match.round4 = round4
-            the_match.round5 = round5
-            the_match.round6 = round6
-            the_match.round7 = round7
+            the_match.home_team_legs_won = home_team_legs_win
+            the_match.away_team_legs_won = away_team_legs_win
+            the_match.round1 = rounds[0]
+            the_match.round2 = rounds[1]
+            the_match.round3 = rounds[2]
+            the_match.round4 = rounds[3]
+            the_match.round5 = rounds[4]
+            the_match.round6 = rounds[5]
+            the_match.round7 = rounds[6]
 
             self.logic.update_result(match_id, the_match)
 
@@ -222,51 +196,28 @@ class Match_UI():
                 the_match.winner = the_match.away_team
                 break
 
-        while True:
-            possible_results = ["2-1", "2-0", "1-2", "0-2"]
-            print("Input the result of each round","\n")
-            round1 = input("Round 1 [1x501] fx (2-1): ")
-            while round1 not in possible_results:
-                print("invalid input, try again")
-                round1 = input("Round 1 [1x501] fx (2-1): ")
+            player_list = []
+            
 
-            round2 = input("Round 2 [1x501] fx (2-1): ")
-            while round2 not in possible_results:
-                print("invalid input, try again")
-                round2 = input("Round 2 [1x501] fx (2-1): ")
-            
-            round3 = input("Round 3 [1x501] fx (2-1): ")
-            while round3 not in possible_results:
-                print("invalid input, try again")
-                round3 = input("Round 3 [1x501] fx (2-1): ")
+            rounds = self.input_for_rounds()
 
-            round4 = input("Round 4 [1x501] fx (2-1): ")
-            while round4 not in possible_results:
-                print("invalid input, try again")
-                round4 = input("Round 4 [1x501] fx (2-1): ")
-            
-            round5 = input("Round 5 [2x301] fx (2-1): ")
-            while round5 not in possible_results:
-                print("invalid input, try again")
-                round5 = input("Round 5 [2x301] fx (2-1): ")
-            
-            round6 = input("Round 6 [2xCricket] fx (2-1): ")
-            while round6 not in possible_results:
-                print("invalid input, try again")
-                round6 = input("Round 6 [2xCricket] fx (2-1): ")
-            
-            round7 = input("Round 7 [4x501] fx (2-1): ")
-            while round7 not in possible_results:
-                print("invalid input, try again")
-                round7 = input("Round 7 [4x501] fx (2-1): ")
+            home_team_legs_win = 0
+            away_team_legs_win = 0
 
-            the_match.round1 = round1
-            the_match.round2 = round2
-            the_match.round3 = round3
-            the_match.round4 = round4
-            the_match.round5 = round5
-            the_match.round6 = round6
-            the_match.round7 = round7
+            for round in rounds:
+                a, b = round.split("-")
+                home_team_legs_win += int(a)
+                away_team_legs_win += int(b)
+
+            the_match.home_team_legs_won = home_team_legs_win
+            the_match.away_team_legs_won = away_team_legs_win
+            the_match.round1 = rounds[0]
+            the_match.round2 = rounds[1]
+            the_match.round3 = rounds[2]
+            the_match.round4 = rounds[3]
+            the_match.round5 = rounds[4]
+            the_match.round6 = rounds[5]
+            the_match.round7 = rounds[6]
 
             self.logic.update_result(match_id, the_match)
 
@@ -283,5 +234,54 @@ class Match_UI():
             #quality_points_for_player = input("how many quality points did "player" score")
             #inner_points_for_player = input("How many inner points did player score")
             #outer_points_for_player = input("How many outer points did player score")
+        
+    def input_for_rounds(self):
+        """Checks on input for each round and returns a list of all round results"""
+        possible_results = ["2-1", "2-0", "1-2", "0-2"]
+        print("Input the result of each round","\n")
+        round1 = input("Round 1 [1x501] fx (2-1): ")
+        while round1 not in possible_results:
+            print("invalid input, try again")
+            round1 = input("Round 1 [1x501] fx (2-1): ")
 
-  
+        round2 = input("Round 2 [1x501] fx (2-1): ")
+        while round2 not in possible_results:
+            print("invalid input, try again")
+            round2 = input("Round 2 [1x501] fx (2-1): ")
+        
+        round3 = input("Round 3 [1x501] fx (2-1): ")
+        while round3 not in possible_results:
+            print("invalid input, try again")
+            round3 = input("Round 3 [1x501] fx (2-1): ")
+
+        round4 = input("Round 4 [1x501] fx (2-1): ")
+        while round4 not in possible_results:
+            print("invalid input, try again")
+            round4 = input("Round 4 [1x501] fx (2-1): ")
+        
+        round5 = input("Round 5 [2x301] fx (2-1): ")
+        while round5 not in possible_results:
+            print("invalid input, try again")
+            round5 = input("Round 5 [2x301] fx (2-1): ")
+        
+        round6 = input("Round 6 [2xCricket] fx (2-1): ")
+        while round6 not in possible_results:
+            print("invalid input, try again")
+            round6 = input("Round 6 [2xCricket] fx (2-1): ")
+        
+        round7 = input("Round 7 [4x501] fx (2-1): ")
+        while round7 not in possible_results:
+            print("invalid input, try again")
+            round7 = input("Round 7 [4x501] fx (2-1): ")
+            
+        rounds = [round1,round2,round3,round4,round5,round6,round7]
+
+        return rounds
+    
+
+    def players_who_played(self):
+        """Checks input for players who played and returns a list of player id to 
+        update the match with"""
+        pass
+        team_list = self.logic.get_all_teams()
+        player_list = self.logic.get_all_players()

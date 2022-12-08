@@ -63,6 +63,14 @@ class Logic_Wrapper:
         """Takes in a new update and forwards it to the data layer"""
         return self.tournament_logic.update_end_date(end_date)
     
+    def get_league_standings(self):
+        """Calculates the league and returns a nested list with [0]: wins, [1]: matches played and
+        [2]: team name"""
+        match_list = self.get_all_matches()
+        team_list = self.get_all_teams()
+        association_list = self.get_all_associations()
+        return self.tournament_logic.league_standings(match_list, team_list, association_list)
+    
 
     def get_all_matches(self):
         """Calls on get_all_matches in match logic and returns a list of match instances"""

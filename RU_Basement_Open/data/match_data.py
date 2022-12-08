@@ -36,6 +36,8 @@ class Match_data:
             if elem.match_id == match_id:
                 elem.result = match.result
                 elem.winner = match.winner
+                elem.home_team_legs_won = match.home_team_legs_won
+                elem.away_team_legs_won = match.away_team_legs_won
                 elem.round1 = match.round1
                 elem.round1_home_player = match.round1_home_player
                 elem.round1_away_player = match.round1_away_player
@@ -91,8 +93,8 @@ class Match_data:
 
         with open(self.file_name, append_or_overwrite, newline='', encoding="utf-8") as csvfile:
 
-            fieldnames = ["date","home_team","away_team","result","winner","match_id","round1","round1_home_player",\
-            "round1_away_player","round2","round2_home_player","round2_away_player","round3","round3_home_player",\
+            fieldnames = ["date","home_team","away_team","result","winner","match_id","home_team_legs_won","away_team_legs_won",\
+            "round1","round1_home_player","round1_away_player","round2","round2_home_player","round2_away_player","round3","round3_home_player",\
             "round3_away_player","round4","round4_home_player","round4_away_player","round5","round5_home_player1",\
             "round5_home_player2","round5_away_player1","round5_away_player2","round6","round6_home_player1",\
             "round6_home_player2","round6_away_player1","round6_away_player2","round7","round7_home_player1",\
@@ -107,6 +109,7 @@ class Match_data:
             
             writer.writerow({"date": match.date, "home_team": match.home_team, "away_team": match.away_team, "result":match.result,\
             "winner": match.winner, "match_id": match.match_id, "round1": match.round1, "round1_home_player": match.round1_home_player,\
+            "home_team_legs_won": match.home_team_legs_won,"away_team_legs_won": match.away_team_legs_won,\
             "round1_away_player": match.round1_away_player, "round2": match.round2, "round2_home_player": match.round2_home_player,\
             "round2_away_player": match.round2_away_player, "round3": match.round3, "round3_home_player": match.round3_home_player,\
             "round3_away_player": match.round3_away_player, "round4": match.round4, "round4_home_player": match.round4_home_player,\
@@ -132,9 +135,9 @@ class Match_data:
 
             for row in reader:
                 ret_list.append(Match(row["date"],row["home_team"],row["away_team"],row["result"],row["winner"],row["match_id"],\
-                row["round1"],row["round1_home_player"],row["round1_away_player"],row["round2"],row["round2_home_player"],\
-                row["round2_away_player"],row["round3"],row["round3_home_player"],row["round3_away_player"],row["round4"],\
-                row["round4_home_player"],row["round4_away_player"],row["round5"],row["round5_home_player1"],\
+                row["home_team_legs_won"], row["away_team_legs_won"],row["round1"],row["round1_home_player"],row["round1_away_player"],\
+                row["round2"],row["round2_home_player"],row["round2_away_player"],row["round3"],row["round3_home_player"],\
+                row["round3_away_player"],row["round4"],row["round4_home_player"],row["round4_away_player"],row["round5"],row["round5_home_player1"],\
                 row["round5_home_player2"],row["round5_away_player1"],row["round5_away_player2"],row["round6"],\
                 row["round6_home_player1"],row["round6_home_player2"],row["round6_away_player1"],row["round6_away_player2"],\
                 row["round7"],row["round7_home_player1"],row["round7_home_player2"],row["round7_home_player3"],
@@ -193,6 +196,8 @@ class Match_data:
             if elem.match_id == match_id:
                 elem.result = match.result
                 elem.winner = match.winner
+                elem.home_team_legs_won = match.home_team_legs_won
+                elem.away_team_legs_won = match.away_team_legs_won
                 elem.round1 = match.round1
                 elem.round1_home_player = match.round1_home_player
                 elem.round1_away_player = match.round1_away_player

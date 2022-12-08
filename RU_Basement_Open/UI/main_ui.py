@@ -1,5 +1,6 @@
 from UI.admin_ui import Admin_UI
 from UI.captain_ui import Captain_UI
+from UI.tournament_ui import Tournament_UI
 
 
 
@@ -37,8 +38,8 @@ class Main_UI:
                 print("You pressed 2")
                 captain_user.input_prompt()
             elif command == "3":
-                guest_user = Guest_UI()
+                tournament = Tournament_UI()
                 print("You pressed 3")
-                guest_user.input_prompt()
+                tournament.input_prompt_for_view_tournament_main_menu()
             else:
                 print("invalid input, try again!")

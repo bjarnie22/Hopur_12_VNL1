@@ -16,7 +16,7 @@ class Tournament_UI():
   
     def create_a_tournament_menu(self, admin_name):
 #Case number 8 in the wire frame
-        print("************** **************************************")
+        print("****************************************************")
         print(f"*               Welcome {admin_name}              *")
         print("*       First you should add all associations      *") 
         print("*       then you should add teams and players      *")
@@ -28,11 +28,36 @@ class Tournament_UI():
 
     def input_prompt_for_create_a_tournament_menu(self):
         admin_name = input("Your Name: ")
+        if admin_name.isalpha() == False: 
+            print("You name can only contain letters try again") 
+            admin_name = input("Your Name: ")  
         admin_email = input("Your email: ")
+        if ("@" in admin_email) == False: 
+            print("Every email needs @ please try again")
+            admin_email = input("Your email: ")
         admin_mobile = input("Your mobile phone: ")
+        if admin_mobile.isnumeric() == False:
+                print("Mobile phone can only contain numbers and should be at least 7 letters so try again") 
+                admin_mobile = input("Your mobile phone: ")
       #  admin_social_security_number = input("Your social security number: ")
         name_of_tournament = input("Name of tournament: ")
-        starting_date_of_tournament = input("Starting date of tournament: ")
+        starting_date_of_tournament = input("Write starting date of tournament in the format dd/mm/yyyy like '12/10/2022':")
+        while True: 
+            if (("/" in starting_date_of_tournament) == False) or (len(starting_date_of_tournament) < 9):
+                print("That was not in the format dd/mm/yyyy")
+                starting_date_of_tournament = input("Write starting date of tournament in the format dd/mm/yyyy like '12/10/2022':")
+                continue
+            list_of_dates = starting_date_of_tournament.split("/")
+            for num in list_of_dates: 
+                while True:
+                    try:
+                        int(num)
+                        break
+                    except:
+                        print("Dates can only be integers")
+                        starting_date_of_tournament = input("Write starting date of tournament in the format dd/mm/yyyy like '12/10/2022':")
+                        break
+            break
         end_date_of_tournament = input("Ending date of tournament: ")
         how_many_rounds = input("How many rounds are in the tournament: ")
         new_tournament = Tournament(name_of_tournament, admin_name, admin_mobile,admin_email,starting_date_of_tournament,end_date_of_tournament,how_many_rounds)
@@ -47,6 +72,7 @@ class Tournament_UI():
                 break
             elif command == "1":
                 self.input_prompt_for_add_association()
+                break
             else:
                 print("invalid input, please try again")
     
@@ -63,7 +89,6 @@ class Tournament_UI():
         # Here this function will return the(Name_of_tournament  Starting_date_of_tournament, How_many_rounds)
 
     def input_prompt_for_add_association (self):
-
         while True:
             name_of_a_association = input("Name of the association: ")
             address_of_association = input("Address of association: ")
@@ -102,8 +127,10 @@ class Tournament_UI():
             print()
             counter = 1
 
+            empty_space = ""
+            print(f"Association id{empty_space:>10}Association name")
             for element in association_rows:
-                print(f"{element.association_id}   {element.name}:")
+                print(f"{element.association_id:>6}{empty_space:>15}{element.name}:")
                 counter += 1
                 associations.append(element.name)
                 ass_pointer.append(element)
@@ -117,10 +144,18 @@ class Tournament_UI():
             name_of_team = input("Name of team: ")
             self.print_list_of_associations()
             association_id = input("Choose the association id that this teams belongs to: ")
-            number_of_players= int(input("How many players are in this team: "))    
+            number_of_players= int(input("How many players are in this team (minimun 4 players): "))    
+            if number_of_players < 4: 
+                print("Minimum players in a team are 4")
+                number_of_players= int(input("How many players are in this team: "))    
             new_team = Team(name_of_team, association_id)
             self.logic_wrapper_instance.create_team(new_team)
-            self.input_prompt_for_add_a_player(number_of_players,new_team.team_id)
+            list_of_teams = self.logic_wrapper_instance.get_all_teams()
+            for team in list_of_teams: 
+                if team.name == new_team.name:
+                    new_team.team_id = team.team_id
+            for i in range(number_of_players): 
+                self.input_prompt_for_add_a_player(i,new_team.team_id)
             self.add_team_menu()
             command = input("Enter your command: ")
             command = command.lower()
@@ -129,6 +164,8 @@ class Tournament_UI():
                 break
             elif command == "1":
                 self.add_team_menu()
+            else: 
+                print("Invalid input")
                 
             #else:
              #   print("invalid input, please try again")"""
@@ -151,7 +188,7 @@ class Tournament_UI():
 # Case number 13 in the wire frame
         counter = 1
         while True:
-            print("Information for Player", counter, ":")
+            print("Information for Player", number, ":")
             name_of_player = input("Name of the player: ")
             email_of_the_player = input("email of the player: ")
             social_security_number = input("Players social security number: ")
@@ -159,11 +196,14 @@ class Tournament_UI():
             address_of_player = input("Home address of player: ")
             home_phone_of_player = input("Home phone of player: ")
             mobile_phone_of_player = input("Mobile phone of player: ")
-            is_this_player_the_captain = input("""Is this player the captain?
-            Write "yes" if this player is the captain. Please leave empty if this player is not the captain: """)
-            counter += 1
-            if counter <= (number + 1): 
-                break
+            is_this_player_the_captain = input("Write 1 if this player is the captain and 0 is this player is not the captain")
+            new_player= Player(team_id,name_of_player, social_security_number, date_of_birth, email_of_the_player,address_of_player, \
+            home_phone_of_player, mobile_phone_of_player)
+            self.logic_wrapper_instance.create_player(new_player)
+            if is_this_player_the_captain == "1":
+                self.logic_wrapper_instance.choose_captain(team_id, social_security_number)
+                print(f"Player {name_of_player} is now the captain")
+            break
         
 ############################## View tournament case 2 in the wire frame#############################################
 # ###################################################################################################################
@@ -214,7 +254,7 @@ class Tournament_UI():
 
 
             print()
-            print(f"{tournament_info_rows[0].tournament_name} by {tournament_info_rows[0].admin_name}")
+            print(f"{tournament_info_rows[0].tournament_name} by {tournament_info_rows[0].admin_name}") #prints tournament info above the associations 
             print()
             print("All associtaions:")
             print()
@@ -267,69 +307,86 @@ class Tournament_UI():
             teamcounter = 1
             print(list[option -1],":")
             self.information_output(pointer[option -1])
-            for t in team_rows:
+            for t in team_rows:                         #this for loop prints out the team name and the format in which the information of the team is displayed
                 if int(t.association_id) == option -1:
-                    print(teamcounter, f"{t.name}:")
+                    print("\n", teamcounter, f"{t.name}:","\n")
                     teamcounter += 1
                     team_array.append(t.name)
                     self.information_output(t)
-                    for p in player_rows:
+                    print("{:<25}".format("Name:"),end="")
+                    print("{:<20}".format("Date of birth:"),end="")
+                    print("{:<20}".format("SSN:"),end="")
+                    print("{:<20}".format("Email:"),end="")
+                    print("{:<20}".format("Mobile:"),end="")
+                    print("{:<25}".format("Address:"),end="")
+                    print()
+                    for p in player_rows:       #this for loop prints out each player and their information in columns
                         if p.team_id == t.team_id:
                             if p.social_security_number == t.captain_id:
-                                print(f"{p.name:<25} (C)",end="\n")
-                                self.information_output(p)
+                                print("{:<25}".format(f"{p.name} (C)"),end="")      #to find the captain of each team 
+                                print(f"{p.date_of_birth:<20}",end="")
+                                print(f"{p.social_security_number:<20}",end="")
+                                print(f"{p.email:<20}",end="")
+                                print(f"{p.mobile:<20}",end="")
+                                print(f"{p.address:<25}",end="")
+                                print()
+                                #self.information_output(p)
                             else:
-                                print(f"{p.name:<25}",end="\n")
-                                self.information_output(p)
+                                print(f"{p.name:<25}",end="")
+                                print(f"{p.date_of_birth:<20}",end="")
+                                print(f"{p.social_security_number:<20}",end="")
+                                print(f"{p.email:<20}",end="")
+                                print(f"{p.mobile:<20}",end="")
+                                print(f"{p.address:<25}",end="")
+                                print()
+                    print()
+                                #self.information_output(p)
             input("Press enter to go back ")
             break
 
 
-    def information_output(self, pointer):
+    def information_output(self, pointer): #used for association and team information 
         print()
         try:
-            print("{:<25}".format("Address:"), f"{pointer.address}")
-            print("{:<25}".format("Phone number:"), f"{pointer.phone_number}")
+            print("{:<24}".format("Address:"), f"{pointer.address}")
+            print("{:<24}".format("Phone number:"), f"{pointer.phone_number}")
         except:
-            print("{:<25}".format("Captain ID:"), f"{pointer.captain_id}", "\n")
-
-        try:
-            print("{:<25}".format("Date of birth:"), f"{pointer.date_of_birth}")
-            print("{:<25}".format("SSN:"), f"{pointer.social_security_number}")
-            print("{:<25}".format("Email:"), f"{pointer.email}")
-            print("{:<25}".format("Mobile:"), f"{pointer.mobile}")
-            print()
-            print()
-        except:
-            print('')
-
-
-    def list_of_players_for_a_chosen_team(self):
-        pass
-# Case 4 in the wire frame
-            # Here we would need a list of players for a choosen team.
-
-
-    def input_prompt_for_list_of_players(self,id):
-        while True:
-            self.list_of_players_for_a_choose_team()
-            command = input("Enter the id of the player you would like to view and q if you would like to go back: ")
-
-            command = command.lower()
-            if command == "b":
-                print("you are going back")
-                break
-            else:
-                print("invalid input, please try again")
+            pass
+        
+    
 
     def list_of_upcoming_and_played_matches(self):
 # Case 5 in the wire frame
-        pass
+        match_list = self.logic_wrapper_instance.get_all_matches()
+        team_list = self.logic_wrapper_instance.get_all_teams()
+        empty_space = ""
+        print("All played matches:")
+        print(f"{empty_space}match id{empty_space:>12}home team{empty_space:>4}away team{empty_space:>6}result\n")
+        for match in match_list:
+            for team in team_list:
+                if team.team_id == match.home_team:
+                    home = team.name
+                if team.team_id == match.away_team:
+                    away = team.name
+            if match.result != "":
+                print(f"{match.match_id:>4}{home:>25} vs {away:<15}{empty_space:>2}{match.result}")
+        print()
+        print("All unplayed matches:")
+        print(f"{empty_space}match id{empty_space:>12}home team{empty_space:>4}away team{empty_space:>4}date\n")
+        for match in match_list:
+            for team in team_list:
+                if team.team_id == match.home_team:
+                    home = team.name
+                if team.team_id == match.away_team:
+                    away = team.name
+            if match.result == "":
+                print(f"{match.match_id:>4}{home:>25} vs {away:<15}{empty_space:>2}{match.date}")
+
 
     def input_prompt_for_list_of_upcoming_and_played_matches(self,id):
         while True:
             self.list_of_upcoming_and_played_matches()
-            command = input("Enter the id of the player you would like to view and b if you would like to go back: ")
+            command = input("Press b if you would like to go back: ")
 
             command = command.lower()
             if command == "b":
@@ -340,12 +397,19 @@ class Tournament_UI():
 
     def list_of_current_standing(self):
 # Case 6 in the wire frame
-        pass
+        league_list = self.logic_wrapper_instance.get_league_standings()
+        match_list = self.logic_wrapper_instance.get_all_matches()
+        empty_space = ""
+
+        print("League Standing:")
+        print(f"Position{empty_space:>5}Team{empty_space:>8}Matches played{empty_space:>5}Matches won{empty_space:>3}Legs won\n")
+        for team, i in zip(league_list, range(1,len(league_list)+1)):
+            print(f"{i:>4}{empty_space:<5}{team[4]:<23}{team[3]:<12}{team[0]:>5}{team[1]:>14}")
 
     def input_prompt_for_list_of_current_standing(self,id):
         while True:
             self.list_of_current_standing()
-            command = input("Enter the id of the player you would like to view and b if you would like to go back: ")
+            command = input("Enter b if you would like to go back: ")
 
             command = command.lower()
             if command == "b":
