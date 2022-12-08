@@ -63,13 +63,14 @@ class Tournament_UI():
         # Here this function will return the(Name_of_tournament  Starting_date_of_tournament, How_many_rounds)
 
     def input_prompt_for_add_association (self):
-        name_of_a_association = input("Name of the association: ")
-        address_of_association = input("Address of association: ")
-        phone_number_of_association = input("Phone number of the association: ")
-#        number_of_teams = input("How many teams are in the association: ")
-        new_association = Association(name_of_a_association, address_of_association, phone_number_of_association)
-        self.logic_wrapper_instance.create_association(new_association)
+
         while True:
+            name_of_a_association = input("Name of the association: ")
+            address_of_association = input("Address of association: ")
+            phone_number_of_association = input("Phone number of the association: ")
+#           number_of_teams = input("How many teams are in the association: ")
+            new_association = Association(name_of_a_association, address_of_association, phone_number_of_association)
+            self.logic_wrapper_instance.create_association(new_association)
             self.add_association_menu()
             command = input("Enter your command: ")
             command = command.lower()
@@ -77,7 +78,7 @@ class Tournament_UI():
                 print("you are going back")
                 break
             elif command == "1":
-                self.add_association_menu
+                continue
             elif command == "2":
                 self.input_prompt_to_add_a_team ()
             else:
@@ -119,7 +120,7 @@ class Tournament_UI():
             number_of_players= int(input("How many players are in this team: "))    
             new_team = Team(name_of_team, association_id)
             self.logic_wrapper_instance.create_team(new_team)
-            self.input_prompt_for_add_a_player(number_of_players)
+            self.input_prompt_for_add_a_player(number_of_players,new_team.team_id)
             self.add_team_menu()
             command = input("Enter your command: ")
             command = command.lower()
@@ -149,7 +150,7 @@ class Tournament_UI():
     def input_prompt_for_add_a_player (self, number, team_id):
 # Case number 13 in the wire frame
         counter = 1
-        for i in range(0, number):
+        while True:
             print("Information for Player", counter, ":")
             name_of_player = input("Name of the player: ")
             email_of_the_player = input("email of the player: ")
@@ -161,10 +162,9 @@ class Tournament_UI():
             is_this_player_the_captain = input("""Is this player the captain?
             Write "yes" if this player is the captain. Please leave empty if this player is not the captain: """)
             counter += 1
-        self.input_prompt_for_add_association()
-            else:
-                print("invalid input, please try again")
-
+            if counter <= (number + 1): 
+                break
+        
 ############################## View tournament case 2 in the wire frame#############################################
 # ###################################################################################################################
 
