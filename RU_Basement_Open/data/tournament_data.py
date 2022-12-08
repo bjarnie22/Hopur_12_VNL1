@@ -12,7 +12,7 @@ class Tournament_data:
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
 
             fieldnames = ["tournament_name", "admin_name", "admin_phone", "admin_email",\
-            "start_date", "end_date", "number_of_rounds"]
+            "start_date", "end_date", "number_of_rounds", "started"]
 
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             if append_or_overwrite == "w":
@@ -21,7 +21,7 @@ class Tournament_data:
             writer.writerow({"tournament_name": tournament.tournament_name, "admin_name":\
             tournament.admin_name, "admin_phone": tournament.admin_phone, "admin_email":\
             tournament.admin_email, "start_date": tournament.start_date, "end_date": \
-            tournament.end_date, "number_of_rounds": tournament.number_of_rounds})
+            tournament.end_date, "number_of_rounds": tournament.number_of_rounds, "started": tournament.started})
 
  
     def get_tournament_info(self):
@@ -33,7 +33,7 @@ class Tournament_data:
             for row in reader: # Takes all required information and makes it into a tournament instance
                 ret_list.append(Tournament(row["tournament_name"], row["admin_name"],\
                 row["admin_phone"], row["admin_email"], row["start_date"], row["end_date"],\
-                row["number_of_rounds"]))
+                row["number_of_rounds"], row["started"]))
             
         return ret_list
 
@@ -44,4 +44,13 @@ class Tournament_data:
 
         tournament.end_date = end_date
         
-        self.create_tournament(tournament)
+        self.create_tournament(tournament, "w")
+
+
+    def start_tournament():
+        """Starts tournament"""
+        tournament = self.get_tournament_info()
+
+        tournament.started = "Yes"
+        
+        self.create_tournament(tournament, "w")

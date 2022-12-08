@@ -7,7 +7,7 @@ class Captain_UI:
 
     def menu_output(self):
         print("********************************************")
-        print("*               Hello Captain!             *")
+        print("*              Hello Captain!              *")
         print("*                                          *")
         print("*       (1)  View tournament               *")
         print("*       (2)  Add score for played game     *")

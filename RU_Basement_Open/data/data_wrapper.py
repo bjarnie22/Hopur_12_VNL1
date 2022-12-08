@@ -65,6 +65,11 @@ class Data_Wrapper:
     def update_end_date(self, end_date):
         """calls on update_end_date, with a new end_date as a parameter in tournament_data"""
         return self.tournament_data.update_end_date(end_date)
+
+    def start_tournament(self):
+        """Changes tournament status from started = No to Yes. Creating entities will no longer
+        be available"""
+        return self.tournament_data.start_tournament()
     
 
     def get_all_matches(self):
@@ -82,10 +87,10 @@ class Data_Wrapper:
         in match_data"""
         return self.match_data.postpone_match(match_id, date)
     
-    def update_result(self, match_id, result):
+    def update_result(self, match_id, match):
         """Calls on update_result, with a match id and the new result as a parameters
         in match_data"""
-        return self.match_data.update_result(match_id, result)
+        return self.match_data.update_result(match_id, match)
     
     def create_match_schedule(self):
         """"""
@@ -94,7 +99,11 @@ class Data_Wrapper:
         team_list = self.get_all_teams()
         return self.match_data.create_match_schedule(tournament.start_date, tournament.end_date, tournament.number_of_rounds, team_list)
 
+    def wipe_match_schedule(self):
+        """Wipes the match schedule so that create_match_schedule can be used again correctly"""
+        return self.match_data.wipe_match_schedule()
+
     def register_result_captain(self, match):
         """Calls on update_result, with a copmleted match as a parameters
         in match_data"""
-        return self.match_data.update_result(match)
+        return self.match_data.register_result_captain(match)

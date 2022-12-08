@@ -187,13 +187,31 @@ class Match_data:
 
             previous_list = copy_list
 
+
+    def wipe_match_schedule(self):
+        """Wipes the match schedule so that create_match_schedule can be used again correctly"""
+        with open(self.file_name, "w", newline='', encoding="utf-8") as csvfile:
+
+            fieldnames = ["date","home_team","away_team","result","winner","match_id","home_team_legs_won","away_team_legs_won",\
+            "round1","round1_home_player","round1_away_player","round2","round2_home_player","round2_away_player","round3","round3_home_player",\
+            "round3_away_player","round4","round4_home_player","round4_away_player","round5","round5_home_player1",\
+            "round5_home_player2","round5_away_player1","round5_away_player2","round6","round6_home_player1",\
+            "round6_home_player2","round6_away_player1","round6_away_player2","round7","round7_home_player1",\
+            "round7_home_player2","round7_home_player3","round7_home_player4","round7_away_player1",\
+            "round7_away_player2","round7_away_player3","round7_away_player4","qp_player_h_1","qp_player_h_2",\
+            "qp_player_h_3","qp_player_h_4","qp_player_a_1","qp_player_a_2","qp_player_a_3",\
+            "qp_player_a_4"]
+
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+
     
     def register_result_captain(self, match):
         """"""
         match_list = self.get_all_matches()
 
         for elem in match_list:
-            if elem.match_id == match_id:
+            if elem.match_id == match.match_id:
                 elem.result = match.result
                 elem.winner = match.winner
                 elem.home_team_legs_won = match.home_team_legs_won

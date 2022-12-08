@@ -4,10 +4,12 @@ from model.team import Team
 from model.association import Association
 from model.tournament import Tournament
 from model.match import Match
+from error import Error
 
 class Tournament_UI():
     def __init__(self):
         self.logic_wrapper_instance = Logic_Wrapper()
+        self.error_check = Error()
 
 
 ############################# Create a tournament case number 8 in the wire frame###############################
@@ -17,65 +19,70 @@ class Tournament_UI():
     def create_a_tournament_menu(self, admin_name):
 #Case number 8 in the wire frame
         print("****************************************************")
-        print(f"*               Welcome {admin_name}              *")
+        print(f"                Welcome {admin_name}               ")
         print("*       First you should add all associations      *") 
         print("*       then you should add teams and players      *")
-        print("*       (1)  To add the first association          *")                         
-        print("*                                                  *")
+        print("*       (1)  Add associations                      *")                         
         print("*       (b)  go back?                              *")
         print("*                                                  *")
         print("****************************************************")
 
     def input_prompt_for_create_a_tournament_menu(self):
-        admin_name = input("Your Name: ")
-        if admin_name.isalpha() == False: 
-            print("You name can only contain letters try again") 
-            admin_name = input("Your Name: ")  
-        admin_email = input("Your email: ")
-        if ("@" in admin_email) == False: 
-            print("Every email needs @ please try again")
-            admin_email = input("Your email: ")
-        admin_mobile = input("Your mobile phone: ")
-        if admin_mobile.isnumeric() == False:
-                print("Mobile phone can only contain numbers and should be at least 7 letters so try again") 
-                admin_mobile = input("Your mobile phone: ")
-      #  admin_social_security_number = input("Your social security number: ")
-        name_of_tournament = input("Name of tournament: ")
-        starting_date_of_tournament = input("Write starting date of tournament in the format dd/mm/yyyy like '12/10/2022':")
-        while True: 
-            if (("/" in starting_date_of_tournament) == False) or (len(starting_date_of_tournament) < 9):
-                print("That was not in the format dd/mm/yyyy")
-                starting_date_of_tournament = input("Write starting date of tournament in the format dd/mm/yyyy like '12/10/2022':")
-                continue
-            list_of_dates = starting_date_of_tournament.split("/")
-            for num in list_of_dates: 
-                while True:
-                    try:
-                        int(num)
-                        break
-                    except:
-                        print("Dates can only be integers")
-                        starting_date_of_tournament = input("Write starting date of tournament in the format dd/mm/yyyy like '12/10/2022':")
-                        break
+        command = input("Write b to go back press enter to continue: ")
+        while command == "b":
+            print("you are going back")
             break
+        admin_name = input("Hey admin we need your name: ")  
+        while self.error_check.NameCheckError(admin_name) != True:
+            print(self.error_check.NameCheckError(admin_name))
+            admin_name = input("Hey admin we need your name: ") 
+
+        admin_email = input("Your email: ")
+        while "@" not in admin_email:
+            print("Please input a valid email")
+            admin_email = input("Your email: ")
+
+
+        admin_mobile = input("Your mobile phone: ")
+        while self.error_check.NotIcelandicNumberError(admin_mobile) != True:
+            print(self.error_check.NotIcelandicNumberError(admin_mobile))
+            admin_mobile = input("Your mobile phone: ")
+
+      # admin_social_security_number = input("Your social security number: ")   <-- Maybe an admin password
+        name_of_tournament = input("Name of tournament: ")
+        while len(name_of_tournament) > 50:
+            print("Name too long, keep it within 50 characters")
+
+        starting_date_of_tournament = input("Write starting date of tournament in the format dd/mm/yyyy like '12/10/2022': ")
         end_date_of_tournament = input("Ending date of tournament: ")
-        how_many_rounds = input("How many rounds are in the tournament: ")
+
+        while True:
+            try:
+                how_many_rounds = int(input("How many rounds are in the tournament: "))
+                while (how_many_rounds) < 1:
+                    print("Minimum of rounds is 1, please try again.")
+                    how_many_rounds = int(input("How many rounds are in the tournament: "))
+                break
+            except:
+                print("Please input a number")
+                continue
+
         new_tournament = Tournament(name_of_tournament, admin_name, admin_mobile,admin_email,starting_date_of_tournament,end_date_of_tournament,how_many_rounds)
         self.logic_wrapper_instance.create_tournament(new_tournament) 
         new_tournament.admin_name
+        
         while True:
             self.create_a_tournament_menu(new_tournament.admin_name)
             command = input("Enter your command: ")
             command = command.lower()
             if command == "b":
-                print("you are going back")
+                print("you are now going back")
                 break
             elif command == "1":
+                print("You pressed 1")
                 self.input_prompt_for_add_association()
-                break
             else:
                 print("invalid input, please try again")
-    
     
     def add_association_menu(self):
 # Case number 11 in the wire frame
@@ -90,12 +97,27 @@ class Tournament_UI():
 
     def input_prompt_for_add_association (self):
         while True:
+            command = input("Write b to go back press enter to continue: ")
+            if command == "b":
+                print("you are going back")
+                break
+
             name_of_a_association = input("Name of the association: ")
+            while self.error_check.CheckTeamOrAssociationNameError(name_of_a_association) != True:
+                print(self.error_check.CheckTeamOrAssociationNameError(name_of_a_association))
+                name_of_a_association = input("Name of the association: ")
+
             address_of_association = input("Address of association: ")
+
             phone_number_of_association = input("Phone number of the association: ")
+            while self.error_check.CheckTeamOrAssociationNameError(phone_number_of_association) != True:
+                print(self.error_check.CheckTeamOrAssociationNameError(phone_number_of_association))
+                phone_number_of_association = input("Phone number of the association: ")
+
 #           number_of_teams = input("How many teams are in the association: ")
             new_association = Association(name_of_a_association, address_of_association, phone_number_of_association)
             self.logic_wrapper_instance.create_association(new_association)
+            
             self.add_association_menu()
             command = input("Enter your command: ")
             command = command.lower()
@@ -103,59 +125,45 @@ class Tournament_UI():
                 print("you are going back")
                 break
             elif command == "1":
+                print("Your pressed 1")
                 continue
             elif command == "2":
+                print ("You pressed 2")
                 self.input_prompt_to_add_a_team ()
             else:
                 print("invalid input, please try again")
- 
-    def print_list_of_associations(self): 
-            all_lists = Logic_Wrapper()
-            association_rows = all_lists.get_all_associations()
-            team_rows = all_lists.get_all_teams()
-            player_rows = all_lists.get_all_players()
-            tournament_info_rows = all_lists.get_tournament_info()
-            associations = []
-            ass_pointer = []
-            print()
-            print(f"{tournament_info_rows[0].tournament_name} by {tournament_info_rows[0].admin_name}")
-            print()
-            print("All associations:")
-            print()
-            for i in range(35):
-                print("-",end='')
-            print()
-            counter = 1
-
-            empty_space = ""
-            print(f"Association id{empty_space:>10}Association name")
-            for element in association_rows:
-                print(f"{element.association_id:>6}{empty_space:>15}{element.name}:")
-                counter += 1
-                associations.append(element.name)
-                ass_pointer.append(element)
-            for i in range(35):
-                print("-",end='')
-           
-            print()
 
     def input_prompt_to_add_a_team (self):
         while True:
+            command = input("Write b to go back press enter to continue: ")
+            if command == "b":
+                print("you are going back")
+                break
+
             name_of_team = input("Name of team: ")
+            while self.error_check.CheckTeamOrAssociationNameError(name) != True:
+                print(self.error_check.CheckTeamOrAssociationNameError(name))
+                name_of_team = input("Name of team: ")
+
             self.print_list_of_associations()
             association_id = input("Choose the association id that this teams belongs to: ")
+
             number_of_players= int(input("How many players are in this team (minimun 4 players): "))    
             if number_of_players < 4: 
                 print("Minimum players in a team are 4")
-                number_of_players= int(input("How many players are in this team: "))    
+                number_of_players= int(input("How many players are in this team: "))  
+
             new_team = Team(name_of_team, association_id)
             self.logic_wrapper_instance.create_team(new_team)
+
             list_of_teams = self.logic_wrapper_instance.get_all_teams()
             for team in list_of_teams: 
                 if team.name == new_team.name:
                     new_team.team_id = team.team_id
+
             for i in range(number_of_players): 
                 self.input_prompt_for_add_a_player(i,new_team.team_id)
+
             self.add_team_menu()
             command = input("Enter your command: ")
             command = command.lower()
@@ -163,7 +171,8 @@ class Tournament_UI():
                 print("you are going back")
                 break
             elif command == "1":
-                self.add_team_menu()
+                print("You choose 1")
+                continue
             else: 
                 print("Invalid input")
                 
@@ -182,31 +191,85 @@ class Tournament_UI():
         # C-demand would be that the system would ask the user to put (x number of teams). For a demand we just
         # trust the user.
 
+    def print_list_of_associations(self): 
+        all_lists = Logic_Wrapper()
+        association_rows = all_lists.get_all_associations()
+        team_rows = all_lists.get_all_teams()
+        player_rows = all_lists.get_all_players()
+        tournament_info_rows = all_lists.get_tournament_info()
+        associations = []
+        ass_pointer = []
+        print()
+        print(f"{tournament_info_rows[0].tournament_name} by {tournament_info_rows[0].admin_name}")
+        print()
+        print("All associations:")
+        print()
+        for i in range(35):
+            print("-",end='')
+        print()
+        counter = 1
 
+        empty_space = ""
+        print(f"Association id{empty_space:>10}Association name")
+        for element in association_rows:
+            print(f"{element.association_id:>6}{empty_space:>15}{element.name}:")
+            counter += 1
+            associations.append(element.name)
+            ass_pointer.append(element)
+        for i in range(35):
+            print("-",end='')
+        
+        print()
 
     def input_prompt_for_add_a_player (self, number, team_id):
 # Case number 13 in the wire frame
-        counter = 1
         while True:
             print("Information for Player", number, ":")
+
             name_of_player = input("Name of the player: ")
+            while self.error_check.NameCheckError(name_of_player) != True:
+                print(self.error_check.NameCheckError(name_of_player))
+                name_of_player = input("Name of the player: ")
+            
             email_of_the_player = input("email of the player: ")
+            while "@" not in email_of_the_player:
+                print("Please enter a valid email")
+                email_of_the_player = input("email of the player: ")
+            
             social_security_number = input("Players social security number: ")
-            date_of_birth = input("Date of birth: ")
-            address_of_player = input("Home address of player: ")
-            home_phone_of_player = input("Home phone of player: ")
-            mobile_phone_of_player = input("Mobile phone of player: ")
-            is_this_player_the_captain = input("Write 1 if this player is the captain and 0 is this player is not the captain")
+            while self.error_check.CheckSSNValidity(social_security_number):
+                print(self.error_check.CheckSSNValidity(social_security_number))
+                social_security_number = input("Players social security number: ")
+            date_of_birth = self.error_check.CheckSSNValidity(social_security_number)
+
+            address_of_player = input("Home address of player or enter to skip: ")
+
+            home_phone_of_player = input("Home phone of player or enter to skip: ")
+            while self.error_check.NotIcelandicNumberError(home_phone_of_player) != True:
+                print(self.error_check.NotIcelandicNumberError(home_phone_of_player))
+                home_phone_of_player = input("Home phone of player or enter to skip: ")
+            
+            mobile_phone_of_player = input("Mobile phone of player or enter to skip: ")
+            while self.error_check.NotIcelandicNumberError(mobile_phone_of_player) != True:
+                print(self.error_check.NotIcelandicNumberError)
+                mobile_phone_of_player = input("Mobile phone of player or enter to skip: ")
+            
             new_player= Player(team_id,name_of_player, social_security_number, date_of_birth, email_of_the_player,address_of_player, \
             home_phone_of_player, mobile_phone_of_player)
             self.logic_wrapper_instance.create_player(new_player)
+
+            is_this_player_the_captain = input("Write 1 if this player is the captain and 0 is this player is not the captain: ")
             if is_this_player_the_captain == "1":
-                self.logic_wrapper_instance.choose_captain(team_id, social_security_number)
-                print(f"Player {name_of_player} is now the captain")
+                check = self.logic_wrapper_instance.choose_captain(team_id, social_security_number)
+                if check != False:
+                    print(f"Player {name_of_player} is now the captain")
+                else:
+                    print("Captain has already been chosen, moving on...")
             break
+
         
-############################## View tournament case 2 in the wire frame#############################################
-# ###################################################################################################################
+############################### View tournament case 2 in the wire frame#############################################
+#####################################################################################################################
 
     def view_tournament_main_menu(self):
 # Case number 2 in the wire frame
@@ -216,6 +279,7 @@ class Tournament_UI():
             print("*       (1)  List of associations and their teams.          *")
             print("*       (2)  List of upcoming and played matches            *")
             print("*       (3)  List of current standing                       *")
+            print("*       (4)  List of top 5 quilty point scorers             *")
             print("*       (b)  go back?                                       *")
             print("*                                                           *")
             print("*                                                           *")
@@ -235,6 +299,8 @@ class Tournament_UI():
                 self.input_prompt_for_list_of_upcoming_and_played_matches(id)
             elif command == "3":
                 self.input_prompt_for_list_of_current_standing(id)
+            elif command == "4":
+                self.top_5_qp_scorers()
             else:
                 print("invalid input, please try again")
 
@@ -418,46 +484,132 @@ class Tournament_UI():
             else:
                 print("invalid input, please try again")
 
+    def top_5_qp_scorers(self):
+        qp_list = a.get_top_qp_scorers()
+        empty_space = ""
+
+        print("Top 5 quality point scorers")
+        print(f"Position{empty_space:>11}Name{empty_space:>10}Quality points   Matches played")
+        for elem, i in zip(qp_list[0:5], range(1,6)):
+            print(f"   {i:<10}{elem[2]:<26}{elem[0]:<17}{elem[1]}")
+
+        command = input("Press enter or input anything else to go back")
+
+############################### Manage tournament case 3 in the wire frame ############################################
+#####################################################################################################################
+    
+    def view_manage_tournament_main_menu(self):
+        print("*************************************************************")
+        print("*                   Manage tournament                       *")
+        print("*                                                           *")
+        print("*      (1)  Add a new association                           *")
+        print("*      (2)  Add a new team to an existing association       *")
+        print("*      (3)  Add a new player to an existing team            *")
+        print("*      (b)  go back?                                        *")
+        print("*                                                           *")
+        print("*************************************************************")
+
+
+    def input_prompt_for_manage_tournament_main_menu(self):
+        while True:
+            self.view_manage_tournament_main_menu()
+            command = input("Enter your command: ")
+            command = command.lower()
+            if command == "b":
+                print("you are going back")
+                break
+            elif command == "1":
+                self.create_new_association()
+            elif command == "2":
+                self.create_team_to_existing_association()
+            elif command == "3":
+                self.create_a_player_for_existing_team()
+            else:
+                print("invalid input, please try again")
+
+
+    def create_new_association(self):
+        self.input_prompt_for_add_association()
+
+    def create_team_to_existing_association(self):
+        self.input_prompt_to_add_a_team()
+
+    def create_a_player_for_existing_team(self):
+        name_of_player = input("Name of the player: ")
+        while self.error_check.NameCheckError(name_of_player) != True:
+            print(self.error_check.NameCheckError(name_of_player))
+            name_of_player = input("Name of the player: ")
+        
+        email_of_the_player = input("email of the player: ")
+        while "@" not in email_of_the_player:
+            print("Please enter a valid email")
+            email_of_the_player = input("email of the player: ")
+        
+        social_security_number = input("Players social security number: ")
+        while self.error_check.CheckSSNValidity(social_security_number):
+            print(self.error_check.CheckSSNValidity(social_security_number))
+            social_security_number = input("Players social security number: ")
+        date_of_birth = self.error_check.CheckSSNValidity(social_security_number)
+
+        address_of_player = input("Home address of player or enter to skip: ")
+
+        home_phone_of_player = input("Home phone of player or enter to skip: ")
+        while self.error_check.NotIcelandicNumberError(home_phone_of_player) != True:
+            print(self.error_check.NotIcelandicNumberError(home_phone_of_player))
+            home_phone_of_player = input("Home phone of player or enter to skip: ")
+        
+        mobile_phone_of_player = input("Mobile phone of player or enter to skip: ")
+        while self.error_check.NotIcelandicNumberError(mobile_phone_of_player) != True:
+            print(self.error_check.NotIcelandicNumberError)
+            mobile_phone_of_player = input("Mobile phone of player or enter to skip: ")
+
+        team_list = self.logic_wrapper_instance.get_all_teams()
+        empty_space = ""
+        print(f"Team id{empty_space:>6}Team name")
+        for element in team_list:
+            print(f"({element.team_id:>6}){empty_space:>15}{element.name}:")
+        
+        new_player= Player(team_id,name_of_player, social_security_number, date_of_birth, email_of_the_player,address_of_player, \
+        home_phone_of_player, mobile_phone_of_player)
+        self.logic_wrapper_instance.create_player(new_player)
+
+
 
 #################################Start a tournament case 9 in the wire frame##########################################
 ########################################################################################################
 
     def the_calculated_schedule_of_the_matches(self):
 # Case 9 in the wire frame
-        # Here should come calculated schedule of the mathces.
-        pass
+        if len(self.logic_wrapper_instance.get_all_matches()) > 0:
+            self.logic_wrapper_instance.wipe_match_schedule()
+
+        self.logic_wrapper_instance.create_match_schedule()
+        team_list = self.logic_wrapper_instance.get_all_teams()
+        match_list = self.logic_wrapper_instance.get_all_matches()
+        empty_space = ""
+
+        print(f"{empty_space:>3}Date{empty_space:>19}Home team{empty_space:>4}Away team\n")
+        for match in match_list:
+            for team in team_list:
+                if team.team_id == match.home_team:
+                    home = team.name
+                if team.team_id == match.away_team:
+                    away = team.name
+            if match.result == "":
+                print(f"{match.date:>4}{home:>25} vs {away:<15}{empty_space:>2}")
 
     def input_prompt_for_the_calculated_schedule_of_the_matches(self):
         while True:
             self.the_calculated_schedule_of_the_matches()
-            command = input("Enter the 1 if you want shorten or lengthen the match or press 'b' to go back: ")
+            print("Press C to confirm or B to go back and delete the match schedule")
+            command = input("Press C to confirm or B to go back")
             command = command.lower()
             if command == "b":
+                self.logic_wrapper_instance.wipe_match_schedule()
                 print("you are going back")
                 break
-            elif command == "1":
-                self.change_date_of_tournament()
+            elif command == "c":
+                self.logic_wrapper_instance.start_tournament()
+                break
             else:
                 print("invalid input, please try again")
-
-    def change_date_of_tournament(self):
-        while True:
-            new_starting_date = input("Enter the new starting date or 'b' to go back, if you press b no changes will be made: ")
-            new_starting_date = new_starting_date.lower()
-            if new_starting_date == "b":
-                print("you are going back")
-                break
-            else:
-                # updates the new starting date
-                 print ("Here we will check the input")
-                 break
-
-        while True:
-            new_ending_date = input("Enter the new ending date or 'b' to go back if you press b no changes will be made: ")
-            new_ending_date = new_ending_date.lower()
-            if new_ending_date == "b":
-                print("you are going back")
-                break
-            else:
-                 print ("Here we will check the input")
-                 break

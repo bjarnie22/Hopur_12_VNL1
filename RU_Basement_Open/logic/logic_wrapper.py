@@ -60,8 +60,12 @@ class Logic_Wrapper:
         return self.tournament_logic.create_tournament(tournament)
 
     def update_end_date(self, end_date):
-        """Takes in a new update and forwards it to the data layer"""
+        """Takes in a new end date and forwards it to the data layer"""
         return self.tournament_logic.update_end_date(end_date)
+
+    def start_tournament(self):
+        """Locks creating features and starts tournament, no going back"""
+        return self.tournament_logic.start_tournament()
     
     def get_league_standings(self):
         """Calculates the league and returns a nested list with [0]: wins, [1]: matches played and
@@ -85,7 +89,7 @@ class Logic_Wrapper:
         in postpone_match"""
         return self.match_logic.postpone_match(match_id, date)
     
-    def update_result(self, match_id, result):
+    def update_result(self, match_id, match):
         """Calls on update_result in match_logic, with a match id and the new result as a parameters"""
         return self.match_logic.update_result(match_id, result)
     
@@ -93,7 +97,17 @@ class Logic_Wrapper:
         """Calls on create_match schedule in match_logic..."""
         return self.match_logic.create_match_schedule()
 
+    def wipe_match_schedule(self):
+        """Wipes the match schedule so that create_match_schedule can be used again correctly"""
+        return self.match_logic.wipe_match_schedule()
+
     def register_result_captain(self, match):
         """Registers a new result, takes old match_id and overwrites the match with game information in
         a match instance"""
         return self.match_logic.register_result_captain(match)
+
+    def get_top_qp_scorers(self):
+        """Calculates the top quality point scorers and returns them in a list [0]: quality point amount,
+        [1]: matches played and [2]: name of player"""
+        player_list = self.get_all_players()
+        return self.match_logic.highest_quality_points_list(player_list)

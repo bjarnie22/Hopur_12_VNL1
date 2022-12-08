@@ -7,6 +7,10 @@ from model.match import Match
 
 from UI.match_ui import Match_UI
 
+from error import Error
+
+from datetime import datetime, date
+
 a = Logic_Wrapper()
 
 listi = a.get_all_players()
@@ -134,9 +138,16 @@ listi4 = a.get_tournament_info()
 
 match_list = a.get_all_matches()
 
+
+ui = Match_UI()
+
+#ui.players_who_played(Match("27/04/2002", "0", "1"))
+
+e = Error()
+
+#birthday = e.CheckSSNValidity("250500-4646")
+
+#print(birthday)
+
 empty_space = ""
-league_list = a.get_league_standings()
-print("Leauge Standing:")
-print(f"Position{empty_space:>5}Team{empty_space:>8}Matches played{empty_space:>5}Matches won{empty_space:>3}Legs won\n")
-for team, i in zip(league_list, range(1,len(league_list)+1)):
-  print(f"{i:>4}{empty_space:<5}{team[4]:<23}{team[3]:<12}{team[0]:>5}{team[1]:>14}")
+team_list = listi2

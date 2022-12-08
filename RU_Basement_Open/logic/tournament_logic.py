@@ -19,6 +19,15 @@ class Tournament_logic:
     def get_tournament_info(self):
         return self.data_wrapper.get_tournament_info()
 
+
+    def update_end_date(self, end_date):
+        return self.data_wrapper.update_end_date(end_date)
+    
+    
+    def start_tournament(self):
+        """Locks creating features and starts tournament, no going back"""
+        return self.data_wrapper.start_tournament()
+
     
     def league_standings(self, match_list, team_list, association_list):
         """Calculates the league and returns a nested list with [0]: wins, [1]: matches played and
