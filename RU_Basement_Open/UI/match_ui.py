@@ -53,9 +53,9 @@ class Match_UI():
         while True:
             possible_results = ["4-3", "5-2", "6-1", "7-0", "3-4", "2-5", "1-6", "0-7"]
 
-            result = input("Please input the updated result fx (4-3): ")
+            result = input("Please input the updated result for example (4-3): ")
             while result not in possible_results:
-                result = input("Please input the updated result fx (4-3): ")
+                result = input("Please input the updated result for example (4-3): ")
 
             if result in possible_results[0:4]:
                 print("Home team wins this time! :)")
@@ -69,40 +69,40 @@ class Match_UI():
         while True:
             possible_results = ["2-1", "2-0", "1-2", "0-2"]
             print("Input the result of each round","\n")
-            round1 = input("Round 1 [1x501] fx (2-1): ")
+            round1 = input("Round 1 [1x501] for example (2-1): ")
             while round1 not in possible_results:
                 print("invalid input, try again")
-                round1 = input("Round 1 [1x501] fx (2-1): ")
+                round1 = input("Round 1 [1x501] for example (2-1): ")
 
-            round2 = input("Round 2 [1x501] fx (2-1): ")
+            round2 = input("Round 2 [1x501] for example (2-1): ")
             while round2 not in possible_results:
                 print("invalid input, try again")
-                round2 = input("Round 2 [1x501] fx (2-1): ")
+                round2 = input("Round 2 [1x501] for example (2-1): ")
             
-            round3 = input("Round 3 [1x501] fx (2-1): ")
+            round3 = input("Round 3 [1x501] for example (2-1): ")
             while round3 not in possible_results:
                 print("invalid input, try again")
-                round3 = input("Round 3 [1x501] fx (2-1): ")
+                round3 = input("Round 3 [1x501] for example (2-1): ")
 
-            round4 = input("Round 4 [1x501] fx (2-1): ")
+            round4 = input("Round 4 [1x501] for example (2-1): ")
             while round4 not in possible_results:
                 print("invalid input, try again")
-                round4 = input("Round 4 [1x501] fx (2-1): ")
+                round4 = input("Round 4 [1x501] for example (2-1): ")
             
-            round5 = input("Round 5 [2x301] fx (2-1): ")
+            round5 = input("Round 5 [2x301] for example (2-1): ")
             while round5 not in possible_results:
                 print("invalid input, try again")
-                round5 = input("Round 5 [2x301] fx (2-1): ")
+                round5 = input("Round 5 [2x301] for example (2-1): ")
             
-            round6 = input("Round 6 [2xCricket] fx (2-1): ")
+            round6 = input("Round 6 [2xCricket] for example (2-1): ")
             while round6 not in possible_results:
                 print("invalid input, try again")
-                round6 = input("Round 6 [2xCricket] fx (2-1): ")
+                round6 = input("Round 6 [2xCricket] for example (2-1): ")
             
-            round7 = input("Round 7 [4x501] fx (2-1): ")
+            round7 = input("Round 7 [4x501] for example (2-1): ")
             while round7 not in possible_results:
                 print("invalid input, try again")
-                round7 = input("Round 7 [4x501] fx (2-1): ")
+                round7 = input("Round 7 [4x501] for example (2-1): ")
 
             the_match.round1 = round1
             the_match.round2 = round2

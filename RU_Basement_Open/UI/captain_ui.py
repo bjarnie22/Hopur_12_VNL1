@@ -1,5 +1,5 @@
 from UI.tournament_ui import Tournament_UI
-from UI.match_ui import Match
+from UI.match_ui import Match_UI
 
 class Captain_UI:
     def __init__(self):
@@ -16,8 +16,8 @@ class Captain_UI:
         print("********************************************")
 
     def input_prompt(self):
-        tournament = Tournament()
-        match_var= Match()
+        tournament = Tournament_UI()
+        match_var= Match_UI()
         while True:
             self.menu_output()
             command = input("Enter your command: ")
