@@ -158,3 +158,4 @@ tUI = Tournament_UI()
 
 tUI.pick_captain(team_list, "0")
 
+"Hallo Oli"
