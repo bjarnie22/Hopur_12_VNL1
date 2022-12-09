@@ -28,14 +28,18 @@ class Tournament_UI():
         print("****************************************************")
 
     def input_prompt_for_create_a_tournament_menu(self):
-        print("Now creating a new tournament\n")
+        print("""
+            When the software is started for the first time, the admin is asked to create a tournament,
+            he needs to add at least one association, one team and add at least 4 players to that team.
+            Each instance of the software only work for one tournament. Tournament name and admin info can not
+            be changed afterwards. Assosiations, team and players can be added afterwards.\n""")
         admin_name = input("Hey admin we need your name: ")  
         while self.error_check.NameCheckError(admin_name) != True:
             print(self.error_check.NameCheckError(admin_name))
             admin_name = input("Hey admin we need your name: ") 
 
         admin_email = input("Your email: ")
-        while "@" not in admin_email:
+        while "@" not in admin_email or "." not in admin_email or len(admin_email ) < 5:
             print("Please input a valid email")
             admin_email = input("Your email: ")
 
@@ -98,7 +102,7 @@ class Tournament_UI():
         while True:
             try:
                 number_of_teams = int(input("How many teams are in the association: "))
-                while number_of_teams < 1:
+                while number_of_teams < 1 or number_of_teams > 4:
                     print("Minimum number of teams is 1, try again")
                     number_of_teams = int(input("How many teams are in the association: "))
                 break
@@ -128,8 +132,10 @@ class Tournament_UI():
         number_of_players= int(input("How many players are in this team (minimun 4 players): "))    
         while True:
             try:
-                if number_of_players < 4: 
-                    print("Minimum players in a team are 4")
+                if 4 <= number_of_players <= 6:
+                    break
+                elif number_of_players < 4 or number_of_players > 6: 
+                    print("Minimum number of players in a team are at least 4 and the maximum is 6")
                     number_of_players= int(input("How many players are in this team: "))
             except ValueError:
                 print("Please use numbers")
@@ -145,6 +151,39 @@ class Tournament_UI():
 
         for i in range(1, number_of_players+1): 
             self.input_prompt_for_add_a_player(i,new_team.team_id, new_team.name)
+
+        self.pick_captain(list_of_teams, new_team.team_id)
+
+
+
+
+    def pick_captain(self, list_of_teams, team_id):
+        player_list = self.logic_wrapper_instance.get_all_players()
+        possible_captain_ids = []
+
+        for team in list_of_teams:
+            if team.team_id == team_id:
+                if team.captain_id == "-1":
+                    counter = 0
+                    print("number       player name")
+                    for player in player_list:
+                        if player.team_id == team.team_id:
+                            print(f" {counter}            {player.name}")
+                            possible_captain_ids.append(player.social_security_number)
+                            counter += 1
+                    while True:
+                        try:
+                            captain = int(input("Please choose a captain for this team: "))
+                            while captain not in range(len(possible_captain_ids)):
+                                print("Invalid input, please pick a choice from the list")
+                                captain = input("Please choose a captain for this team: ")
+                            self.logic_wrapper_instance.choose_captain(team.team_id, possible_captain_ids[captain])
+                            return True
+                        except ValueError:
+                            print("Please input a number")
+                            captain = input("Please choose a captain for this team: ")
+                else:
+                    return True
         
 
     def print_list_of_associations(self): 
@@ -191,7 +230,7 @@ class Tournament_UI():
             name_of_player = input("Name of the player: ")
         
         email_of_the_player = input("email of the player: ")
-        while "@" not in email_of_the_player:
+        while "@" not in email_of_the_player or "." not in email_of_the_player or len(email_of_the_player) < 5:
             print("Please enter a valid email")
             email_of_the_player = input("email of the player: ")
         
@@ -217,13 +256,6 @@ class Tournament_UI():
         home_phone_of_player, mobile_phone_of_player)
         self.logic_wrapper_instance.create_player(new_player)
 
-        check = self.logic_wrapper_instance.choose_captain(team_id, social_security_number)
-        
-        if check != False:
-            is_this_player_the_captain = input("Write 1 if this player is the captain or press enter to skip: ")
-            if is_this_player_the_captain == "1":
-                print(f"{new_player.name} is now the captain")
-
         
 ############################### View tournament case 2 in the wire frame#############################################
 #####################################################################################################################
@@ -236,7 +268,7 @@ class Tournament_UI():
             print("*       (1)  List of associations and their teams.          *")
             print("*       (2)  List of upcoming and played matches            *")
             print("*       (3)  List of current standing                       *")
-            print("*       (4)  List of top 5 quilty point scorers             *")
+            print("*       (4)  List of top 5 quality point scorers             *")
             print("*       (b)  go back?                                       *")
             print("*                                                           *")
             print("*                                                           *")
@@ -433,7 +465,7 @@ class Tournament_UI():
         qp_list = self.logic_wrapper_instance.get_top_qp_scorers()
         empty_space = ""
 
-        print("Top 5 quality point scorers")
+        print("Top 5 Quality point scorers")
         print(f"Position{empty_space:>11}Name{empty_space:>10}Quality points   Matches played")
         for elem, i in zip(qp_list[0:5], range(1,6)):
             print(f"   {i:<10}{elem[2]:<26}{elem[0]:<17}{elem[1]}")
@@ -480,7 +512,7 @@ class Tournament_UI():
             name_of_player = input("Name of the player: ")
         
         email_of_the_player = input("email of the player: ")
-        while "@" not in email_of_the_player:
+        while "@" not in email_of_the_player or "." not in email_of_the_player or len(email_of_the_player) < 5:
             print("Please enter a valid email")
             email_of_the_player = input("email of the player: ")
         
@@ -550,16 +582,24 @@ class Tournament_UI():
             if len(self.logic_wrapper_instance.get_all_teams()) < 2:
                 print("Not enough teams to compete, minimum 2 required, going back...")
                 break
-            self.the_calculated_schedule_of_the_matches()
-            print("Press C to confirm or B to go back and delete the match schedule")
-            command = input("Press C to confirm or B to go back: ")
-            command = command.lower()
-            if command == "b":
-                self.logic_wrapper_instance.wipe_match_schedule()
-                print("you are going back")
+            try:
+                self.the_calculated_schedule_of_the_matches()
+            except:
+                print("""Not enough teams to compete, minimum 2 required or not enough players in those teams.
+                        Must have at_least 4 players in each team. going back...""")
                 break
-            elif command == "c":
-                self.logic_wrapper_instance.start_tournament()
-                break
-            else:
-                print("invalid input, please try again")
+            print("If you start the tournament, you will no longer be able to add an association or team")
+            while True:
+                command = input("Press C to confirm or B to go back and delete the match schedule: ")
+                command = command.lower()
+                if command == "b":
+                    self.logic_wrapper_instance.wipe_match_schedule()
+                    print("you are going back")
+                    break
+                elif command == "c":
+                    print("You pressed C")
+                    self.logic_wrapper_instance.start_tournament()
+                    break
+                else:
+                    print("invalid input, please try again")
+            break

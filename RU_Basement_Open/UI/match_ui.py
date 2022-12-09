@@ -65,6 +65,7 @@ class Match_UI():
 
             result = input("Please input the result fx (4-3): ")
             while result not in possible_results:
+                print("This result is not possible, please try again")
                 result = input("Please input the result fx (4-3): ")
 
             the_match.result = result
@@ -113,7 +114,7 @@ class Match_UI():
                 break
             else:
                 while command not in possible_match_ids:
-                   command = input("Please enter a valid the match id or b to go back: ") 
+                   command = input("Please enter a valid match id or b to go back: ") 
                    if command == "b":
                     break
             self.input_prompt_for_update_date(command) 
@@ -121,10 +122,10 @@ class Match_UI():
  
     def input_prompt_for_update_date(self, command):
 #Case number 23
+        print()
+        date = input("Write the new date (dd/mm/yyyy) or b to go back: ")
+        date = date.lower()
         while True:
-            print()
-            date = input("Write the new date (dd/mm/yyyy) or b to go back: ")
-            date = date.lower()
             if date == "b":
                 print("You are going back")
                 break
@@ -134,8 +135,9 @@ class Match_UI():
                     date = input("Write the new date (dd/mm/yyyy) or b to go back: ")
                     if date == "b":
                         break
-            self.logic.postpone_match(command, date)
-            break
+                    if self.check_for_error.Date_Format_Error(date) == True:
+                        self.logic.postpone_match(command, date)
+                        break
 
                 # Sends to match id to input_prompt_for_update_score
         #only callable by admin
@@ -199,6 +201,7 @@ class Match_UI():
 
             result = input("Please input the result fx (4-3): ")
             while result not in possible_results:
+                print("This result is not possible, please try again")
                 result = input("Please input the result fx (4-3): ")
 
             the_match.result = result
@@ -313,10 +316,12 @@ class Match_UI():
             if match.home_team == team.team_id:
                 for i in range(4):
                     print("Home team:")
-                    for player, j in zip(player_list, range(len(home_pl))):
+                    counter = 0
+                    for player in player_list:
                         if player.team_id == team.team_id:
                             if player.social_security_number not in player_id_list:
-                                print(f"({j}), {player.name}")
+                                print(f"({counter}), {player.name}")
+                                counter += 1
                     number = input("Choose the number beside the player of your choice: ")
                     while True:
                         try:
@@ -336,10 +341,12 @@ class Match_UI():
             if match.away_team == team.team_id:
                 for m in range(4):
                     print("Away team:")
-                    for player, n in zip(player_list, range(len(away_pl))):
+                    counter = 0
+                    for player in player_list:
                         if player.team_id == team.team_id:
                             if player.social_security_number not in player_id_list:
-                                print(f"({n}), {player.name}")
+                                print(f"({counter}), {player.name}")
+                                counter += 1
                     number = input("Choose the number beside the player of your choice: ")
                     while True:
                         try:

@@ -6,6 +6,7 @@ from model.tournament import Tournament
 from model.match import Match
 
 from UI.match_ui import Match_UI
+from UI.tournament_ui import Tournament_UI
 
 from error import Error
 
@@ -152,5 +153,8 @@ e = Error()
 empty_space = ""
 team_list = listi2
 
-l = []
-print(len(l))
+tUI = Tournament_UI()
+#tUI.input_prompt_for_add_a_player(0, 0, "A lið")
+
+tUI.pick_captain(team_list, "0")
+

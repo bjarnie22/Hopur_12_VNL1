@@ -3,7 +3,7 @@ from UI.match_ui import Match_UI
 
 class Captain_UI:
     def __init__(self):
-        print("inside captain_ui")
+        pass
 
     def menu_output(self):
         print("********************************************")

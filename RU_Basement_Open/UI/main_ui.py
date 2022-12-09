@@ -21,7 +21,7 @@ class Main_UI:
         print("*                   Hello!                 *")
         print("*                                          *")
         if self.started == "No tournament created":
-            print("*     (1)   For the first time admin       *")
+            print("*             (1)   admin?                 *")
         if self.started == "No":
             print("*             (1)   admin?                 *")
         if self.started == "Yes":
@@ -40,13 +40,14 @@ class Main_UI:
 
     def input_prompt(self):
         while True:
-            print ("im in the loop")
             self.menu_output()
             command = input("Enter your command: ")
             command = command.lower()
+
             if command == "q":
                 print("you are quitting the program")
                 break
+            
             if self.started == "No tournament created":
                 if command == "1":
                     admin_user = Admin_UI()
@@ -54,8 +55,16 @@ class Main_UI:
                     admin_user.input_prompt_for_admin_menu()
                     # Refreshes the menu
                     tournament = self.logic_wrapper.get_tournament_info()
-                    self.started = tournament[0].started
-                    
+                    try:
+                        self.started = tournament[0].started
+                    except:
+                        pass
+                if command == "q":
+                    print("you are quitting the program")
+                    break
+                else:
+                    print("invalid input, try again!")
+
             if self.started == "No":
                 if command == "1":
                     admin_user = Admin_UI()
@@ -63,21 +72,29 @@ class Main_UI:
                     admin_user.input_prompt_for_admin_menu()
                     # Refreshes the menu
                     tournament = self.logic_wrapper.get_tournament_info()
-                    self.started = tournament[0].started
+                    try:
+                        self.started = tournament[0].started
+                    except:
+                        pass
+                elif command == "q":
+                    break
+                else:
+                    print("invalid input, try again!")
 
             if self.started == "Yes":
                 if command == "1":
                     admin_user = Admin_UI()
                     print("You pressed 1")
                     admin_user.input_prompt_for_admin_menu()
-                if self.started == "Yes":
-                    if command == "2":
-                        captain_user = Captain_UI()
-                        print("You pressed 2")
-                        captain_user.input_prompt()
-                    elif command == "3":
-                        tournament = Tournament_UI()
-                        print("You pressed 3")
-                        tournament.input_prompt_for_view_tournament_main_menu()
-            else:
-                print("invalid input, try again!")
+                elif command == "2":
+                    captain_user = Captain_UI()
+                    print("You pressed 2")
+                    captain_user.input_prompt()
+                elif command == "3":
+                    tournament = Tournament_UI()
+                    print("You pressed 3")
+                    tournament.input_prompt_for_view_tournament_main_menu()
+                elif command == "q":
+                    break
+                else:
+                    print("invalid input, try again!")

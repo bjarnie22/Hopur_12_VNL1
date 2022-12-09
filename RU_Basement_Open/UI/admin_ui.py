@@ -52,6 +52,9 @@ class Admin_UI:
                     print("You pressed 1")
                     tournament.input_prompt_for_create_a_tournament_menu()
                     break
+                elif command == "b":
+                    print("you are going back")
+                    break
                 else:
                     print("invalid input, please try again")
             if self.started == "No":
@@ -61,6 +64,9 @@ class Admin_UI:
                 elif command == "2":
                     print("You pressed 2")
                     tournament.input_prompt_for_the_calculated_schedule_of_the_matches()
+                    break
+                elif command == "b":
+                    print("you are going back")
                     break
                 else:
                     print("invalid input, please try again")
@@ -74,5 +80,8 @@ class Admin_UI:
                 elif command == "3":
                     print("You pressed 3")
                     match_var.choose_match_id_to_change_a_date_for_a_match()
+                elif command == "b":
+                    print("you are going back")
+                    break
                 else:
                     print("invalid input, please try again")
