@@ -35,6 +35,8 @@ class Error:
 
         if len(name) > 35:
             return "Name too long"
+        elif len(name) < 2:
+            return "Name too short"
         for letter in name:
             if letter not in legal_letter_list:
                 return "No special charachters or numbers"

@@ -93,7 +93,7 @@ class Tournament_UI():
 
         phone_number_of_association = input("Phone number of the association: ")
         while self.error_check.NotIcelandicNumberError(phone_number_of_association) != True:
-            print(self.error_check.CheckTeamOrAssociationNameError(phone_number_of_association))
+            print(self.error_check.NotIcelandicNumberError(phone_number_of_association))
             phone_number_of_association = input("Phone number of the association: ")
 
         new_association = Association(name_of_a_association, address_of_association, phone_number_of_association)
@@ -103,7 +103,7 @@ class Tournament_UI():
             try:
                 number_of_teams = int(input("How many teams are in the association: "))
                 while number_of_teams < 1 or number_of_teams > 4:
-                    print("Minimum number of teams is 1, try again")
+                    print("Minimum number of teams is 1 and mximum is 4, try again")
                     number_of_teams = int(input("How many teams are in the association: "))
                 break
             except:

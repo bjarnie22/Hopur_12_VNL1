@@ -18,10 +18,7 @@ class Match_logic:
 
     def postpone_match(self, match_id, date):
         """"""
-        match_list = self.get_all_matches()
-        for elem in match_list:
-            if match_id == elem.match_id:
-                return self.data_wrapper.postpone_match(match_id, date)
+        return self.data_wrapper.postpone_match(match_id, date)
     
 
     def update_result(self, match_id, match):

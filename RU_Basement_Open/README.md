@@ -3,6 +3,9 @@ Hópur 12 í Verklega námskeiði 1:
 Bjarni Gunnar Eiðsson, Óskar Örn Greve Bjarnason, Erik Danielsson Schnell
 Ingólfur Hannes Leósson, Ólafur Magnús Torfason
 
+
+Keyra forritið í main.py
+
 ################## Mikilvægt ##################
 Hér á að copy paste-a eftir að hafa búið til Tournament og starta því.
 Það er til að sýna virknina create_tournament, create association,..., create_match_schedule og framvegis

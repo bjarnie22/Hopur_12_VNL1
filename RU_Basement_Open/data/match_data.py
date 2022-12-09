@@ -21,11 +21,9 @@ class Match_data:
                 match.date = date
 
         self.create_match(update[0], "w")
-        try:
-            for match in update[1:]:
-                self.create_match(match)
-        except ValueError:
-            pass
+        if len(update) > 1:
+            for elem in update[1:]:
+                self.create_match(elem)
     
 
     def update_result(self, match_id, match):

@@ -57,7 +57,7 @@ class Admin_UI:
                     break
                 else:
                     print("invalid input, please try again")
-            if self.started == "No":
+            elif self.started == "No":
                 if command == "1":
                     print("You pressed 1")
                     tournament.input_prompt_for_manage_tournament_main_menu()
