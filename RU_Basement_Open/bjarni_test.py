@@ -151,3 +151,6 @@ e = Error()
 
 empty_space = ""
 team_list = listi2
+
+l = []
+print(len(l))

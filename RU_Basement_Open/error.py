@@ -58,7 +58,7 @@ class Error:
             if validity != True:
                 return "Please use a real date"
         elif len(date) != 10:
-            return "Please use this format: dd/mm/yy"
+            return "Please use this format: dd/mm/yyyy"
 
         return True
 
@@ -124,26 +124,25 @@ class Error:
 
     def NotIcelandicNumberError(self, number):
         if number == "":
-            pass        
+            return True      
         elif len(number) == 7:
-            return "Please put in a Icelandic number fx (6667887 or 666-7887)"
             for digit in number:
                 if digit.isnumeric() == False:
                     return "Please use a valid phone number with digits fx (6667887 or 666-7887)"
             return True
         elif len(number) == 8:
-            if social_security_number[3] != "-":
-                return "Please input valid phone number fx (6667887 or 666-7887)"
+            if number[3] != "-":
+                return "Please input a valid phone number fx (6667887 or 666-7887)"
             else:
-                for number in social_security_number[0:3]:
+                for number in number[0:3]:
                     if number.isnumeric() == False:
                         return "Please use a valid phone number with digits fx (6667887 or 666-7887)"
-                for number in social_security_number[4:]:
+                for number in number[4:]:
                     if number.isnumeric() == False:
                         return "Please use a valid phone number with digits fx (6667887 or 666-7887)"
             return True
         else:
-            return "Please put in a Icelandic number"
+            return "Please put in an Icelandic number"
 
 
     def check_start_and_end_date(self, start, end):
@@ -158,3 +157,16 @@ class Error:
             return "Ending before you even begin? Try again"
         else:
             return True
+    
+
+    def check_tournament_dates(self, starting_date_of_tournament, end_date_of_tournament):
+        if self.Date_Format_Error(starting_date_of_tournament) != True:
+            return str(self.Date_Format_Error(starting_date_of_tournament))
+        if self.Date_Format_Error(end_date_of_tournament) != True:
+            return str(self.Date_Format_Error(end_date_of_tournament))
+        if self.Date_Format_Error(starting_date_of_tournament) == True and\
+            self.Date_Format_Error(end_date_of_tournament) == True:
+            if self.check_start_and_end_date(starting_date_of_tournament, end_date_of_tournament) != True:
+                return str(self.check_start_and_end_date(starting_date_of_tournament, end_date_of_tournament))
+        
+        return True

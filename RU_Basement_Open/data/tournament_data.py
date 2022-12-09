@@ -9,7 +9,7 @@ class Tournament_data:
 
     def create_tournament(self, tournament, append_or_overwrite = "a"):
         """Writes into csv file all required tournament information"""
-        with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
+        with open(self.file_name, append_or_overwrite, newline='', encoding="utf-8") as csvfile:
 
             fieldnames = ["tournament_name", "admin_name", "admin_phone", "admin_email",\
             "start_date", "end_date", "number_of_rounds", "started"]
@@ -47,9 +47,10 @@ class Tournament_data:
         self.create_tournament(tournament, "w")
 
 
-    def start_tournament():
+    def start_tournament(self):
         """Starts tournament"""
-        tournament = self.get_tournament_info()
+        tournament_list = self.get_tournament_info()
+        tournament = tournament_list[0]
 
         tournament.started = "Yes"
         

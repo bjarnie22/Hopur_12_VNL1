@@ -56,6 +56,7 @@ class Data_Wrapper:
         """Calls on get get_tournament_info in tournament_data and forwards
            it to the logic wrapper"""
         return self.tournament_data.get_tournament_info()
+
     
     def create_tournament(self, tournament):
         """Calls on get create_tournament, with a tournament instance as a parameter 

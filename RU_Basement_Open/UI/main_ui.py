@@ -10,21 +10,31 @@ class Main_UI:
         print("inside main_UI")
         self.logic_wrapper = Logic_Wrapper()
         tournament = self.logic_wrapper.get_tournament_info()
-        self.started = tournament[0].started
+        if len(tournament) == 0:
+            self.started = "No tournament created"
+        else:
+            self.started = tournament[0].started
 
     def menu_output(self):
         '''starting menu'''
         print("********************************************")
         print("*                   Hello!                 *")
         print("*                                          *")
-        print("*             (1)   admin?                 *")
+        if self.started == "No tournament created":
+            print("*     (1)   For the first time admin       *")
+        if self.started == "No":
+            print("*             (1)   admin?                 *")
         if self.started == "Yes":
+            print("*             (1)   admin?                 *")
             print("*             (2) captain?                 *")
             print("*             (3)   guest?                 *")
         print("*             (q)    quit?                 *")
         print("*                                          *")
         print("*      To see the flow of the program      *")
-        print("*     copy this link: shorturl.at/ENZ09    *")
+        print("*  copy this link: https://bit.ly/3haDaY3  *")
+        print("*                                          *")
+        print("*       To see a detailed tutorial         *")
+        print("*  copy this link: https://bit.ly/3W76iyr  *")
         print("*                                          *")
         print("********************************************")
 
@@ -37,18 +47,37 @@ class Main_UI:
             if command == "q":
                 print("you are quitting the program")
                 break
-            if command == "1":
-                admin_user = Admin_UI()
-                print("You pressed 1")
-                admin_user.input_prompt_for_admin_menu()
+            if self.started == "No tournament created":
+                if command == "1":
+                    admin_user = Admin_UI()
+                    print("You pressed 1")
+                    admin_user.input_prompt_for_admin_menu()
+                    # Refreshes the menu
+                    tournament = self.logic_wrapper.get_tournament_info()
+                    self.started = tournament[0].started
+                    
+            if self.started == "No":
+                if command == "1":
+                    admin_user = Admin_UI()
+                    print("You pressed 1")
+                    admin_user.input_prompt_for_admin_menu()
+                    # Refreshes the menu
+                    tournament = self.logic_wrapper.get_tournament_info()
+                    self.started = tournament[0].started
+
             if self.started == "Yes":
-                if command == "2":
-                    captain_user = Captain_UI()
-                    print("You pressed 2")
-                    captain_user.input_prompt()
-                elif command == "3":
-                    tournament = Tournament_UI()
-                    print("You pressed 3")
-                    tournament.input_prompt_for_view_tournament_main_menu()
+                if command == "1":
+                    admin_user = Admin_UI()
+                    print("You pressed 1")
+                    admin_user.input_prompt_for_admin_menu()
+                if self.started == "Yes":
+                    if command == "2":
+                        captain_user = Captain_UI()
+                        print("You pressed 2")
+                        captain_user.input_prompt()
+                    elif command == "3":
+                        tournament = Tournament_UI()
+                        print("You pressed 3")
+                        tournament.input_prompt_for_view_tournament_main_menu()
             else:
                 print("invalid input, try again!")

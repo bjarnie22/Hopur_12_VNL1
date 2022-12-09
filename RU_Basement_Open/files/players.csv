@@ -1,25 +1,10 @@
 team_id,name,social_security_number,date_of_birth,email,address,phone_number,mobile
-0,Sporgonizza Fabio,2609723648,26/09/1997,,neighborlystreet 280,,6422410
-0,Gwendoline Lucider,1512713385,15/12/1971,,knowledgestreet 33,,8637421
-0,Zarathustra Ford,0811933925,08/11/1993,,swingstreet 135,,8621632 
-0,Winston Birdshill,1408783929,14/08/1987,,mittenstreet 32,,7389448 
-1,Jacqueline Payne,2706713276,27/06/1967,,substantialstreet 170,,8485386
-1,Elaina Singleton,1611873154,16/11/1987,,cherriesstreet 20,,6553265
-1,Marcel Arias,0711983486,07/11/1198,,mess upstreet 250,,6015114
-1,Kallie Hansen,1107913504,11/07/1991,,trickstreet 73,,6987450
-2,Nero Pesky,1901893434,19/01/1989,,kissstreet 198,,6214709
-2,Verma Murra,0301843696,03/01/1984,,puzzledstreet 135,,7254171
-2,Ron Ribo,2101733629,21/01/1973,,commonstreet 163,,6245050
-2,Eva Zarantula,2803953272,28/03/1995,,parsimoniousstreet 196,,8188739
-3,Cassie Obrien,1309743005,13/09/1974,,tightstreet 279,,7451813
-3,Maggie Lynch,1503833070,15/03/1983,,icestreet 134,,8779676
-3,Devin Villarreal,2712823053,27/12/82,,crossstreet 229,,7247162
-3,Gilberto Pollard,1711793440,17/11/1979,,thinkablestreet 230,,7592754
-4,Marianna Bush,0205843948,02/05/1984,,bellsstreet 202,,8617834
-4,Dayanara Mckinney,0501953638,05/01/1995,,threadstreet 109,,6555175
-4,Kailey Green,2007873650,20/07/1987,,changeablestreet 123,,6622296
-4,Erik Bradshaw,1701783246,17/01/78,,marriedstreet 39,,6492065
-5,Matteo Roberts,1507953166,15/07/1996,,crazystreet 212,,7642411
-5,Payten Tucker,2802833965,28/02/1983,,smilestreet 205,,7750755
-5,Eliezer Atkinson,0505723003,05/05/1972,,voicelessstreet 7,,7561922
-5,Grayson Ewing,2504913506,25/04/1991,,cowardlystreet 14,,61143346
+0,Ingó,1012224545,10/12/1922,ingo@,,,
+0,Ola,1302951212,13/02/1995,oli@,,,
+0,Erik,1212004545,12/12/2000,erik@m,,,
+0,oskar,1706025468,17/06/2002,os@,,,
+1,Bjarni,2704025454,27/04/2002,bjarni@,,,
+1,kari gummason,1204007887,12/04/2000,karg@,,,
+1,nonni,2009014545,20/09/2001,n@,,,
+1,larus,0305034587,03/05/2003,l@,,,
+1,mar,0705028675,07/05/2002,m@,,,

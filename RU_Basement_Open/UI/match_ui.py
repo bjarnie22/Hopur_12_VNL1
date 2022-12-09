@@ -3,6 +3,8 @@ from model.match import Match
 from model.team import Team
 from datetime import date
 
+from error import Error
+
 
 # 
 # this class would need a instance of captain registere a match.
@@ -10,6 +12,7 @@ from datetime import date
 class Match_UI(): 
     def __init__(self):
         self.logic = Logic_Wrapper()
+        self.check_for_error = Error()
 
   
     def match_list_to_choose_match_id_result(self): 
@@ -99,51 +102,40 @@ class Match_UI():
 
             break
 
-            
-
-        #B-kröfur
-        #Stig fyrir leikmenn
-        #QP fyrir leikmenn
-        #Inner fyrir leikmenn
-        #Outer fyrir leikmenn
-
-        #def player_points:
-            #points_for_player = input("how many points did "player" score")
-            #quality_points_for_player = input("how many quality points did "player" score")
-            #inner_points_for_player = input("How many inner points did player score")
-            #outer_points_for_player = input("How many outer points did player score")
-
 
     def choose_match_id_to_change_a_date_for_a_match(self): 
         while True:
-            self.match_list_to_choose_match_id_date()
+            possible_match_ids = self.match_list_to_choose_match_id_date()
             command = input("Enter the match id or b to go back: ")
             command = command.lower()
             if command == "b":
                 print("you are going back")
                 break
             else:
-                self.input_prompt_for_update_date(command) 
-                # Villu tékka match
-                # Sends to match id to input_prompt_for_update_score
+                while command not in possible_match_ids:
+                   command = input("Please enter a valid the match id or b to go back: ") 
+                   if command == "b":
+                    break
+            self.input_prompt_for_update_date(command) 
  
  
     def input_prompt_for_update_date(self, command):
 #Case number 23
         while True:
-            print("\n","press b to go back")
-            date = input("Write the new date (dd/mm/yyyy): ")
+            print()
+            date = input("Write the new date (dd/mm/yyyy) or b to go back: ")
             date = date.lower()
             if date == "b":
-                print("you are going back")
+                print("You are going back")
                 break
             else:
-                date_change = self.logic.postpone_match(command, date)
-                while date_change == False:
+                while self.check_for_error.Date_Format_Error(date) != True:
                     print("Invalid date, please try again")
-                    date = input("Write the new date (dd/mm/yyyy): ")
-                    date_change = self.logic.postpone_match(command, date)
-                break
+                    date = input("Write the new date (dd/mm/yyyy) or b to go back: ")
+                    if date == "b":
+                        break
+            self.logic.postpone_match(command, date)
+            break
 
                 # Sends to match id to input_prompt_for_update_score
         #only callable by admin
@@ -151,8 +143,7 @@ class Match_UI():
 
 
     def match_list_to_choose_match_id_date(self): 
-# Case 10 in the wire frame and case 18. Both admin and captain uses this same list. Admin when updating score 
-# and captain to add a score for a played match.   
+# Case 18?? in the wire frame. Captain uses this to add a score for a played match the same day.   
         match_list = self.logic.get_all_matches()
         team_list = self.logic.get_all_teams()
         empty_space = ""
@@ -161,16 +152,16 @@ class Match_UI():
         d1 = today.strftime("%d/%m/%Y")
 
         possible_match_ids = []
-        print("All match(es) today:")
-        print(f"{empty_space}match id{empty_space:>12}home team{empty_space:>4}away team\n")
+        print("All upcoming or unplayed matches:")
+        print(f"{empty_space}match id{empty_space:>12}home team{empty_space:>4}away team   date\n")
         for match in match_list:
             for team in team_list:
                 if team.team_id == match.home_team:
                     home = team.name
                 if team.team_id == match.away_team:
                     away = team.name
-            if match.result == "" and match.date == d1:
-                print(f"{match.match_id:>4}{home:>25} vs {away:<15}{empty_space:>2}")
+            if match.result == "":
+                print(f"{match.match_id:>4}{home:>25} vs {away:<15}{empty_space:>2}{match.date}")
                 possible_match_ids.append(match.match_id)
         return possible_match_ids
 
@@ -193,7 +184,7 @@ class Match_UI():
                 print("Invalid input, please try again")
 
                 
-    def input_prompt_for_update_score_captain(self,match_id):
+    def input_prompt_for_update_score_captain(self, match_id):
 # Case 21 
         match_list = self.logic.get_all_matches()
         for elem in match_list:
@@ -305,7 +296,7 @@ class Match_UI():
 
     def players_who_played(self, match):
         """Checks input for players who played and returns a list of player id to 
-        update the match with"""
+        update the match with""" # FIX BJARNI
         team_list = self.logic.get_all_teams()
         player_list = self.logic.get_all_players()
         player_id_list = []
@@ -326,8 +317,20 @@ class Match_UI():
                         if player.team_id == team.team_id:
                             if player.social_security_number not in player_id_list:
                                 print(f"({j}), {player.name}")
-                    number = int(input("Choose the number beside the player of your choice: "))
-                    player_id_list.append(home_pl[number])
+                    number = input("Choose the number beside the player of your choice: ")
+                    while True:
+                        try:
+                            if int(number) not in range(len(home_pl)):
+                                print("Please pick a valid number: ")
+                            elif home_pl[int(number)] in player_id_list:
+                                print("You have already choosen this player, try again")
+                            elif int(number) in range(len(home_pl)) and home_pl[int(number)] not in player_id_list:
+                                break
+                            number = input("Choose the number beside the player of your choice: ")
+                        except ValueError:
+                            print("You can only choose numbers/digits\n")
+                            number = input("Choose the number beside the player of your choice: ")
+                    player_id_list.append(home_pl[int(number)])
         
         for team in team_list:
             if match.away_team == team.team_id:
@@ -337,8 +340,20 @@ class Match_UI():
                         if player.team_id == team.team_id:
                             if player.social_security_number not in player_id_list:
                                 print(f"({n}), {player.name}")
-                    number = int(input("Choose the number beside the player of your choice: "))
-                    player_id_list.append(away_pl[number])
+                    number = input("Choose the number beside the player of your choice: ")
+                    while True:
+                        try:
+                            if int(number) not in range(0, len(away_pl)):
+                                print("Please pick a valid number")
+                            elif away_pl[int(number)] in player_id_list:
+                                print("You have already choosen this player, try again")
+                            elif int(number) in range(len(away_pl)) and away_pl[int(number)] not in player_id_list:
+                                break
+                            number = input("Choose the number beside the player of your choice: ")
+                        except ValueError:
+                            print("You can only choose numbers/digits\n")
+                            number = input("Choose the number beside the player of your choice: ")
+                    player_id_list.append(away_pl[int(number)])
         
         match.round1_home_player = player_id_list[0]
         match.round1_away_player = player_id_list[4]

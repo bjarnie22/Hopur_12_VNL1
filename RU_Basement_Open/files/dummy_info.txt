@@ -1,0 +1,77 @@
+Hér á að copy paste-a eftir að hafa búið til Tournament og starta því.
+Það er til að sýna virknina create_tournament, create association,..., create_match_schedule og framvegis
+Eftir að það er búið að starta tournamentinu þá er lokað fyrir þessi föll og önnur opna í staðinn
+
+
+copy paste í tournaments.csv (ekki afrita eða eyða Header!!):
+
+(Header)
+RU Basement League 2022,Gylfi,7773245,gylfi@mail.com,09/01/2023,06/05/2023,1,No
+
+
+copy paste í associations.csv (ekki afrita eða eyða Header!!):
+
+(Header)
+Darth Vader Dart Club,HR,6662145,0
+All Bulls Dart Fedaration,HR,4541648,1
+In Flight Dart Club,HÍ,7774512,2
+
+
+copy paste í teams.csv (ekki eyða Header!!):
+
+(Header)
+The Brahms,0,2609723648,0
+The ligthings,0,2706713276,1
+The Anacondas,1,1901893434,2
+The Oligarcs,1,1309743005,3
+The Cesars,1,0205843948,4
+The Rings,2,1507953166,5
+
+
+copy paste í players.csv (ekki afrita eða eyða Header!!):
+
+(Header)
+0,Sporgonizza Fabio,2609723648,26/09/1997,,neighborlystreet 280,,6422410
+0,Gwendoline Lucider,1512713385,15/12/1971,,knowledgestreet 33,,8637421
+0,Zarathustra Ford,0811933925,08/11/1993,,swingstreet 135,,8621632 
+0,Winston Birdshill,1408783929,14/08/1987,,mittenstreet 32,,7389448 
+1,Jacqueline Payne,2706713276,27/06/1967,,substantialstreet 170,,8485386
+1,Elaina Singleton,1611873154,16/11/1987,,cherriesstreet 20,,6553265
+1,Marcel Arias,0711983486,07/11/1198,,mess upstreet 250,,6015114
+1,Kallie Hansen,1107913504,11/07/1991,,trickstreet 73,,6987450
+2,Nero Pesky,1901893434,19/01/1989,,kissstreet 198,,6214709
+2,Verma Murra,0301843696,03/01/1984,,puzzledstreet 135,,7254171
+2,Ron Ribo,2101733629,21/01/1973,,commonstreet 163,,6245050
+2,Eva Zarantula,2803953272,28/03/1995,,parsimoniousstreet 196,,8188739
+3,Cassie Obrien,1309743005,13/09/1974,,tightstreet 279,,7451813
+3,Maggie Lynch,1503833070,15/03/1983,,icestreet 134,,8779676
+3,Devin Villarreal,2712823053,27/12/82,,crossstreet 229,,7247162
+3,Gilberto Pollard,1711793440,17/11/1979,,thinkablestreet 230,,7592754
+4,Marianna Bush,0205843948,02/05/1984,,bellsstreet 202,,8617834
+4,Dayanara Mckinney,0501953638,05/01/1995,,threadstreet 109,,6555175
+4,Kailey Green,2007873650,20/07/1987,,changeablestreet 123,,6622296
+4,Erik Bradshaw,1701783246,17/01/78,,marriedstreet 39,,6492065
+5,Matteo Roberts,1507953166,15/07/1996,,crazystreet 212,,7642411
+5,Payten Tucker,2802833965,28/02/1983,,smilestreet 205,,7750755
+5,Eliezer Atkinson,0505723003,05/05/1972,,voicelessstreet 7,,7561922
+5,Grayson Ewing,2504913506,25/04/1991,,cowardlystreet 14,,61143346
+
+
+copy paste í macthes.csv (ekki afrita eða eyða Header!!):
+
+(Header)
+09/01/2023,1,3,5-2,1,15,12,9,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+17/01/2023,4,5,7-0,4,1,14,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+25/01/2023,2,5,3-4,5,2,9,6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+02/02/2023,1,5,2-5,5,3,8,10,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+10/02/2023,0,5,7-0,0,4,14,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+18/02/2023,3,5,0-7,5,5,0,14,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+29/02/2023,1,4,4-3,1,6,6,9,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+06/03/2023,2,3,1-6,3,7,8,13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+14/03/2023,0,3,0-7,3,8,0,14,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+22/03/2023,2,4,1-6,4,9,1,14,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+30/03/2023,0,2,5-2,0,10,13,7,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+07/04/2023,0,1,0-7,1,11,0,14,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+03/06/2023,3,4,,,12,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+04/06/2023,1,2,,,13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+03/05/2023,0,4,7-0,0,14,14,0,2-0,2609723648,0205843948,2-0,1512713385,0501953638,2-0,0811933925,2007873650,2-0,1408783929,1701783246,2-0,2609723648,0501953638,0205843948,0501953638,2-0,0811933925,1408783929,2007873650,1701783246,2-0,2609723648,1512713385,0811933925,1408783929,0205843948,0501953638,2007873650,1701783246,3,5,0,0,12,3,0,2
