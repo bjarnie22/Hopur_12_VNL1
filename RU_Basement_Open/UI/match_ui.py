@@ -54,7 +54,7 @@ class Match_UI():
 
         while True:
             possible_results = ["4-3", "5-2", "6-1", "7-0", "3-4", "2-5", "1-6", "0-7"]
-
+            print("Input the result of each round, home team first and away team second (Home score-Away score)\n")
             result = input("Please input the result fx (4-3): ")
             while result not in possible_results:
                 print("This result is not possible, please try again")
@@ -187,6 +187,7 @@ class Match_UI():
 
             possible_results = ["4-3", "5-2", "6-1", "7-0", "3-4", "2-5", "1-6", "0-7"]
 
+            print("Please put the final result, home team first and away team second (Home score-Away score)")
             result = input("Please input the result fx (4-3): ")
             while result not in possible_results:
                 print("This result is not possible, please try again")
@@ -244,8 +245,8 @@ class Match_UI():
     def input_for_rounds(self):
         """Checks on input for each round and returns a list of all round results"""
         possible_results = ["2-1", "2-0", "1-2", "0-2"]
-        print("Input the result of each round","\n")
-        round1 = input("Round 1 [1x501] fx (2-1): ")
+        print("Input the result of each round, home team first and away team second (Home score-Away score)\n")
+        round1 = input("Round 1 [1x501] fx (2-1) : ")
         while round1 not in possible_results:
             print("invalid input, try again")
             round1 = input("Round 1 [1x501] fx (2-1): ")
@@ -312,7 +313,7 @@ class Match_UI():
                             if player.social_security_number not in player_id_list:
                                 print(f"({counter}), {player.name}")
                                 counter += 1
-                    number = input("Choose the number beside the player of your choice: ")
+                    number = input("Choose the number beside the player that played in this match: ")
                     while True:
                         try:
                             if int(number) not in range(len(home_pl)):
@@ -321,10 +322,10 @@ class Match_UI():
                                 print("You have already choosen this player, try again\n")
                             elif int(number) in range(len(home_pl)) and home_pl[int(number)] not in player_id_list:
                                 break
-                            number = input("Choose the number beside the player of your choice: ")
+                            number = input("Choose the number beside the player that played in this match: ")
                         except ValueError:
                             print("You can only choose numbers/digits\n")
-                            number = input("Choose the number beside the player of your choice: ")
+                            number = input("Choose the number beside the player that played in this match: ")
                     player_id_to_add = home_pl[int(number)]
                     player_id_list.append(player_id_to_add)
                     home_pl.remove(player_id_to_add)
@@ -340,7 +341,7 @@ class Match_UI():
                             if player.social_security_number not in player_id_list:
                                 print(f"({counter}), {player.name}")
                                 counter += 1
-                    number = input("Choose the number beside the player of your choice: ")
+                    number = input("Choose the number beside the player that played in this match: ")
                     while True:
                         try:
                             if int(number) not in range(0, len(away_pl)):
@@ -349,10 +350,10 @@ class Match_UI():
                                 print("You have already choosen this player, try again\n")
                             elif int(number) in range(len(away_pl)) and away_pl[int(number)] not in player_id_list:
                                 break
-                            number = input("Choose the number beside the player of your choice: ")
+                            number = input("Choose the number beside the player that played in this match: ")
                         except ValueError:
                             print("You can only choose numbers/digits\n")
-                            number = input("Choose the number beside the player of your choice: ")
+                            number = input("Choose the number beside the player that played in this match: ")
                     player_id_to_add = away_pl[int(number)]
                     player_id_list.append(player_id_to_add)
                     away_pl.remove(player_id_to_add)
@@ -393,7 +394,7 @@ class Match_UI():
                 while True:
                     try:
                         qp = int(input(f"How many quality points did {player.name}? "))
-                        while qp not in range(0,100):
+                        while qp not in range(0,35):
                             print("Please input logical amount of quality points")
                             qp = int(input(f"How many quality points did {player.name}? "))
                         break
@@ -407,7 +408,7 @@ class Match_UI():
                 while True:
                     try:
                         qp = int(input(f"How many quality points did {player.name}? "))
-                        while qp not in range(0,100):
+                        while qp not in range(0,35):
                             print("Please input logical amount of quality points")
                             qp = int(input(f"How many quality points did {player.name}? "))
                         break
@@ -421,7 +422,7 @@ class Match_UI():
                 while True:
                     try:
                         qp = int(input(f"How many quality points did {player.name}? "))
-                        while qp not in range(0,100):
+                        while qp not in range(0,35):
                             print("Please input logical amount of quality points")
                             qp = int(input(f"How many quality points did {player.name}? "))
                         break
@@ -435,7 +436,7 @@ class Match_UI():
                 while True:
                     try:
                         qp = int(input(f"How many quality points did {player.name}? "))
-                        while qp not in range(0,100):
+                        while qp not in range(0,35):
                             print("Please input logical amount of quality points")
                             qp = int(input(f"How many quality points did {player.name}? "))
                         break
@@ -449,7 +450,7 @@ class Match_UI():
                 while True:
                     try:
                         qp = int(input(f"How many quality points did {player.name}? "))
-                        while qp not in range(0,100):
+                        while qp not in range(0,35):
                             print("Please input logical amount of quality points")
                             qp = int(input(f"How many quality points did {player.name}? "))
                         break
@@ -463,7 +464,7 @@ class Match_UI():
                 while True:
                     try:
                         qp = int(input(f"How many quality points did {player.name}? "))
-                        while qp not in range(0,100):
+                        while qp not in range(0,35):
                             print("Please input logical amount of quality points")
                             qp = int(input(f"How many quality points did {player.name}? "))
                         break
@@ -477,7 +478,7 @@ class Match_UI():
                 while True:
                     try:
                         qp = int(input(f"How many quality points did {player.name}? "))
-                        while qp not in range(0,100):
+                        while qp not in range(0,35):
                             print("Please input logical amount of quality points")
                             qp = int(input(f"How many quality points did {player.name}? "))
                         break
@@ -491,7 +492,7 @@ class Match_UI():
                 while True:
                     try:
                         qp = int(input(f"How many quality points did {player.name}? "))
-                        while qp not in range(0,100):
+                        while qp not in range(0,35):
                             print("Please input logical amount of quality points")
                             qp = int(input(f"How many quality points did {player.name}? "))
                         break
