@@ -1,0 +1,18 @@
+
+               	 <-----> Fimmtudagur <------>
+    <<<<< 8 Desember 2022 / 12:00 PM / Discord fundur >>>>>
+
+                     <-----> ATTENDEES <------>
+              - Bjarni, Ingólfur, Ólafur, Óskar, Erik
+
+                      <-----> AGENDA <------>
+                    ## LAST MEETING FOLLOW-UP ##
+- Það var verið að reyna tengja allt saman svo það virki allt fullkomlega
+
+
+                    <-----> ACTION ITEMS <----->
+- Bjarni og Óskar fóru í match ui, óli og erik í tournament ui, það gekk mjög vel
+- Ingó fór í að laga state diagramið samkvæmt nýjustu uppfærslu, svo tók ingó undirbúning í kennslumyndbandið sem verður skilað með. 
+                     
+                    <-----> NEXT DAY AGENDA <------> 
+- Hér verður farið í að búa til myndabandið og villutékka allan kóðan svo það verði  engar villur og svoleiðis
